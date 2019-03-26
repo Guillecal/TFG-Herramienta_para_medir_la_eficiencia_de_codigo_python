@@ -27,14 +27,13 @@ def dis_code(code):
     print("")
     print(code)
     dis.dis(code)
-    
 
 
 class VmTestCase(unittest.TestCase):
 
     def assert_ok(self, code, raises=None):
         """Run `code` in our VM and in real Python: they behave the same."""
-
+        print('hola')
         code = textwrap.dedent(code)
         code = compile(code, "<%s>" % self.id(), "exec", 0, 1)
 
@@ -49,7 +48,6 @@ class VmTestCase(unittest.TestCase):
         if CAPTURE_STDOUT:              # pragma: no branch
             sys.stdout = vm_stdout
         vm = VirtualMachine()
-
         vm_value = vm_exc = None
         try:
             vm_value = vm.run_code(code)
@@ -83,13 +81,11 @@ class VmTestCase(unittest.TestCase):
             py_exc = e
 
         sys.stdout = real_stdout
-        print(vm_exc)
-        print('Primeri')
-        print(vm_stdout.getvalue()+'Primer Valor')
-        print(vm_value+'Primer Valor (2)')
+
         self.assert_same_exception(vm_exc, py_exc)
         self.assertEqual(vm_stdout.getvalue(), py_stdout.getvalue())
         self.assertEqual(vm_value, py_value)
+       
         if raises:
             self.assertIsInstance(vm_exc, raises)
         else:

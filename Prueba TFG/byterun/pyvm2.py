@@ -28,8 +28,12 @@ else:
 repr_obj = reprlib.Repr()
 repr_obj.maxother = 120
 repper = repr_obj.repr
-global ContAdd 
-ContAdd = 0
+contSum=0
+contRes=0
+contMul=0
+contDiv=0
+contPow=0
+contMod=0
 
 class VirtualMachineError(Exception):
     """For raising errors in the operation of the VM."""
@@ -38,13 +42,52 @@ class VirtualMachineError(Exception):
 
 class VirtualMachine(object):
     def __init__(self):
+        self.contSum=0
+        self.contRes=0
+        self.contMul=0
+        self.contDiv=0
+        self.contPow=0
+        self.contMod=0
         # The call stack of frames.
         self.frames = []
         # The current frame.
         self.frame = None
         self.return_value = None
         self.last_exception = None
+    
+    def Count(self,tipo):
+        if tipo==1:
+            self.contSum+=1
+        elif tipo==2:
+            self.contRes+=1
+        elif tipo==3:
+            self.contMul+=1
+        elif tipo==4:
+            self.contDiv+=1
+        elif tipo==5:
+            self.contPow+=1
+        elif tipo==6:
+            self.contMod+=1
+        else:
+            self.contDiv+=1
+         
+    def mostrar(self):
+        print('')
+        print('Las operacions totales que se ejecutan en este codigo son:')
+        print('SUMA: ', self.contSum)
+        print('')
+        print('RESTA: ',self.contRes)
+        print('')
+        print('MULTA: ',self.contMul)
+        print('')
+        print('DIVI: ',self.contDiv)
+        print('')
+        print('POWE: ',self.contPow)
+        print('')
+        print('MODU: ',self.contMod)
 
+        
+    
     def top(self):
         """Return the value at the top of the stack, with no changes."""
         return self.frame.stack[-1]
@@ -147,9 +190,11 @@ class VirtualMachine(object):
         # Check some invariants
         if self.frames:            # pragma: no cover
             raise VirtualMachineError("Frames left over!")
+
         if self.frame and self.frame.stack:             # pragma: no cover
             raise VirtualMachineError("Data left on stack! %r" % self.frame.stack)
-
+            
+        self.mostrar()
         return val
 
     def unwind_block(self, block):
@@ -215,6 +260,7 @@ class VirtualMachine(object):
         log.info("%s%s" % (indent, op))
 
     def dispatch(self, byteName, arguments):
+        "Llama a las operaciones, IMPORTANTEEE"
         """ Dispatch by bytename to the corresponding methods.
         Exceptions are caught and set on the virtual machine."""
         why = None
@@ -315,6 +361,7 @@ class VirtualMachine(object):
 
         """
         self.push_frame(frame)
+        print('Dale Frameeeeeee')
         while True:
             byteName, arguments, opoffset = self.parse_byte_and_args()
             if log.isEnabledFor(logging.INFO):
@@ -472,29 +519,43 @@ class VirtualMachine(object):
     def binaryOperator(self, op):
         x, y = self.popn(2)
         self.push(self.BINARY_OPERATORS[op](x, y))
-        if op==7:
-            ContAdd+=1
+        if op == 'ADD':
+            self.Count(1)
+        elif op == 'SUBTRACT':
+            self.Count(2)
+        elif op == 'MULTIPLY':
+            self.Count(3)
+        elif op == 'TRUE_DIVIDE' or op == 'FLOOR_DIVIDE' or 'DIVIDE':
+            self.Count(4)
+        elif op == 'POWER':
+            self.Count(5)
+        elif op == 'MODULO':
+            self.Count(6)
+            
 
     def inplaceOperator(self, op):
         x, y = self.popn(2)
         if op == 'POWER':
             x **= y
+            self.Count(5)
         elif op == 'MULTIPLY':
             x *= y
+            self.Count(3)
         elif op in ['DIVIDE', 'FLOOR_DIVIDE']:
             x //= y
+            self.Count(4)
         elif op == 'TRUE_DIVIDE':
             x /= y
+            self.Count(4)
         elif op == 'MODULO':
             x %= y
+            self.Count(6)
         elif op == 'ADD':
             x += y
-            ContAdd +=1
-            if op==7:
-                ContAdd+=1
-                print('Vamos por la suma numero:' + ContAdd)
+            self.Count(1)
         elif op == 'SUBTRACT':
             x -= y
+            self.Count(2)
         elif op == 'LSHIFT':
             x <<= y
         elif op == 'RSHIFT':
@@ -508,6 +569,7 @@ class VirtualMachine(object):
         else:           # pragma: no cover
             raise VirtualMachineError("Unknown in-place operator: %r" % op)
         self.push(x)
+
 
     def sliceOperator(self, op):
         start = 0

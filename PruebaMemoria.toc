@@ -1,0 +1,7 @@
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Introduccion}{2}% 
+\contentsline {section}{\numberline {2}Decisiones Previas}{2}% 
+\contentsline {subsection}{\numberline {2.1}Herramientas}{2}% 
+\contentsline {subsection}{\numberline {2.2}Metodolog\IeC {\'\i }a de trabajo}{2}% 
+\contentsline {subsection}{\numberline {2.3}Informaci\'on previa}{2}% 
+\contentsline {section}{\numberline {3}Tipos de Operaciones}{2}% 
