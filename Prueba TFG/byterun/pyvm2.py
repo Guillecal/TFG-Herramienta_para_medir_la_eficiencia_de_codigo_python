@@ -34,6 +34,12 @@ contMul=0
 contDiv=0
 contPow=0
 contMod=0
+contAND=0
+contOR=0
+contXOR=0
+contERR=0
+opera={}
+val=()
 
 class VirtualMachineError(Exception):
     """For raising errors in the operation of the VM."""
@@ -48,6 +54,12 @@ class VirtualMachine(object):
         self.contDiv=0
         self.contPow=0
         self.contMod=0
+        self.contAND=0
+        self.contOR=0
+        self.contXOR=0
+        self.contERR=0
+        self.opera={}
+        self.val=()
         # The call stack of frames.
         self.frames = []
         # The current frame.
@@ -68,23 +80,29 @@ class VirtualMachine(object):
             self.contPow+=1
         elif tipo==6:
             self.contMod+=1
+        elif tipo==7:
+            self.contAND+=1
+        elif tipo==8:
+            self.contOR+=1
+        elif tipo==9:
+            self.contXOR+=1
         else:
-            self.contDiv+=1
-         
+            self.contERR+=1
+            
+    def Operaciones(self,Op,Tipo1,Tipo2):
+        self.val=(Op,Tipo1,Tipo2)
+        if self.val in self.opera:
+            self.opera[self.val]=self.opera[self.val]+1
+        else:
+            self.opera[self.val]=1
+            
     def mostrar(self):
         print('')
         print('Las operacions totales que se ejecutan en este codigo son:')
-        print('SUMA: ', self.contSum)
-        print('')
-        print('RESTA: ',self.contRes)
-        print('')
-        print('MULTA: ',self.contMul)
-        print('')
-        print('DIVI: ',self.contDiv)
-        print('')
-        print('POWE: ',self.contPow)
-        print('')
-        print('MODU: ',self.contMod)
+        for i in self.opera.keys():
+            print(i[0],': ',self.opera[i])
+            print('')
+
 
         
     
@@ -243,7 +261,6 @@ class VirtualMachine(object):
             else:
                 arg = intArg
             arguments = [arg]
-
         return byteName, arguments, opoffset
 
     def log(self, byteName, arguments, opoffset):
@@ -361,7 +378,6 @@ class VirtualMachine(object):
 
         """
         self.push_frame(frame)
-        print('Dale Frameeeeeee')
         while True:
             byteName, arguments, opoffset = self.parse_byte_and_args()
             if log.isEnabledFor(logging.INFO):
@@ -457,7 +473,11 @@ class VirtualMachine(object):
         self.push(val)
 
     def byte_STORE_FAST(self, name):
+        
         self.frame.f_locals[name] = self.pop()
+        print(name)
+        print(self.frame.f_locals[name])
+        print(type(self.frame.f_locals[name]))
 
     def byte_DELETE_FAST(self, name):
         del self.frame.f_locals[name]
@@ -518,44 +538,27 @@ class VirtualMachine(object):
 
     def binaryOperator(self, op):
         x, y = self.popn(2)
+        self.Operaciones(op,type(x),type(y))
         self.push(self.BINARY_OPERATORS[op](x, y))
-        if op == 'ADD':
-            self.Count(1)
-        elif op == 'SUBTRACT':
-            self.Count(2)
-        elif op == 'MULTIPLY':
-            self.Count(3)
-        elif op == 'TRUE_DIVIDE' or op == 'FLOOR_DIVIDE' or 'DIVIDE':
-            self.Count(4)
-        elif op == 'POWER':
-            self.Count(5)
-        elif op == 'MODULO':
-            self.Count(6)
             
 
     def inplaceOperator(self, op):
         x, y = self.popn(2)
+        self.Operaciones(op,type(x),type(y))
         if op == 'POWER':
             x **= y
-            self.Count(5)
         elif op == 'MULTIPLY':
             x *= y
-            self.Count(3)
         elif op in ['DIVIDE', 'FLOOR_DIVIDE']:
             x //= y
-            self.Count(4)
         elif op == 'TRUE_DIVIDE':
             x /= y
-            self.Count(4)
         elif op == 'MODULO':
             x %= y
-            self.Count(6)
         elif op == 'ADD':
             x += y
-            self.Count(1)
         elif op == 'SUBTRACT':
             x -= y
-            self.Count(2)
         elif op == 'LSHIFT':
             x <<= y
         elif op == 'RSHIFT':
@@ -1016,6 +1019,7 @@ class VirtualMachine(object):
         posargs.extend(args)
 
         func = self.pop()
+        "print(func)"
         frame = self.frame
         if hasattr(func, 'im_func'):
             # Methods get self as an implicit first parameter.
@@ -1032,6 +1036,9 @@ class VirtualMachine(object):
                     )
                 )
             func = func.im_func
+            
+        if str(func) == '<built-in function pow>':
+            self.Count(5)
         retval = func(*posargs, **namedargs)
         self.push(retval)
 
