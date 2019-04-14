@@ -2,6 +2,8 @@
 
 from __future__ import print_function
 
+import matplotlib.pyplot as plt
+import os
 import Tkinter
 import dis
 import sys
@@ -39,32 +41,47 @@ class windows(object):
     top.geometry('350x200')
     top.title("Analisis de codigo Python")
     lbl = Tkinter.Label(top, text="¿Que fichero deseas analizar?")
- 
     lbl.grid(column=0, row=0)
     txt = Tkinter.Entry(top,width=10)
     txt.grid(column=1, row=0)
+    Archivos=[]
+    Archivos_py=[]
         
 
         
         
     def clicked(self):
-        f = open (self.txt.get(),'r')
-        mensaje = f.read()
-        print(mensaje)
+        self.Archivos=os.listdir(self.txt.get())
+        for i in self.Archivos:
+            if i[len(i)-1]=="y" and i[len(i)-2]=="p" and i[len(i)-3]==".":
+                print("Pasaste la prueba")
+                self.Archivos_py.append(i)
+            else:
+                print("A tu casa")
+        
+        print(self.Archivos_py)
+        for i in self.Archivos_py:
+            f = open (self.txt.get()+'\\' +i,'r')
+            mensaje = f.read()
+            print(mensaje)
     
-        CAPTURE_EXCEPTION = 1
+            CAPTURE_EXCEPTION = 1
     
     
-        code=mensaje
-        f.close()
+            code=mensaje
+            f.close()
     
-        code = textwrap.dedent(code)
-        code = compile(code, "<%s>" % id(code), "exec", 0, 1)
-        dis_code(code)
-        vm_stdout = six.StringIO()
-        vm = VirtualMachine()
-        vm_value = self.vm_exc = None
-        vm_value = vm.run_code(code)
+            code = textwrap.dedent(code)
+            code = compile(code, "<%s>" % id(code), "exec", 0, 1)
+            dis_code(code)
+            vm_stdout = six.StringIO()
+            vm = VirtualMachine()
+            vm_value = self.vm_exc = None
+            vm_value = vm.run_code(code)
+            plt.subplot2grid((2,3)(0,0))
+            vm.dic.value_counts(normalize = True).plot(kind='bar', alpha = 0.5)
+            plt.show()
+        
      
         self.lbl.configure(text="Button was clicked !!")
     
@@ -73,7 +90,6 @@ class windows(object):
 
 w=windows()
 btn = Tkinter.Button(w.top, text="Click Me",command=w.clicked)
-
 
 
  

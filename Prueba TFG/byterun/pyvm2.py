@@ -234,6 +234,9 @@ class VirtualMachine(object):
         f = self.frame
         opoffset = f.f_lasti
         byteCode = byteint(f.f_code.co_code[opoffset])
+        print(byteCode)
+        print(f.f_code)
+        print(f.f_code.co_code)
         f.f_lasti += 1
         byteName = dis.opname[byteCode]
         arg = None
@@ -281,6 +284,7 @@ class VirtualMachine(object):
         """ Dispatch by bytename to the corresponding methods.
         Exceptions are caught and set on the virtual machine."""
         why = None
+        print((byteName, arguments))
         try:
             if byteName.startswith('UNARY_'):
                 self.unaryOperator(byteName[6:])
