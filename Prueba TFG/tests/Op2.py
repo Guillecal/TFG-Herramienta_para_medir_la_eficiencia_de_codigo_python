@@ -1,5 +1,3 @@
-"""Testing tools for byterun."""
-
 from __future__ import print_function
 
 import matplotlib.pyplot as plt
@@ -11,11 +9,13 @@ import textwrap
 import types
 import unittest
 import Tkconstants, tkFileDialog
+import tkMessageBox
+
 
 import six
 from pandas import DataFrame
 from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
 
 from byterun.pyvm2 import VirtualMachine, VirtualMachineError
 
@@ -37,19 +37,64 @@ def dis_code(code):
 # Make this false to see the traceback from a failure inside pyvm2.
 
 "--------------------------------------------------------------------"
+LARGE_FONT= ("Verdana", 12)
+frame = self.frames[count]
+frame.tkraise()
 
-
+class SeaofBTCapp(Tkinter.TK):
+    
+    def __init__(self, *args, **kwargs):
+        Tkinter.Tk.__init__(self, *args, **kwargs)
+        container = Tkinter.Frame(self)
+        
+        container.pack()side="top", fill="both", expand = 
+        
+        container.grid_rowconfigure(0, weight=1)
+        container.grid_coumnconfigure(0, weight=1)
+        
+        self.frames = ()
+        
+        frame = StartPage(container, self)
+        
+        slef.frames[StartPage] = frame
+        
+        frame.grid(row=0, column=0, sticky="nsew")
+        
+        self.show_frame(VentanaPrincipal)
+    
+    def showw_frame(self, cont):
+        
+        frame = self.frames[count]
+        frame.tkraise()
+    
+    
+class VentanaPrincipal(Tkinter.Frame):
+    
+    def __init__(self,parent,controller):
+        Tkinter.Frame.__init__(self,parent)
+        label = Tkinter.label(self, text="Elige la opcion que desees:", font=LARGE_FONT)
+        label.pack(pady=10,padx=10)
+        
+        btn = Tkinter.Button(w.top, text="Analisis individual",command=w.seleccionar_ficheros)
+        
+        btn.pack()
+        
+        btn2 = Tkinter.Button(w.top, text="Analisis Multifichero",command=w.clicked_multi)
+        
+        btn2.pack()
+        
+        
 class windows(object):
     top = Tkinter.Tk()
-    canvas1 = Tkinter.Canvas(top, width = 800, height = 350) 
+    canvas1 = Tkinter.Canvas(top, width = 400, height = 250) 
     canvas1.pack()
     "top.geometry('350x200')"
     top.title("Analisis de codigo Python")
-    lbl = Tkinter.Label(top, text="Que fichero deseas analizar:")
+    lbl = Tkinter.Label(top, text="Elige la opcion que desees:")
     canvas1.create_window(140, 40, window=lbl)
     "lbl.grid(column=0, row=0)"
-    txt = Tkinter.Entry(top,width=22)
-    canvas1.create_window(140, 60, window=txt)
+    "txt = Tkinter.Entry(top,width=22)"
+    "canvas1.create_window(140, 60, window=txt)"
     "txt.grid(column=1, row=0)"
     Archivos=[]
     Archivos_py=[]
@@ -64,11 +109,57 @@ class windows(object):
     def seleccionar_ficheros(self):
         self.top.filename = tkFileDialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
         print (self.top.filename)
+        if self.top.filename[len(self.top.filename)-1]=="y" and self.top.filename[len(self.top.filename)-2]=="p" and self.top.filename[len(self.top.filename)-3]==".":
+            w.clicked_indi()
+        else:
+            tkMessageBox.showerror("Error","El fichero seleccionado no es de tipo .py")
         
         
+    def clicked_indi(self):
+        lab=[]
+        Checkbutto=[]
+        var=[]
+        posi=190
+        enumera=0
+        f = open (self.top.filename,'r')
+        mensaje = f.read()
+        print(mensaje)
+        
+        CAPTURE_EXCEPTION = 1
+
+
+        code=mensaje
+        f.close()
+
+        code = textwrap.dedent(code)
+        code = compile(code, "<%s>" % id(code), "exec", 0, 1)
+        dis_code(code)
+        vm_stdout = six.StringIO()
+        vm = VirtualMachine()
+        vm_value = self.vm_exc = None
+        vm_value = vm.run_code(code)
+        for i in vm.opera.keys():
+            lab.append(i[0]+"_"+str(i[1])[7:10]+"_"+str(i[2])[7:10])
         
         
-    def clicked(self):
+        figure1 = plt.Figure(figsize=(6,5), dpi=100)
+        labels=lab
+        values=vm.opera.values()
+        explode=[0,0,0,0.05,0]
+        colors=["c","b","g","r","y"]
+        plt.pie(values,labels=labels,autopct="%.f%%",explode=explode,colors=colors)
+        bar1 = FigureCanvasTkAgg(figure1, self.top)
+        bar1.get_tk_widget().pack(side=Tkinter.LEFT, fill=Tkinter.BOTH)
+        "Recorre los tipos de operaaciones y seleccionas los que luego deseas"
+        for o in lab:
+            var.append(Tkinter.IntVar())
+            Checkbutto.append(Tkinter.Checkbutton(self.top, text=o, variable=var[enumera]))
+            w.canvas1.create_window(85, posi, window=Checkbutto[enumera])
+            posi=posi+20
+            enumera=enumera+1
+        "plt.show()"
+        
+    def clicked_multi(self):
         self.Archivos=os.listdir(self.txt.get())
         for i in self.Archivos:
             if i[len(i)-1]=="y" and i[len(i)-2]=="p" and i[len(i)-3]==".":
@@ -155,14 +246,15 @@ class windows(object):
     
 
 w=windows()
-btn = Tkinter.Button(w.top, text="Click Me",command=w.clicked)
-w.canvas1.create_window(97, 110, window=btn)
-
+btn = Tkinter.Button(w.top, text="Analisis individual",command=w.seleccionar_ficheros)
+w.canvas1.create_window(122, 110, window=btn)
+btn2 = Tkinter.Button(w.top, text="Analisis Multifichero",command=w.clicked_multi)
+w.canvas1.create_window(240, 110, window=btn2)
 
  
 """btn.grid(column=2, row=0)"""
 # creating a button instance
-quitButton = Tkinter.Button(w.top,text="Quit",command=w.top.destroy)
+quitButton = Tkinter.Button(w.top,text="Salir",command=w.top.destroy)
 w.canvas1.create_window(85, 140, window=quitButton)
 
         # placing the button on my window
