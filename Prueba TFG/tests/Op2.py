@@ -15,7 +15,7 @@ import tkMessageBox
 import six
 from pandas import DataFrame
 from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 from byterun.pyvm2 import VirtualMachine, VirtualMachineError
 
@@ -37,53 +37,8 @@ def dis_code(code):
 # Make this false to see the traceback from a failure inside pyvm2.
 
 "--------------------------------------------------------------------"
-LARGE_FONT= ("Verdana", 12)
-frame = self.frames[count]
-frame.tkraise()
 
-class SeaofBTCapp(Tkinter.TK):
-    
-    def __init__(self, *args, **kwargs):
-        Tkinter.Tk.__init__(self, *args, **kwargs)
-        container = Tkinter.Frame(self)
-        
-        container.pack()side="top", fill="both", expand = 
-        
-        container.grid_rowconfigure(0, weight=1)
-        container.grid_coumnconfigure(0, weight=1)
-        
-        self.frames = ()
-        
-        frame = StartPage(container, self)
-        
-        slef.frames[StartPage] = frame
-        
-        frame.grid(row=0, column=0, sticky="nsew")
-        
-        self.show_frame(VentanaPrincipal)
-    
-    def showw_frame(self, cont):
-        
-        frame = self.frames[count]
-        frame.tkraise()
-    
-    
-class VentanaPrincipal(Tkinter.Frame):
-    
-    def __init__(self,parent,controller):
-        Tkinter.Frame.__init__(self,parent)
-        label = Tkinter.label(self, text="Elige la opcion que desees:", font=LARGE_FONT)
-        label.pack(pady=10,padx=10)
-        
-        btn = Tkinter.Button(w.top, text="Analisis individual",command=w.seleccionar_ficheros)
-        
-        btn.pack()
-        
-        btn2 = Tkinter.Button(w.top, text="Analisis Multifichero",command=w.clicked_multi)
-        
-        btn2.pack()
-        
-        
+
 class windows(object):
     top = Tkinter.Tk()
     canvas1 = Tkinter.Canvas(top, width = 400, height = 250) 
