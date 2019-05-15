@@ -54,12 +54,6 @@ style.use("ggplot")
 f = Figure(figsize=(5,5), dpi=100)
 a = f.add_subplot(111)
 
-def animate(i):
-    xList =[4,5]
-    yList =[7,8]
-    
-    a.clear()
-    a.plot(xList, yList)
 
 class SeaofBTCapp(Tkinter.Tk):
     
@@ -74,7 +68,7 @@ class SeaofBTCapp(Tkinter.Tk):
         
         self.frames = {}
         
-        for F in (VentanaPrincipal, VentanaIndividual, VentanaAnalisis):
+        for F in (VentanaPrincipal, VentanaIndividual, VentanaAnalisis, VentanaMultiple):
             frame = F(container, self)
             
             self.frames[F] = frame
@@ -100,7 +94,7 @@ class VentanaPrincipal(Tkinter.Frame):
         
         btn.pack()
         
-        btn2 = Tkinter.Button(self, text="Analisis Multifichero",command=self.destroy)
+        btn2 = Tkinter.Button(self, text="Analisis Multifichero",command=lambda: controller.show_frame(VentanaMultiple))
         "Hacer una funcion que borre todos los frames"
         
         btn2.pack()
@@ -132,6 +126,7 @@ class VentanaIndividual(Tkinter.Frame):
     def V_analisis(self):
         self.nombre = tkFileDialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
         if self.nombre[len(self.nombre)-1]=="y" and self.nombre[len(self.nombre)-2]=="p" and self.nombre[len(self.nombre)-3]==".":
+            "Se analiza cuando se  muestra el boton de Analizar fichero"
             self.pasa.frames[VentanaAnalisis].Analisis()
             btn3 = Tkinter.Button(self, text="Analizar fichero",command=lambda: self.pasa.show_frame(VentanaAnalisis))
             btn3.pack()
@@ -146,6 +141,17 @@ class VentanaAnalisis(Tkinter.Frame):
     pasa=None
     canva=None
     bar1=None
+    xList =[]
+    yList =[]
+    Operaciones=[]
+    OperacionesF=[]
+    Valores=[]
+    ValoresF=[]
+    VBoton=[]
+    Colores=[]
+    ColoresF=['b','r','y','c','g']
+        
+
     
     def __init__(self,parent,controller):
         self.Pasadita=parent
@@ -159,6 +165,10 @@ class VentanaAnalisis(Tkinter.Frame):
         
         btn.pack()
         
+        btn = Tkinter.Button(self, text="Ordenar Operaciones",command=self.CambiaGrafico)
+        
+        btn.pack()
+        
         self.canvas = FigureCanvasTkAgg(f, self)
         
         
@@ -166,7 +176,6 @@ class VentanaAnalisis(Tkinter.Frame):
         print("hola")
         lab=[]
         Checkbutto=[]
-        var=[]
         posi=190
         enumera=0
         f = open (self.pasa.frames[VentanaIndividual].nombre,'r')
@@ -190,19 +199,25 @@ class VentanaAnalisis(Tkinter.Frame):
             lab.append(i[0]+"_"+str(i[1])[7:10]+"_"+str(i[2])[7:10])
         
         labels=lab
+        self.Operaciones=lab
+        self.OperacionesF=lab
+        self.Valores=vm.opera.values()
+        self.ValoresF=vm.opera.values()
         values=vm.opera.values()
-        explode=[0,0,0,0.05,0]
-        colors=["c","b","g","r","y"]
-        plt.pie(values,labels=labels,autopct="%.f%%",explode=explode,colors=colors)
+        self.xList=[1,2,3,4,5]
+        self.yList=values
+        
 
         "Recorre los tipos de operaaciones y seleccionas los que luego deseas"
         for o in lab:
-            var.append(Tkinter.IntVar())
-            Checkbutto.append(Tkinter.Checkbutton(self, text=o, variable=var[enumera]))
+            self.VBoton.append(Tkinter.IntVar())
+            Checkbutto.append(Tkinter.Checkbutton(self, text=o, variable=self.VBoton[enumera]))
             Checkbutto[enumera].pack(fill=Tkinter.BOTH, expand=1)
+            self.Colores.append(self.ColoresF[enumera])
             "self.canvas.create_window(85, posi, window=Checkbutto[enumera])"
             posi=posi+20
             enumera=enumera+1
+        print(self.VBoton)
         
         self.canvas.show()
         self.canvas.get_tk_widget().pack(side=Tkinter.BOTTOM, fill=Tkinter.BOTH, expand=True)
@@ -221,7 +236,61 @@ class VentanaAnalisis(Tkinter.Frame):
         bar1 = FigureCanvasTkAgg(figure1, self.top)
         bar1.get_tk_widget().pack(side=Tkinter.LEFT, fill=Tkinter.BOTH)"""
         
+    def CambiaGrafico(self):
+        num=0
+        NewOperadores=[]
+        NewValores=[]
+        NewColores=[]
+        for op in self.VBoton:
+            if op.get()==0:
+                NewColores.append(self.ColoresF[num])
+                NewOperadores.append(self.OperacionesF[num])
+                NewValores.append(self.ValoresF[num])
+            num+=1
+        if NewOperadores.__len__==0:
+            self.Operaciones=self.OperacionesF
+            self.Valores=self.elf.ValoresF
+            self.Colores=self.ColoresF
+            tkMessageBox.showerror("Error","No puedes quitar todas las operaciones .py")
+        else:
+            self.Operaciones=NewOperadores
+            self.Valores=NewValores
+            self.Colores=NewColores
+
+class VentanaMultiple(Tkinter.Frame):
+    
+    nombre=""
+    cont=0
+    Pasadita=None
+    pasa=None
+    
+    def __init__(self,parent,controller):
+        self.Pasadita=parent
+        self.pasa=controller
+        
+        Tkinter.Frame.__init__(self,parent)
+        label = Tkinter.Label(self, text="Escoge el fichero a analizar:", font=LARGE_FONT)
+        label.pack(pady=10,padx=10)
+        
+        btn2 = Tkinter.Button(self, text="Buscar fichero",command=self.V_analisis)
+        
+        btn2.pack()
+        
+        btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))
+        
+        btn.pack()
+    
+    def V_analisis(self):
+        tkMessageBox.showerror("Error","Se esta trabajando en ello")
+
+    
     
 app=SeaofBTCapp()
+
+def animate(self):
+    
+        a.clear()
+        a.pie(app.frames[VentanaAnalisis].Valores, labels=app.frames[VentanaAnalisis].Operaciones,colors=app.frames[VentanaAnalisis].Colores, startangle=90, autopct='%.1f%%')
+        
 ani = animation.FuncAnimation(f, animate, interval=1000)
 app.mainloop()
