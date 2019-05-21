@@ -19,8 +19,6 @@ import types
 import unittest
 import Tkconstants, tkFileDialog
 import tkMessageBox
-import ttk
-import csv
 
 
 import six
@@ -67,6 +65,7 @@ class SeaofBTCapp(Tkinter.Tk):
         
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
+        
         self.frames = {}
         
         for F in (VentanaPrincipal, VentanaIndividual, VentanaAnalisis, VentanaMultiple):
@@ -150,7 +149,6 @@ class VentanaAnalisis(Tkinter.Frame):
     ValoresF=[]
     VBoton=[]
     Colores=[]
-    Combo=[]
     ColoresF=['b','r','y','c','g']
         
 
@@ -167,32 +165,17 @@ class VentanaAnalisis(Tkinter.Frame):
         
         btn.pack()
         
-        """combo = ttk.Combobox(values=Procesadores.Archivos_csv)"""
-        
-        combo = ttk.Combobox(self, state="readonly")
-        
-        combo["values"] = Procesadores.Archivos_csv
-        
-        combo.set(Procesadores.Archivos_csv[0])
-        
-        combo.pack()
-        
-        self.Combo = combo
-        
-        
-
         btn = Tkinter.Button(self, text="Ordenar Operaciones",command=self.CambiaGrafico)
         
         btn.pack()
         
         self.canvas = FigureCanvasTkAgg(f, self)
         
-    
+        
     def Analisis(self):
         print("hola")
         lab=[]
         Checkbutto=[]
-        Unidades=[]
         posi=190
         enumera=0
         f = open (self.pasa.frames[VentanaIndividual].nombre,'r')
@@ -212,8 +195,6 @@ class VentanaAnalisis(Tkinter.Frame):
         vm = VirtualMachine()
         vm_value = self.vm_exc = None
         vm_value = vm.run_code(code)
-        
-       
         for i in vm.opera.keys():
             lab.append(i[0]+"_"+str(i[1])[7:10]+"_"+str(i[2])[7:10])
         
@@ -225,7 +206,7 @@ class VentanaAnalisis(Tkinter.Frame):
         values=vm.opera.values()
         self.xList=[1,2,3,4,5]
         self.yList=values
-        Unidades=self.SacarCiclosDeReloj(self.Combo.get(),vm.opera.keys())
+        
 
         "Recorre los tipos de operaaciones y seleccionas los que luego deseas"
         for o in lab:
@@ -275,41 +256,10 @@ class VentanaAnalisis(Tkinter.Frame):
             self.Operaciones=NewOperadores
             self.Valores=NewValores
             self.Colores=NewColores
-            
-    def SacarCiclosDeReloj(self,Proce,Operadores):
-        Fichero=[]
-        Unidades=[]
-        Flag=[]
-        paso=0
-        archivo = open('C:/Users/Adrian/Documents/GitHub/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python/Prueba TFG/tests/'+Proce)
-        Lectura = csv.reader(archivo,delimiter=';', quotechar=';', quoting=csv.QUOTE_MINIMAL)
-        self.ValoresF
-        self.OperacionesF
-        print(Operadores)
-        for x in Lectura:
-            Fichero.append(x)
-        
-        for Opera in range(0,Operadores.__len__()):
-            Flag.append(0)
-            for linea in range(0,Fichero.__len__()):
-                if Fichero[linea][0]==Operadores[Opera][0]:
-                    if Fichero[linea][1]==str(Operadores[Opera][1])[7:10]:
-                        for e in range(2,7):
-                            if Fichero[0][e]==str(Operadores[Opera][2])[7:10]:
-                                Unidades.append(Fichero[linea][e])
-                                print(str(Operadores[Opera][2])[7:10])
-                                print(Unidades)
-                                Flag[Opera]=1
-            if Flag[Opera]==0:
-                Flag[Opera]=1
-                Unidades.append(1)
-        print(Unidades)
-        return Unidades            
-        
-        
+
 class VentanaMultiple(Tkinter.Frame):
     
-    nombres=[]
+    nombre=""
     cont=0
     Pasadita=None
     pasa=None
@@ -331,23 +281,10 @@ class VentanaMultiple(Tkinter.Frame):
         btn.pack()
     
     def V_analisis(self):
-        self.nombres = tkFileDialog.askopenfilenames(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
         tkMessageBox.showerror("Error","Se esta trabajando en ello")
 
-class RecogeDatos():
-    direccion='C:/Users/Adrian/Documents/GitHub/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python/Prueba TFG/tests'
-    Archivos=[]
-    Archivos_csv=[]
     
-    def __init__(self):
-        
-        self.Archivos=os.listdir(self.direccion)
-        for i in self.Archivos:
-            if i[len(i)-1]=="v" and i[len(i)-2]=="s" and i[len(i)-3]=="c" and i[len(i)-4]=='.':
-                self.Archivos_csv.append(i)
-        print(self.Archivos_csv)
-
-Procesadores=RecogeDatos()
+    
 app=SeaofBTCapp()
 
 def animate(self):
