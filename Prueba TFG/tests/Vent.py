@@ -21,6 +21,7 @@ import Tkconstants, tkFileDialog
 import tkMessageBox
 import ttk
 import csv
+import numpy
 
 
 import six
@@ -151,7 +152,8 @@ class VentanaAnalisis(Tkinter.Frame):
     VBoton=[]
     Colores=[]
     Combo=[]
-    CiclosDeReloj=[]
+    CiclosDeReloj={}
+    Archivos_pro=[]
     ColoresF=['b','r','y','c','g']
         
 
@@ -173,6 +175,7 @@ class VentanaAnalisis(Tkinter.Frame):
         combo = ttk.Combobox(self, state="readonly")
         
         combo["values"] = Procesadores.Archivos_csv
+        
         
         combo.set(Procesadores.Archivos_csv[0])
         
@@ -226,14 +229,20 @@ class VentanaAnalisis(Tkinter.Frame):
         values=vm.opera.values()
         self.xList=[1,2,3,4,5]
         self.yList=values
-        Unidades=self.SacarCiclosDeReloj(self.Combo.get(),vm.opera.keys())
-        aux=[]
-        cont=0
-        for a in self.ValoresF:
-            aux.append(a*Unidades[cont])
-        self.CiclosDeReloj=aux
+        for archivo in Procesadores.Archivos_csv:
+            Unidades=self.SacarCiclosDeReloj(archivo,vm.opera.keys())
+            aux=[]
+            cont=0
+            print(Unidades)
+            for a in self.ValoresF:
+                print(a)
+                aux.append(a*int(Unidades[cont]))
+                cont+=1
+            
+            print(aux)
+            self.CiclosDeReloj[archivo]=aux
 
-        "Recorre los tipos de operaaciones y seleccionas los que luego deseas"
+        "Recorre los tipos de operaciones y seleccionas los que luego deseas"
         for o in lab:
             self.VBoton.append(Tkinter.IntVar())
             Checkbutto.append(Tkinter.Checkbutton(self, text=o, variable=self.VBoton[enumera]))
@@ -270,23 +279,27 @@ class VentanaAnalisis(Tkinter.Frame):
             if op.get()==0:
                 NewColores.append(self.ColoresF[num])
                 NewOperadores.append(self.OperacionesF[num])
-                NewValores.append(self.ValoresF[num])
+                NewValores.append(self.CiclosDeReloj[self.Combo.get()][num])
             num+=1
         if NewOperadores.__len__==0:
             self.Operaciones=self.OperacionesF
-            self.Valores=self.elf.ValoresF
+            self.Valores=self.CiclosDeReloj[self.Combo.get()]
             self.Colores=self.ColoresF
             tkMessageBox.showerror("Error","No puedes quitar todas las operaciones .py")
         else:
             self.Operaciones=NewOperadores
             self.Valores=NewValores
             self.Colores=NewColores
+        print(self.Operaciones)
+        print(self.Valores)
+        print(self.Colores)
             
     def SacarCiclosDeReloj(self,Proce,Operadores):
         Fichero=[]
         Unidades=[]
+        UnidadesF=[]
         Flag=[]
-        paso=0
+        """cambiar ruta"""
         archivo = open('C:/Users/Adrian/Documents/GitHub/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python/Prueba TFG/tests/'+Proce)
         Lectura = csv.reader(archivo,delimiter=';', quotechar=';', quoting=csv.QUOTE_MINIMAL)
         self.ValoresF
@@ -309,7 +322,8 @@ class VentanaAnalisis(Tkinter.Frame):
                 Flag[Opera]=1
                 Unidades.append(1)
         print(Unidades)
-        return Unidades            
+
+        return Unidades
         
         
 class VentanaMultiple(Tkinter.Frame):
