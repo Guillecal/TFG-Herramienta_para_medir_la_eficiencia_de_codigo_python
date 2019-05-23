@@ -332,6 +332,10 @@ class VentanaMultiple(Tkinter.Frame):
     cont=0
     Pasadita=None
     pasa=None
+    Value={}
+    Operaciones={}
+    CiclosDeReloj={}
+    OperacionesTotales=[]
     
     def __init__(self,parent,controller):
         self.Pasadita=parent
@@ -348,11 +352,94 @@ class VentanaMultiple(Tkinter.Frame):
         btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))
         
         btn.pack()
-    
+        
     def V_analisis(self):
         self.nombres = tkFileDialog.askopenfilenames(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
-        tkMessageBox.showerror("Error","Se esta trabajando en ello")
+        lab=[]
+        Checkbutto=[]
+        Unidades=[]
+        posi=190
+        enumera=1
+        
+        for ficherin in self.nombres:
+            CiclosDeReloj_dentro={}
+            f = open (ficherin,'r')
+            mensaje = f.read()
+            print(mensaje)
+            
+            CAPTURE_EXCEPTION = 1
+    
+    
+            code=mensaje
+            f.close()
+    
+            code = textwrap.dedent(code)
+            code = compile(code, "<%s>" % id(code), "exec", 0, 1)
+            dis_code(code)
+            vm_stdout = six.StringIO()
+            vm = VirtualMachine()
+            vm_value = self.vm_exc = None
+            vm_value = vm.run_code(code)
+            
+           
+            for i in vm.opera.keys():
+                lab.append(i[0]+"_"+str(i[1])[7:10]+"_"+str(i[2])[7:10])
+            
+            labels=lab
+            self.Operaciones[enumera]=lab
+            "self.OperacionesF=lab"
+            self.Value[enumera]=vm.opera.values()
+            "self.ValoresF=vm.opera.values()"
+            for oper in lab:
+                if oper not in self.OperacionesTotales:
+                    self.OperacionesTotales.append(oper)
+            
+            for archivo in Procesadores.Archivos_csv:
+                Unidades=self.SacarCiclosDeReloj(archivo,vm.opera.keys())
+                aux=[]
+                cont=0
+                print(Unidades)
+                for a in self.Value[enumera]:
+                    print(a)
+                    aux.append(a*int(Unidades[cont]))
+                    cont+=1
+                
+                print(aux)
+                CiclosDeReloj_dentro[archivo]=aux
+            self.CiclosDeReloj[enumera]=CiclosDeReloj_dentro
+            enumera=enumera+1
+        print(self.CiclosDeReloj)
+        
+        
+    def SacarCiclosDeReloj(self,Proce,Operadores):
+        Fichero=[]
+        Unidades=[]
+        Flag=[]
+        """cambiar ruta"""
+        archivo = open('C:/Users/Adrian/Documents/GitHub/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python/Prueba TFG/tests/'+Proce)
+        Lectura = csv.reader(archivo,delimiter=';', quotechar=';', quoting=csv.QUOTE_MINIMAL)
 
+        for x in Lectura:
+            Fichero.append(x)
+        
+        for Opera in range(0,Operadores.__len__()):
+            Flag.append(0)
+            for linea in range(0,Fichero.__len__()):
+                if Fichero[linea][0]==Operadores[Opera][0]:
+                    if Fichero[linea][1]==str(Operadores[Opera][1])[7:10]:
+                        for e in range(2,7):
+                            if Fichero[0][e]==str(Operadores[Opera][2])[7:10]:
+                                Unidades.append(Fichero[linea][e])
+                                Flag[Opera]=1
+            "Esto pasa por tener mal ajustado el procesador"
+            if Flag[Opera]==0:
+                Flag[Opera]=1
+                Unidades.append(1)
+        print(Unidades)
+
+        return Unidades
+    
+        
 class RecogeDatos():
     direccion='C:/Users/Adrian/Documents/GitHub/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python/Prueba TFG/tests'
     Archivos=[]
