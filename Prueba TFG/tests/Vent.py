@@ -56,6 +56,10 @@ style.use("ggplot")
 
 f = Figure(figsize=(5,5), dpi=100)
 a = f.add_subplot(111)
+f2 = Figure(figsize=(5,5), dpi=100)
+a2 = f2.add_subplot(111)
+f3 = Figure(figsize=(5,5), dpi=100)
+a3 = f3.add_subplot(111)
 
 
 class SeaofBTCapp(Tkinter.Tk):
@@ -70,7 +74,7 @@ class SeaofBTCapp(Tkinter.Tk):
         container.grid_columnconfigure(0, weight=1)
         self.frames = {}
         
-        for F in (VentanaPrincipal, VentanaIndividual, VentanaAnalisis, VentanaMultiple):
+        for F in (VentanaPrincipal, VentanaIndividual, VentanaAnalisis, VentanaMultiple, VentanaComparacion, VentanaComparacion2):
             frame = F(container, self)
             
             self.frames[F] = frame
@@ -108,6 +112,7 @@ class VentanaIndividual(Tkinter.Frame):
     cont=0
     Pasadita=None
     pasa=None
+    Boton1=0
     
     def __init__(self,parent,controller):
         self.Pasadita=parent
@@ -130,8 +135,10 @@ class VentanaIndividual(Tkinter.Frame):
         if self.nombre[len(self.nombre)-1]=="y" and self.nombre[len(self.nombre)-2]=="p" and self.nombre[len(self.nombre)-3]==".":
             "Se analiza cuando se  muestra el boton de Analizar fichero"
             self.pasa.frames[VentanaAnalisis].Analisis()
-            btn3 = Tkinter.Button(self, text="Analizar fichero",command=lambda: self.pasa.show_frame(VentanaAnalisis))
-            btn3.pack()
+            if self.Boton1==0:
+                btn3 = Tkinter.Button(self, text="Analizar fichero",command=lambda: self.pasa.show_frame(VentanaAnalisis))
+                btn3.pack()
+                self.Boton1=1
             
         else:
             tkMessageBox.showerror("Error","El fichero seleccionado no es de tipo .py")
@@ -329,6 +336,8 @@ class VentanaAnalisis(Tkinter.Frame):
 class VentanaMultiple(Tkinter.Frame):
     
     nombres=[]
+    Boton2=0
+    Boton1=0
     cont=0
     Pasadita=None
     pasa=None
@@ -353,63 +362,98 @@ class VentanaMultiple(Tkinter.Frame):
         
         btn.pack()
         
+        
     def V_analisis(self):
+        ArchivosCorrectos=0
         self.nombres = tkFileDialog.askopenfilenames(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
-        lab=[]
-        Checkbutto=[]
-        Unidades=[]
-        posi=190
-        enumera=1
+        for comprobacion in self.nombres:
+            if comprobacion[len(comprobacion)-1]!="y" or comprobacion[len(comprobacion)-2]!="p" and self.comprobacion[len(comprobacion)-3]!=".":
+                ArchivosCorrectos=1
         
-        for ficherin in self.nombres:
-            CiclosDeReloj_dentro={}
-            f = open (ficherin,'r')
-            mensaje = f.read()
-            print(mensaje)
+        if ArchivosCorrectos==1:
+            tkMessageBox.showerror("Error","El fichero seleccionado no es de tipo .py")
+        else:
+            if self.nombres.__len__()<=10:
+                if self.Boton1==0:
+                    if self.Boton2==1:
+                        btn3.pack_forget()
+                    btn3 = Tkinter.Button(self, text="Comparacion de ficheros",command=lambda: self.pasa.show_frame(VentanaComparacion))
             
-            CAPTURE_EXCEPTION = 1
-    
-    
-            code=mensaje
-            f.close()
-    
-            code = textwrap.dedent(code)
-            code = compile(code, "<%s>" % id(code), "exec", 0, 1)
-            dis_code(code)
-            vm_stdout = six.StringIO()
-            vm = VirtualMachine()
-            vm_value = self.vm_exc = None
-            vm_value = vm.run_code(code)
+                    btn3.pack()
+                    self.Boton1=1
+                    self.Boton2=0
+            else:
+                if self.Boton2==0:
+                    if self.Boton1==1:
+                        btn3.pack_forget()
+                    btn3 = Tkinter.Button(self, text="Comparacion de ficheros",command=lambda: self.pasa.show_frame(VentanaComparacion2))
             
-           
-            for i in vm.opera.keys():
-                lab.append(i[0]+"_"+str(i[1])[7:10]+"_"+str(i[2])[7:10])
-            
-            labels=lab
-            self.Operaciones[enumera]=lab
-            "self.OperacionesF=lab"
-            self.Value[enumera]=vm.opera.values()
-            "self.ValoresF=vm.opera.values()"
-            for oper in lab:
-                if oper not in self.OperacionesTotales:
-                    self.OperacionesTotales.append(oper)
-            
-            for archivo in Procesadores.Archivos_csv:
-                Unidades=self.SacarCiclosDeReloj(archivo,vm.opera.keys())
-                aux=[]
-                cont=0
-                print(Unidades)
-                for a in self.Value[enumera]:
-                    print(a)
-                    aux.append(a*int(Unidades[cont]))
-                    cont+=1
+                    btn3.pack()
+                    self.Boton1=1
+                    self.Boton2=0
                 
-                print(aux)
-                CiclosDeReloj_dentro[archivo]=aux
-            self.CiclosDeReloj[enumera]=CiclosDeReloj_dentro
-            enumera=enumera+1
-        print(self.CiclosDeReloj)
+            Checkbutto=[]
+            Unidades=[]
+            posi=190
+            enumera=1
+            
+            for ficherin in self.nombres:
+                lab=[]
+                CiclosDeReloj_dentro={}
+                f = open (ficherin,'r')
+                mensaje = f.read()
+                print(mensaje)
+                
+                CAPTURE_EXCEPTION = 1
         
+        
+                code=mensaje
+                f.close()
+        
+                code = textwrap.dedent(code)
+                code = compile(code, "<%s>" % id(code), "exec", 0, 1)
+                dis_code(code)
+                vm_stdout = six.StringIO()
+                vm = VirtualMachine()
+                vm_value = self.vm_exc = None
+                vm_value = vm.run_code(code)
+                
+               
+                for i in vm.opera.keys():
+                    lab.append(i[0]+"_"+str(i[1])[7:10]+"_"+str(i[2])[7:10])
+                
+                labels=lab
+                self.Operaciones[enumera]=lab
+                "self.OperacionesF=lab"
+                self.Value[enumera]=vm.opera.values()
+                "self.ValoresF=vm.opera.values()"
+                for oper in lab:
+                    if oper not in self.OperacionesTotales:
+                        self.OperacionesTotales.append(oper)
+                
+                for archivo in Procesadores.Archivos_csv:
+                    Unidades=self.SacarCiclosDeReloj(archivo,vm.opera.keys())
+                    aux=[]
+                    cont=0
+                    print(Unidades)
+                    for a in self.Value[enumera]:
+                        print(a)
+                        aux.append(a*int(Unidades[cont]))
+                        cont+=1
+                    
+                    print(aux)
+                    CiclosDeReloj_dentro[archivo]=aux
+                self.CiclosDeReloj[enumera]=CiclosDeReloj_dentro
+                enumera=enumera+1
+            print(self.CiclosDeReloj)
+            print(self.OperacionesTotales)
+            print(self.Operaciones)
+            app.frames[VentanaComparacion].Comba["values"] = self.OperacionesTotales
+
+        
+            app.frames[VentanaComparacion].Comba.pack()
+            app.frames[VentanaComparacion].btn2.pack()
+    
         
     def SacarCiclosDeReloj(self,Proce,Operadores):
         Fichero=[]
@@ -439,7 +483,175 @@ class VentanaMultiple(Tkinter.Frame):
 
         return Unidades
     
+    
+class VentanaComparacion(Tkinter.Frame):
+    
+    Pasadita=None
+    pasa=None
+    btn2=None
+    VBoton=[] 
+    Combo=[]
+    Comba=[]
+    Fichero=[]
+    Valor_Mostrar=[]
+    Nombre=[]
+    Muestrafichero=0
+    
+    def __init__(self,parent,controller):
+        self.Pasadita=parent
+        self.pasa=controller
         
+        Tkinter.Frame.__init__(self,parent)
+        label = Tkinter.Label(self, text="Comparacion:", font=LARGE_FONT)
+        label.pack(pady=10,padx=10)
+        
+        btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))
+        
+        btn.pack()
+        
+        
+        """combo = ttk.Combobox(values=Procesadores.Archivos_csv)"""
+        
+        combo = ttk.Combobox(self, state="readonly")
+        
+        combo["values"] = Procesadores.Archivos_csv
+        
+        
+        
+        combo.pack()
+        
+        self.Combo = combo
+        
+        
+        comba = ttk.Combobox(self, state="readonly")
+        
+        self.Comba = comba
+        
+        
+        btn2 = Tkinter.Button(self, text="Mostrar Analisis",command=self.Sacar_Valores)
+        
+        self.btn2=btn2
+        
+        self.canvas = FigureCanvasTkAgg(f2, self)
+        
+        
+        
+    def Sacar_Valores(self):
+       
+        contador=1
+        pasa=0
+        self.Fichero=[]
+        self.Nombre=[]
+        self.Valor_Mostrar=[]
+        for cosa in app.frames[VentanaMultiple].nombres:
+            Op=0
+            for a in app.frames[VentanaMultiple].Operaciones[contador]:
+                if a == self.Comba.get():
+                    pasa=1
+                if pasa==1:
+                    self.Fichero.append(contador)
+                    "Mirar como solo obtener el nombre"
+                    self.Nombre.append(app.frames[VentanaMultiple].nombres[contador-1])
+                    self.Valor_Mostrar.append(app.frames[VentanaMultiple].CiclosDeReloj[contador][self.Combo.get()][Op])
+                    pasa=0
+                Op=Op+1
+            contador=contador+1
+        print(self.Fichero)
+        print(self.Valor_Mostrar)
+
+        if self.Muestrafichero==0:
+            print("hola")
+            self.Muestrafichero=1
+            print(self.Muestrafichero)
+            self.canvas.show()
+            self.canvas.get_tk_widget().pack(side=Tkinter.BOTTOM, fill=Tkinter.BOTH, expand=True)
+            
+            toolbar= NavigationToolbar2Tk(self.canvas, self)
+            toolbar.update()
+            self.canvas._tkcanvas.pack(side=Tkinter.TOP, fill=Tkinter.BOTH, expand=True)
+            
+
+        
+class VentanaComparacion2(Tkinter.Frame):
+    
+    Pasadita=None
+    pasa=None
+    btn2=None
+    VBoton=[] 
+    Combo=[]
+    Comba=[]
+    Fichero=[]
+    Valor_Mostrar=[]
+    Muestrafichero=0
+
+
+    def __init__(self,parent,controller):
+        self.Pasadita=parent
+        self.pasa=controller
+        
+        Tkinter.Frame.__init__(self,parent)
+        label = Tkinter.Label(self, text="Comparacion:", font=LARGE_FONT)
+        label.pack(pady=10,padx=10)
+        
+        btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))
+        
+        btn.pack()
+        
+        
+        """combo = ttk.Combobox(values=Procesadores.Archivos_csv)"""
+        
+        combo = ttk.Combobox(self, state="readonly")
+        
+        combo["values"] = Procesadores.Archivos_csv
+        
+        
+        
+        combo.pack()
+        
+        self.Combo = combo
+        
+        
+        comba = ttk.Combobox(self, state="readonly")
+        
+        self.Comba = comba
+        
+        
+        btn2 = Tkinter.Button(self, text="Mostrar Analisis",command=self.Sacar_Valores)
+        
+        self.btn2=btn2
+        
+        self.canvas = FigureCanvasTkAgg(f3, self)
+        
+        
+    def Sacar_Valores(self):
+       
+        contador=1
+        pasa=0
+        self.Fichero=[]
+        self.Valor_Mostrar=[]
+        for cosa in app.frames[VentanaMultiple].nombres:
+            Op=0
+            for a in app.frames[VentanaMultiple].Operaciones[contador]:
+                if a == self.Comba.get():
+                    pasa=1
+                if pasa==1:
+                    self.Fichero.append(contador)
+                    self.Valor_Mostrar.append(app.frames[VentanaMultiple].CiclosDeReloj[contador][self.Combo.get()][Op])
+                    pasa=0
+                Op=Op+1
+            contador=contador+1
+        print(self.Fichero)
+        print(self.Valor_Mostrar)
+        if self.Muestrafichero==0:
+            self.MuestraFichero=1
+            self.canvas.show()
+            self.canvas.get_tk_widget().pack(side=Tkinter.BOTTOM, fill=Tkinter.BOTH, expand=True)
+                
+            toolbar= NavigationToolbar2Tk(self.canvas, self)
+            toolbar.update()
+            self.canvas._tkcanvas.pack(side=Tkinter.TOP, fill=Tkinter.BOTH, expand=True)
+            
+
 class RecogeDatos():
     direccion='C:/Users/Adrian/Documents/GitHub/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python/Prueba TFG/tests'
     Archivos=[]
@@ -458,8 +670,22 @@ app=SeaofBTCapp()
 
 def animate(self):
     
-        a.clear()
-        a.pie(app.frames[VentanaAnalisis].Valores, labels=app.frames[VentanaAnalisis].Operaciones,colors=app.frames[VentanaAnalisis].Colores, startangle=90, autopct='%.1f%%')
-        
+    a.clear()
+    a.pie(app.frames[VentanaAnalisis].Valores, labels=app.frames[VentanaAnalisis].Operaciones,colors=app.frames[VentanaAnalisis].Colores, startangle=90, autopct='%.1f%%')
+    "a.title(app.frames[VentanaAnalisis].Combo.get())"
+    
+def animate2(self):
+    
+    a2.clear()
+    a2.bar(app.frames[VentanaComparacion].Fichero,app.frames[VentanaComparacion].Valor_Mostrar,align="center")
+    
+def animate3(self):
+    
+    a3.clear()
+    a3.bar(app.frames[VentanaComparacion].Fichero,app.frames[VentanaComparacion].Valor_Mostrar,align="center")
+    
+    
 ani = animation.FuncAnimation(f, animate, interval=1000)
+ani2= animation.FuncAnimation(f2, animate2, interval=1000)
+ani3= animation.FuncAnimation(f3, animate3, interval=1000)
 app.mainloop()
