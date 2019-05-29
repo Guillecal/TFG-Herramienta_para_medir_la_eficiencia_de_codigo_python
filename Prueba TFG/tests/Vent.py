@@ -74,7 +74,7 @@ class SeaofBTCapp(Tkinter.Tk):
         container.grid_columnconfigure(0, weight=1)
         self.frames = {}
         
-        for F in (VentanaPrincipal, VentanaIndividual, VentanaAnalisis, VentanaMultiple, VentanaComparacion, VentanaComparacion2):
+        for F in (VentanaPrincipal, VentanaIndividual, VentanaAnalisis, VentanaMultiple, VentanaComparacion, VentanaComparacion2, VentanaParametros):
             frame = F(container, self)
             
             self.frames[F] = frame
@@ -96,7 +96,7 @@ class VentanaPrincipal(Tkinter.Frame):
         label = Tkinter.Label(self, text="Elige la opcion que desees:", font=LARGE_FONT)
         label.pack(pady=10,padx=10)
         
-        btn = Tkinter.Button(self, text="Analisis individual",command=lambda: controller.show_frame(VentanaIndividual))
+        btn = Tkinter.Button(self, text="Analisis individual. Sin Parametros",command=lambda: controller.show_frame(VentanaIndividual))
         
         btn.pack()
         
@@ -104,6 +104,10 @@ class VentanaPrincipal(Tkinter.Frame):
         "Hacer una funcion que borre todos los frames"
         
         btn2.pack()
+        
+        btn3 =Tkinter.Button(self, text="Analisis individual. Parametros",command=lambda: controller.show_frame(VentanaParametros))
+        
+        btn3.pack()
     
 
 class VentanaIndividual(Tkinter.Frame):
@@ -243,6 +247,7 @@ class VentanaAnalisis(Tkinter.Frame):
             print(Unidades)
             for a in self.ValoresF:
                 print(a)
+                "Corregir"
                 aux.append(a*int(Unidades[cont]))
                 cont+=1
             
@@ -322,7 +327,10 @@ class VentanaAnalisis(Tkinter.Frame):
                     if Fichero[linea][1]==str(Operadores[Opera][1])[7:10]:
                         for e in range(2,7):
                             if Fichero[0][e]==str(Operadores[Opera][2])[7:10]:
-                                Unidades.append(Fichero[linea][e])
+                                if Fichero[linea][e]=='X':
+                                    Unidades.append(1)
+                                else:
+                                    Unidades.append(Fichero[linea][e])
                                 Flag[Opera]=1
             "Esto pasa por tener mal ajustado el procesador"
             if Flag[Opera]==0:
@@ -372,6 +380,8 @@ class VentanaMultiple(Tkinter.Frame):
         
         if ArchivosCorrectos==1:
             tkMessageBox.showerror("Error","El fichero seleccionado no es de tipo .py")
+        elif self.nombres.__len__()==1:
+            tkMessageBox.showerror("Error","Solo has seleccionado 1 fichero")
         else:
             if self.nombres.__len__()<=10:
                 if self.Boton1==0:
@@ -449,10 +459,13 @@ class VentanaMultiple(Tkinter.Frame):
             print(self.OperacionesTotales)
             print(self.Operaciones)
             app.frames[VentanaComparacion].Comba["values"] = self.OperacionesTotales
+            app.frames[VentanaComparacion2].Comba["values"] = self.OperacionesTotales
 
         
             app.frames[VentanaComparacion].Comba.pack()
             app.frames[VentanaComparacion].btn2.pack()
+            app.frames[VentanaComparacion2].Comba.pack()
+            app.frames[VentanaComparacion2].btn2.pack()
     
         
     def SacarCiclosDeReloj(self,Proce,Operadores):
@@ -473,7 +486,10 @@ class VentanaMultiple(Tkinter.Frame):
                     if Fichero[linea][1]==str(Operadores[Opera][1])[7:10]:
                         for e in range(2,7):
                             if Fichero[0][e]==str(Operadores[Opera][2])[7:10]:
-                                Unidades.append(Fichero[linea][e])
+                                if Fichero[linea][e]=='X':
+                                    Unidades.append(1)
+                                else:
+                                    Unidades.append(Fichero[linea][e])
                                 Flag[Opera]=1
             "Esto pasa por tener mal ajustado el procesador"
             if Flag[Opera]==0:
@@ -536,6 +552,7 @@ class VentanaComparacion(Tkinter.Frame):
         
         
         
+        
     def Sacar_Valores(self):
        
         contador=1
@@ -584,8 +601,8 @@ class VentanaComparacion2(Tkinter.Frame):
     Valor_Mostrar=[]
     Muestrafichero=0
 
-
     def __init__(self,parent,controller):
+
         self.Pasadita=parent
         self.pasa=controller
         
@@ -643,7 +660,8 @@ class VentanaComparacion2(Tkinter.Frame):
         print(self.Fichero)
         print(self.Valor_Mostrar)
         if self.Muestrafichero==0:
-            self.MuestraFichero=1
+            print("holo")
+            self.Muestrafichero=1
             self.canvas.show()
             self.canvas.get_tk_widget().pack(side=Tkinter.BOTTOM, fill=Tkinter.BOTH, expand=True)
                 
@@ -665,6 +683,53 @@ class RecogeDatos():
                 self.Archivos_csv.append(i)
         print(self.Archivos_csv)
 
+class VentanaParametros(Tkinter.Frame):
+    nombre=None
+    Boton2=0
+    Boton1=0
+    cont=0
+    Pasadita=None
+    pasa=None
+    Value={}
+    Operaciones={}
+    CiclosDeReloj={}
+    OperacionesTotales=[]
+
+    
+    def __init__(self,parent,controller):
+        self.Pasadita=parent
+        self.pasa=controller
+        
+        Tkinter.Frame.__init__(self,parent)
+        label = Tkinter.Label(self, text="Escoge el fichero a analizar:", font=LARGE_FONT)
+        label.pack(pady=10,padx=10)
+        
+        btn2 = Tkinter.Button(self, text="Buscar fichero",command=self.V_analisis)
+        
+        btn2.pack()
+        
+        btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))
+        
+        btn.pack()   
+    
+    def V_analisis(self):
+        self.nombre = tkFileDialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
+        if self.nombre[len(self.nombre)-1]=="y" and self.nombre[len(self.nombre)-2]=="p" and self.nombre[len(self.nombre)-3]==".":
+            "Se analiza cuando se  muestra el boton de Analizar fichero"
+            "self.pasa.frames[VentanaAnalisis].Analisis()"
+            if self.Boton1==0:
+                btn3 = Tkinter.Button(self, text="Analizar fichero",command=print("hola"))
+                btn3.pack()
+                self.Boton1=1
+            
+        else:
+            tkMessageBox.showerror("Error","El fichero seleccionado no es de tipo .py")
+            
+        tkMessageBox.showerror("Error","Se esta trabajando en esta nueva funcionalidad")
+    
+    
+
+    
 Procesadores=RecogeDatos()
 app=SeaofBTCapp()
 
@@ -682,7 +747,8 @@ def animate2(self):
 def animate3(self):
     
     a3.clear()
-    a3.bar(app.frames[VentanaComparacion].Fichero,app.frames[VentanaComparacion].Valor_Mostrar,align="center")
+    a3.plot(app.frames[VentanaComparacion2].Fichero,app.frames[VentanaComparacion2].Valor_Mostrar, 'ro')
+    """(app.frames[VentanaComparacion].Fichero,app.frames[VentanaComparacion].Valor_Mostrar,align="center")"""
     
     
 ani = animation.FuncAnimation(f, animate, interval=1000)
