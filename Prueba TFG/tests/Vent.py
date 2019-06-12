@@ -93,21 +93,25 @@ class VentanaPrincipal(Tkinter.Frame):
     
     def __init__(self,parent,controller):
         Tkinter.Frame.__init__(self,parent)
-        label = Tkinter.Label(self, text="Elige la opcion que desees:", font=LARGE_FONT)
+        """label = Tkinter.Label(self, text="Elige la opcion que desees:", font=LARGE_FONT)"""
+        label = Tkinter.Label(self, text="Choose the option you want:", font=LARGE_FONT)
         label.pack(pady=10,padx=10)
         
-        btn = Tkinter.Button(self, text="Analisis individual. Sin Parametros",command=lambda: controller.show_frame(VentanaIndividual))
+        """btn = Tkinter.Button(self, text="Analisis individual. Sin Parametros",command=lambda: controller.show_frame(VentanaIndividual))"""
+        
+        btn = Tkinter.Button(self, text="Individual analysis",command=lambda: controller.show_frame(VentanaIndividual))
         
         btn.pack()
         
-        btn2 = Tkinter.Button(self, text="Analisis Multifichero",command=lambda: controller.show_frame(VentanaMultiple))
+        """btn2 = Tkinter.Button(self, text="Analisis Multifichero",command=lambda: controller.show_frame(VentanaMultiple))"""
+        btn2 = Tkinter.Button(self, text="Comparative Analysis",command=lambda: controller.show_frame(VentanaMultiple))
         "Hacer una funcion que borre todos los frames"
         
         btn2.pack()
         
-        btn3 =Tkinter.Button(self, text="Analisis individual. Parametros",command=lambda: controller.show_frame(VentanaParametros))
+        """btn3 =Tkinter.Button(self, text="Analisis individual. Parametros",command=lambda: controller.show_frame(VentanaParametros))
         
-        btn3.pack()
+        btn3.pack()"""
     
 
 class VentanaIndividual(Tkinter.Frame):
@@ -123,15 +127,18 @@ class VentanaIndividual(Tkinter.Frame):
         self.pasa=controller
         
         Tkinter.Frame.__init__(self,parent)
-        label = Tkinter.Label(self, text="Escoge el fichero a analizar:", font=LARGE_FONT)
+        """label = Tkinter.Label(self, text="Escoge el fichero a analizar:", font=LARGE_FONT)"""
+        label = Tkinter.Label(self, text="Choose the file to analyze:", font=LARGE_FONT)
+        
         label.pack(pady=10,padx=10)
         
-        btn2 = Tkinter.Button(self, text="Buscar fichero",command=self.V_analisis)
+        """btn2 = Tkinter.Button(self, text="Buscar fichero",command=self.V_analisis)"""
+        btn2 = Tkinter.Button(self, text="Search file",command=self.V_analisis)
         
         btn2.pack()
         
-        btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))
-        
+        """btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))"""
+        btn = Tkinter.Button(self, text="Return to the main screen",command=lambda: controller.show_frame(VentanaPrincipal))
         btn.pack()
         
     def V_analisis(self):
@@ -139,8 +146,11 @@ class VentanaIndividual(Tkinter.Frame):
         if self.nombre[len(self.nombre)-1]=="y" and self.nombre[len(self.nombre)-2]=="p" and self.nombre[len(self.nombre)-3]==".":
             "Se analiza cuando se  muestra el boton de Analizar fichero"
             self.pasa.frames[VentanaAnalisis].Analisis()
+            
             if self.Boton1==0:
-                btn3 = Tkinter.Button(self, text="Analizar fichero",command=lambda: self.pasa.show_frame(VentanaAnalisis))
+                print('hola')
+                """btn3 = Tkinter.Button(self, text="Analizar fichero",command=lambda: self.pasa.show_frame(VentanaAnalisis))"""
+                btn3 = Tkinter.Button(self, text="Analyze file",command=lambda: self.pasa.show_frame(VentanaAnalisis))
                 btn3.pack()
                 self.Boton1=1
             
@@ -165,7 +175,7 @@ class VentanaAnalisis(Tkinter.Frame):
     Combo=[]
     CiclosDeReloj={}
     Archivos_pro=[]
-    ColoresF=['b','r','y','c','g']
+    ColoresF=['b','r','y','c','g','w','m','b','r','y','c','g','w','m','b','r','y','c','g','w','m']
         
 
     
@@ -174,11 +184,11 @@ class VentanaAnalisis(Tkinter.Frame):
         self.pasa=controller
         
         Tkinter.Frame.__init__(self,parent)
-        label = Tkinter.Label(self, text="Analisis:", font=LARGE_FONT)
+        label = Tkinter.Label(self, text="Analysis:", font=LARGE_FONT)
         label.pack(pady=10,padx=10)
         
-        btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))
-        
+        """btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))"""
+        btn = Tkinter.Button(self, text="Return to the main screen",command=lambda: controller.show_frame(VentanaPrincipal))
         btn.pack()
         
         """combo = ttk.Combobox(values=Procesadores.Archivos_csv)"""
@@ -196,7 +206,8 @@ class VentanaAnalisis(Tkinter.Frame):
         
         
 
-        btn = Tkinter.Button(self, text="Ordenar Operaciones",command=self.CambiaGrafico)
+        """btn = Tkinter.Button(self, text="Mostrar Resultados",command=self.CambiaGrafico)"""
+        btn = Tkinter.Button(self, text="Show results",command=self.CambiaGrafico)
         
         btn.pack()
         
@@ -359,14 +370,14 @@ class VentanaMultiple(Tkinter.Frame):
         self.pasa=controller
         
         Tkinter.Frame.__init__(self,parent)
-        label = Tkinter.Label(self, text="Escoge el fichero a analizar:", font=LARGE_FONT)
+        label = Tkinter.Label(self, text="Choose the files to analyze:", font=LARGE_FONT)
         label.pack(pady=10,padx=10)
         
-        btn2 = Tkinter.Button(self, text="Buscar fichero",command=self.V_analisis)
+        btn2 = Tkinter.Button(self, text="Search files",command=self.V_analisis)
         
         btn2.pack()
         
-        btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))
+        btn = Tkinter.Button(self, text="Return to the main screen",command=lambda: controller.show_frame(VentanaPrincipal))
         
         btn.pack()
         
@@ -387,7 +398,7 @@ class VentanaMultiple(Tkinter.Frame):
                 if self.Boton1==0:
                     if self.Boton2==1:
                         btn3.pack_forget()
-                    btn3 = Tkinter.Button(self, text="Comparacion de ficheros",command=lambda: self.pasa.show_frame(VentanaComparacion))
+                    btn3 = Tkinter.Button(self, text="Comparison of files",command=lambda: self.pasa.show_frame(VentanaComparacion))
             
                     btn3.pack()
                     self.Boton1=1
@@ -396,7 +407,7 @@ class VentanaMultiple(Tkinter.Frame):
                 if self.Boton2==0:
                     if self.Boton1==1:
                         btn3.pack_forget()
-                    btn3 = Tkinter.Button(self, text="Comparacion de ficheros",command=lambda: self.pasa.show_frame(VentanaComparacion2))
+                    btn3 = Tkinter.Button(self, text="Comparison of files",command=lambda: self.pasa.show_frame(VentanaComparacion2))
             
                     btn3.pack()
                     self.Boton1=1
@@ -462,11 +473,17 @@ class VentanaMultiple(Tkinter.Frame):
             app.frames[VentanaComparacion2].Comba["values"] = self.OperacionesTotales
 
         
-            app.frames[VentanaComparacion].Comba.pack()
+            "app.frames[VentanaComparacion].Comba.pack()"
             app.frames[VentanaComparacion].btn2.pack()
-            app.frames[VentanaComparacion2].Comba.pack()
+            "app.frames[VentanaComparacion2].Comba.pack()"
             app.frames[VentanaComparacion2].btn2.pack()
-    
+            app.frames[VentanaComparacion].Muestra_Botones()
+            app.frames[VentanaComparacion2].Muestra_Botones()
+            
+            for marcar in range(0,app.frames[VentanaComparacion].VBoton.__len__()):
+                app.frames[VentanaComparacion].Checkbutto[marcar].invoke()
+                app.frames[VentanaComparacion2].Checkbutto[marcar].invoke()
+        
         
     def SacarCiclosDeReloj(self,Proce,Operadores):
         Fichero=[]
@@ -505,23 +522,26 @@ class VentanaComparacion(Tkinter.Frame):
     Pasadita=None
     pasa=None
     btn2=None
+    alfabeto=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','aa','ab','ac','ad']
     VBoton=[] 
+    Checkbutto=[]
     Combo=[]
     Comba=[]
     Fichero=[]
     Valor_Mostrar=[]
     Nombre=[]
     Muestrafichero=0
+    ValoresTotales=[]
     
     def __init__(self,parent,controller):
         self.Pasadita=parent
         self.pasa=controller
         
         Tkinter.Frame.__init__(self,parent)
-        label = Tkinter.Label(self, text="Comparacion:", font=LARGE_FONT)
+        label = Tkinter.Label(self, text="Comparison:", font=LARGE_FONT)
         label.pack(pady=10,padx=10)
         
-        btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))
+        btn = Tkinter.Button(self, text="Return to the main screen",command=lambda: controller.show_frame(VentanaPrincipal))
         
         btn.pack()
         
@@ -544,13 +564,20 @@ class VentanaComparacion(Tkinter.Frame):
         self.Comba = comba
         
         
-        btn2 = Tkinter.Button(self, text="Mostrar Analisis",command=self.Sacar_Valores)
+        btn2 = Tkinter.Button(self, text="Show results",command=self.Sacar_Valores)
         
         self.btn2=btn2
         
         self.canvas = FigureCanvasTkAgg(f2, self)
         
-        
+    def Muestra_Botones(self):
+        enumera=0
+        for o in app.frames[VentanaMultiple].OperacionesTotales:
+            self.VBoton.append(Tkinter.IntVar())
+            self.Checkbutto.append(Tkinter.Checkbutton(self, text=o, variable=self.VBoton[enumera]))
+            self.Checkbutto[enumera].pack(fill=Tkinter.BOTH, expand=1)
+            "self.canvas.create_window(85, posi, window=Checkbutto[enumera])"
+            enumera=enumera+1
         
         
     def Sacar_Valores(self):
@@ -560,7 +587,27 @@ class VentanaComparacion(Tkinter.Frame):
         self.Fichero=[]
         self.Nombre=[]
         self.Valor_Mostrar=[]
-        for cosa in app.frames[VentanaMultiple].nombres:
+        contador_menor=0
+        "igual hay que  cambiar este bucle, por otro de nombres (en principio el resultado es el mismo)"
+        for e in app.frames[VentanaMultiple].Operaciones:
+            self.Fichero.append(self.alfabeto[contador_menor])
+            self.Valor_Mostrar.append(0)
+            contador_menor=contador_menor+1
+        contador_operaciones=0
+        for Ototal in app.frames[VentanaMultiple].OperacionesTotales:
+            if self.VBoton[contador_operaciones].get()==1:
+                contador_menor=0
+                for Omenor in app.frames[VentanaMultiple].Operaciones.values():
+                    cont_interior=0
+                    for i in Omenor:
+                        print(Ototal)
+                        print(i)
+                        if Ototal==i:
+                            self.Valor_Mostrar[contador_menor]=app.frames[VentanaMultiple].CiclosDeReloj[contador_menor+1][self.Combo.get()][cont_interior]+self.Valor_Mostrar[contador_menor]
+                        cont_interior=cont_interior+1
+                    contador_menor=contador_menor+1
+            contador_operaciones=contador_operaciones+1
+        """for cosa in app.frames[VentanaMultiple].nombres:
             Op=0
             for a in app.frames[VentanaMultiple].Operaciones[contador]:
                 if a == self.Comba.get():
@@ -572,9 +619,11 @@ class VentanaComparacion(Tkinter.Frame):
                     self.Valor_Mostrar.append(app.frames[VentanaMultiple].CiclosDeReloj[contador][self.Combo.get()][Op])
                     pasa=0
                 Op=Op+1
-            contador=contador+1
+            contador=contador+1"""
         print(self.Fichero)
         print(self.Valor_Mostrar)
+        print('hola')
+        print(self.VBoton[0])
 
         if self.Muestrafichero==0:
             print("hola")
@@ -594,12 +643,18 @@ class VentanaComparacion2(Tkinter.Frame):
     Pasadita=None
     pasa=None
     btn2=None
+    alfabeto=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','aa','ab','ac','ad']
     VBoton=[] 
+    Checkbutto=[]
     Combo=[]
     Comba=[]
     Fichero=[]
     Valor_Mostrar=[]
+    Nombre=[]
     Muestrafichero=0
+    ValoresTotales=[]
+    Entry=None
+    Entry2=None
 
     def __init__(self,parent,controller):
 
@@ -607,10 +662,10 @@ class VentanaComparacion2(Tkinter.Frame):
         self.pasa=controller
         
         Tkinter.Frame.__init__(self,parent)
-        label = Tkinter.Label(self, text="Comparacion:", font=LARGE_FONT)
+        label = Tkinter.Label(self, text="Comparison:", font=LARGE_FONT)
         label.pack(pady=10,padx=10)
         
-        btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))
+        btn = Tkinter.Button(self, text="Return to the main screen",command=lambda: controller.show_frame(VentanaPrincipal))
         
         btn.pack()
         
@@ -633,16 +688,51 @@ class VentanaComparacion2(Tkinter.Frame):
         self.Comba = comba
         
         
-        btn2 = Tkinter.Button(self, text="Mostrar Analisis",command=self.Sacar_Valores)
+        btn2 = Tkinter.Button(self, text="Show results",command=self.Sacar_Valores)
         
         self.btn2=btn2
         
         self.canvas = FigureCanvasTkAgg(f3, self)
-        
+   
+
+    def Muestra_Botones(self):
+        enumera=0
+        for o in app.frames[VentanaMultiple].OperacionesTotales:
+            self.VBoton.append(Tkinter.IntVar())
+            self.Checkbutto.append(Tkinter.Checkbutton(self, text=o, variable=self.VBoton[enumera]))
+            self.Checkbutto[enumera].pack(fill=Tkinter.BOTH, expand=1)
+            "self.canvas.create_window(85, posi, window=Checkbutto[enumera])"
+            enumera=enumera+1     
         
     def Sacar_Valores(self):
        
+        
         contador=1
+        pasa=0
+        self.Fichero=[]
+        self.Nombre=[]
+        self.Valor_Mostrar=[]
+        contador_menor=0
+        "igual hay que  cambiar este bucle, por otro de nombres (en principio el resultado es el mismo)"
+        for e in app.frames[VentanaMultiple].Operaciones:
+            self.Fichero.append(self.alfabeto[contador_menor])
+            self.Valor_Mostrar.append(0)
+            contador_menor=contador_menor+1
+        contador_operaciones=0
+        for Ototal in app.frames[VentanaMultiple].OperacionesTotales:
+            if self.VBoton[contador_operaciones].get()==1:
+                contador_menor=0
+                for Omenor in app.frames[VentanaMultiple].Operaciones.values():
+                    cont_interior=0
+                    for i in Omenor:
+                        print(Ototal)
+                        print(i)
+                        if Ototal==i:
+                            self.Valor_Mostrar[contador_menor]=app.frames[VentanaMultiple].CiclosDeReloj[contador_menor+1][self.Combo.get()][cont_interior]+self.Valor_Mostrar[contador_menor]
+                        cont_interior=cont_interior+1
+                    contador_menor=contador_menor+1
+            contador_operaciones=contador_operaciones+1
+        """contador=1
         pasa=0
         self.Fichero=[]
         self.Valor_Mostrar=[]
@@ -658,7 +748,7 @@ class VentanaComparacion2(Tkinter.Frame):
                 Op=Op+1
             contador=contador+1
         print(self.Fichero)
-        print(self.Valor_Mostrar)
+        print(self.Valor_Mostrar)"""
         if self.Muestrafichero==0:
             print("holo")
             self.Muestrafichero=1
@@ -668,7 +758,23 @@ class VentanaComparacion2(Tkinter.Frame):
             toolbar= NavigationToolbar2Tk(self.canvas, self)
             toolbar.update()
             self.canvas._tkcanvas.pack(side=Tkinter.TOP, fill=Tkinter.BOTH, expand=True)
-            
+            """self.Entry=Tkinter.Entry(self)
+        
+            self.Entry.pack()
+        
+            self.Entry2=Tkinter.Entry(self)
+        
+            self.Entry2.pack(side=LEFT)
+        
+            btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=MuestraNombre)
+        
+            btn.pack()"""
+    
+    """def MuestraNombre(self):
+        contador=0
+        for i in self.alfabeto:
+            if i==self.Entry.get():
+                self.Entry2(0,self.Nombre[contador])"""
 
 class RecogeDatos():
     direccion='C:/Users/Adrian/Documents/GitHub/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python/Prueba TFG/tests'
@@ -711,7 +817,8 @@ class VentanaParametros(Tkinter.Frame):
         btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))
         
         btn.pack()   
-    
+        
+      
     def V_analisis(self):
         self.nombre = tkFileDialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
         if self.nombre[len(self.nombre)-1]=="y" and self.nombre[len(self.nombre)-2]=="p" and self.nombre[len(self.nombre)-3]==".":
@@ -747,7 +854,7 @@ def animate2(self):
 def animate3(self):
     
     a3.clear()
-    a3.plot(app.frames[VentanaComparacion2].Fichero,app.frames[VentanaComparacion2].Valor_Mostrar, 'ro')
+    a3.plot(app.frames[VentanaComparacion2].Fichero,app.frames[VentanaComparacion2].Valor_Mostrar, 'ro-')
     """(app.frames[VentanaComparacion].Fichero,app.frames[VentanaComparacion].Valor_Mostrar,align="center")"""
     
     

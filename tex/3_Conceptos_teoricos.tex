@@ -1,83 +1,56 @@
 \capitulo{3}{Conceptos teóricos}
 
-En aquellos proyectos que necesiten para su comprensión y desarrollo de unos conceptos teóricos de una determinada materia o de un determinado dominio de conocimiento, debe existir un apartado que sintetice dichos conceptos.
 
 Algunos conceptos teóricos de \LaTeX \footnote{Créditos a los proyectos de Álvaro López Cantero: Configurador de Presupuestos y Roberto Izquierdo Amo: PLQuiz}.
 
-\section{Secciones}
+\section{Fundamentos Basicos}
 
-Las secciones se incluyen con el comando section.
+\subsection{La eficiencia}
 
-\subsection{Subsecciones}
+La eficiencia vista desde un ámbito general se definiría como el uso racionado de los recursos para conseguir un objetivo x. Esta definición puede ser aplicado a cualquier ámbito en el que se hable de eficiencia pero en el caso de este proyecto se aplicara esta definición en el ámbito computacional.
+La definición citada anteriormente menciona la palabra recursos, en el ámbito computacional, cuando se habla de recursos la palabra que más suele asociarse es tiempo. Esto no quiere decir que sea la única medida de eficiencia, ni mucho menos, también se podría poner como recurso el espacio en memoria, por ejemplo, pero el tiempo suele ser el recurso que más condiciona y la gente más en cuenta tiene en los procesos computacionales.\\
+Aquí llegamos a la razón de existir de este proyecto, ¿cómo medimos lo que tarda un programa en ejecutarse de manera fiable? La manera más extendida para hacer esto, es ejecutar el programa del cual se quiera saber cuánto tiempo y esperar a que termine contado el tiempo pasado desde el comienzo hasta el final de este. Esta manera a pesar de ser sencilla, a la hora de la verdad es muy poco fiable, para que los resultados obtenidos por este método sean considerados verídicos se tendría que asegurar que el entorno de pruebas tiene unas condiciones idóneas, como por ejemplo que el procesador que del ordenador donde se ejecuta el programa no este gastando recursos en otros procesos que estén activos en segundo plano. El problema de esto es que conseguir un entorno así muchas veces no es tarea fácil. Y como respuesta a este problema surge la idea principal de este proyecto, medir la eficiencia de un programa de una manera fiable, que no se vea afectado por factores externos a este.\\
+Para lograr un método de medir la eficiencia de un programa sin que su valor se vea afectado por el cuándo y dónde se haga el análisis, se decidió hacerlo a través de las operaciones que se ejecutan en el código del programa. Y una vez sacados ponderarlos según la complejidad de cada uno. 
 
-Además de secciones tenemos subsecciones.
+\subsection{El interprete}
 
-\subsubsection{Subsubsecciones}
-
-Y subsecciones. 
-
-
-\section{Referencias}
-
-Las referencias se incluyen en el texto usando cite \cite{wiki:latex}. Para citar webs, artículos o libros \cite{koza92}.
+Un interprete es un programa que analiza y ejecuta el código de otro programa instruccion a instruccion. Esta es la manera con la que se pueden detectar los diferentes elementos que componen un programa. Al realizar este programa en Python hay que comentar antes que se trata de una maquina de pilas, lo que no deja de ser una maquina virtual que emula el funcionamiento de un ordenador. El funcionamiento principal de este se basa en almacenar y gestionar información que va recogiendo, en las diversas pilas que tiene, para de esta manera poder hacer sus operaciones.\\
+El interprete elegido para esta practica se trata de ByteRun, un interprete hecho en codigo python y para código python. Este interprete fue elegido porque al tener como objetivo principal el aprendizaje, su complejidad no es muy alta y por lo tanto es relativamente facil implementar nuevas funcionalidades en este. Por otro lado en contra parte de esa baja complejidad hay que mencionar que ByteRun no es un inteprete muy rápido, como por ejemplo podría ser Cpython, pero como en este trabajo el principal requisito que se busca en un interprete es el de poder implementar en este, una forma de poder detectar las operaciones ejecutadas y porder guardarlas, el ByteRun era una opcion muy acertada que se adaptaba perfectamente a los qrequisitos del desarrollo.
 
 
-\section{Imágenes}
+\subsection{Bytecode}.
+El Bytecode al ser un interprete de Python, no analiza directamente el codigo de alto nivel, lo que analiza este es un codigo intermerdio llamado Bytecode, el cual se trata de un codigo intermedio sacado a traves de la traduccion de codigo de alto nivel al ser pasado este por una serie de procesos (lexin,..,..).
 
-Se pueden incluir imágenes con los comandos standard de \LaTeX, pero esta plantilla dispone de comandos propios como por ejemplo el siguiente:
-
-\imagen{escudoInfor}{Autómata para una expresión vacía}
-
+Foto deun Byte code
+antes del dis y despues
 
 
-\section{Listas de items}
+\section{De ByteCode a una medida de eficiencia}
 
-Existen tres posibilidades:
+Como bien se ha comentado antes, una vez obtenido el Bytecode, el interprete, en nuestro caso el ByteRun, es capaz de ir analizando y ejecutando el bytecode obtenido. Pero el ByteRun no es capaz ir almacenando las operaciones que va traduciendo, En este momento es donde se debe implementar una nueva funcionalidad en el interprete para que sea capaz de hacer esto, para asi mas tarde poder hacer un calculo de  la eficicencia.
 
-\begin{itemize}
-	\item primer item.
-	\item segundo item.
-\end{itemize}
+\subsection{El Diccinario de procesos}.
+Cuando el ByteRun lee una instruccion y lo primero que tiene que hacer es identificar que tipo de instruccion esta leyendo, hay muchos tipos diferentes desde un LOAD, a un LOOP, o un ADD, pero a nosotros no nos interesan todas las instrucciones, solo queremos almacenar aquellas que son consideradas por nosotros como "operaciones", o lo que es lo mismo, instrucciones que necesiten de algun tipo de calculo por parte del procesador, y que por lo tanto tenga un tiempo de ejecución.
 
-\begin{enumerate}
-	\item primer item.
-	\item segundo item.
-\end{enumerate}
+Por suerte para nosotros el interprete ya hace distinciones entre los diferentes tipos de instrucciones y guarda en una lista todos aquellos valores en los cuales requiere hacer una operacion.
 
-\begin{description}
-	\item[Primer item] más información sobre el primer item.
-	\item[Segundo item] más información sobre el segundo item.
-\end{description}
-	
-\begin{itemize}
-\item 
-\end{itemize}
+Aprovechando esto, cada vez que alguno de esas instrucciones es llamada guardamos el nombre que que tiene esta al ser visualizado el bytecode mediante el comando dis** en un diccionario, el cual decidimos llamas diccionario de operacciones.
 
-\section{Tablas}
+Este diccionario tiene la siguiente estrucctura:
 
-Igualmente se pueden usar los comandos específicos de \LaTeX o bien usar alguno de los comandos de la plantilla.
+Imagen ejemplo
 
-\tablaSmall{Herramientas y tecnologías utilizadas en cada parte del proyecto}{l c c c c}{herramientasportipodeuso}
-{ \multicolumn{1}{l}{Herramientas} & App AngularJS & API REST & BD & Memoria \\}{ 
-HTML5 & X & & &\\
-CSS3 & X & & &\\
-BOOTSTRAP & X & & &\\
-JavaScript & X & & &\\
-AngularJS & X & & &\\
-Bower & X & & &\\
-PHP & & X & &\\
-Karma + Jasmine & X & & &\\
-Slim framework & & X & &\\
-Idiorm & & X & &\\
-Composer & & X & &\\
-JSON & X & X & &\\
-PhpStorm & X & X & &\\
-MySQL & & & X &\\
-PhpMyAdmin & & & X &\\
-Git + BitBucket & X & X & X & X\\
-Mik\TeX{} & & & & X\\
-\TeX{}Maker & & & & X\\
-Astah & & & & X\\
-Balsamiq Mockups & X & & &\\
-VersionOne & X & X & X & X\\
-} 
+Se trata de un diccionario compuesto por una lista de clave primaria, y los componentes de esta lista son los siguiente:
+Nombre de la operacion detectada por la interfaz
+Primeras 3 Iniciales del tipo del primer operador 
+Primeras 3 Iniciales del tipo del segundo operador 
+
+Esta estructura de clave se basa en el hecho de que un operacion necisita de dos valores con los que operar, y dependiendo de el tipo de estos valores dos mismas operaciones con diferentes valores, pueden llegar a tener nivel de eficiencia mucho mas bajo o alto que el otro. 
+
+Segun el ByteRun va analizando todo el codigo cuando detecta una instruccion dentro de la lista de operaciones este llama a una funcion que en caso de  no tener ninguna entrada de esa operacion y sus respectivos valores la genera y pone de valor un 1. Posteriormente si se va encontrando mas operaciones iguales en vez de  crear otra entrada en el diccionario de operaciones, incrementa en 1 el valor enlazado con la clave que la corresponde.
+
+De esta manera cuando el ByteRun acaba de analizar todas las operaciones, conseguimos tener un diccionario contodas las operaciones que han surgido a lo largo de la ejecución del programa.
+
+\subsection{Ponderación}.
+
+Como bien indica el nombre, la forma decidida para esto es un diccionario
