@@ -270,11 +270,13 @@ class VentanaAnalisis(Tkinter.Frame):
             self.VBoton.append(Tkinter.IntVar())
             Checkbutto.append(Tkinter.Checkbutton(self, text=o, variable=self.VBoton[enumera]))
             Checkbutto[enumera].pack(fill=Tkinter.BOTH, expand=1)
+            Checkbutto[enumera].invoke()
             self.Colores.append(self.ColoresF[enumera])
             "self.canvas.create_window(85, posi, window=Checkbutto[enumera])"
             posi=posi+20
             enumera=enumera+1
         print(self.VBoton)
+        
         
         self.canvas.show()
         self.canvas.get_tk_widget().pack(side=Tkinter.BOTTOM, fill=Tkinter.BOTH, expand=True)
@@ -299,7 +301,7 @@ class VentanaAnalisis(Tkinter.Frame):
         NewValores=[]
         NewColores=[]
         for op in self.VBoton:
-            if op.get()==0:
+            if op.get()==1:
                 NewColores.append(self.ColoresF[num])
                 NewOperadores.append(self.OperacionesF[num])
                 NewValores.append(self.CiclosDeReloj[self.Combo.get()][num])
@@ -752,21 +754,27 @@ class VentanaComparacion2(Tkinter.Frame):
         if self.Muestrafichero==0:
             print("holo")
             self.Muestrafichero=1
+            label = Tkinter.Label(self, text="Introduce un ID:")
+            label.pack();
+            self.Entry=Tkinter.Entry(self)
+        
+            self.Entry.pack()
+            
+            self.Entry2=Tkinter.Entry(self)
+            
+            self.Entry2.pack()
+            
             self.canvas.show()
             self.canvas.get_tk_widget().pack(side=Tkinter.BOTTOM, fill=Tkinter.BOTH, expand=True)
                 
             toolbar= NavigationToolbar2Tk(self.canvas, self)
             toolbar.update()
             self.canvas._tkcanvas.pack(side=Tkinter.TOP, fill=Tkinter.BOTH, expand=True)
-            """self.Entry=Tkinter.Entry(self)
+            
         
-            self.Entry.pack()
+            
         
-            self.Entry2=Tkinter.Entry(self)
-        
-            self.Entry2.pack(side=LEFT)
-        
-            btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=MuestraNombre)
+            """btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=MuestraNombre)
         
             btn.pack()"""
     

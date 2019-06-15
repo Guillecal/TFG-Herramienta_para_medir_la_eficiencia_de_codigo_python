@@ -53,4 +53,44 @@ De esta manera cuando el ByteRun acaba de analizar todas las operaciones, conseg
 
 \subsection{Ponderación}.
 
+Pero con solo tener los tipos de operaciones no es sufiente, para hacer un analisis de la eficiencia es necesario saber el nivel de eficiencia que dispone cada tipo de operacion, ya que no todas las operaciones tiene la misma commplejidad y el procesor necesita hacer mas calculos para ejecutarlos. Esto se consigue gracias a el procesador teorico.
+
+\subsubsection{Procesadores Teoricos}
+El procesador teorico tiene la funcion de darle un nivel de eficiencia a cada tipo de operacion. Se le puso este nombre por ser la parte que simula la complegidad que le supondria a un determminado procesdor, de esta mera segun los valores que se guarden en el procesaddor se pueden simuular diferentes tipos de entornos.
+
+Estos procesadores se tratan de unos ficheros de tipo .csv que guardan una matriz, llamada matriz de traduccion, la cual esta hecha de taltiene una estructura pensada para poder sacar mas los  niveles de eficiencia  que guarda en cada celda segun sea necesario.
+
+La dos primeras celdas de la matriz hacen de indice para las tuplas, la primera columna guarda el tipo de operacion mientras que la segunda guarda el tipo del primer operador. Siguiendo esta estructura si tuviéramos por ejemplo una suma de un entero con un decimal, para encontrar el nivel de eficiencia que habría que aplicarle a esta operacion en concreto la herramienta busca primero el tipo del operador, en este caso seria "ADD" y seguido a  esto busca en la segunda columna deja el valor "int", una vez  encontrados  estos dos valores ya tendria localizada la tupla dondese encuantra  el valor  deseado, y aqui es donde  entra en juego el indice de las  columnas que se haya en la primera filla de la matriz, esta  guarda los diferentes tipos que puede tomar el segundo operador, en este caso "flo", y con esto puede localizar que celda de la tupla es la que se necesita.
+
+Foto ejemplo
+
+\subsubsection{Pondera}
+Una vez tenemos tanto el diccionario de operaciones como un Procesador teorico ya solo falta realizar la ponderación para obtener los datos necesarios para hacer los analisis oportunos. 
+
+La manera en que se hace esto es bastante simple, consiste en darle un valor a cada  tipo de operacion
+(sumatorio)
+formulario
+
+ejemplo
+
+\section{Tipos de Analisis}
+Con los datos obtenidos ya se pueden hacer diferentes tipos de analisis, en el caso de esta herramienta se han implementado dos tipos:
+\begin{itemize}
+	\item Analisis individual
+	\item Analisis comparativo
+\end{itemize}
+ 
+
+\subsection{Analisis Individual}
+En este análisis solo se permite la entrada de un fichero,de formato .py, el cual tras pasar por los pasos citados en los puntos anteriores, muestra una gráfica circular con las diferentes operaciones que el interprete(ByteRun)a detectado al ejecutarlo. Y ademas de esto  deja re calcular el resultado mostrado en el gráfico según las operaciones que queramos mostrar o no y el procesador  con el que se quiera hacer la ponderación.\\
+
+Este aáalisis esta pensado para optimizar el código del programa, ya que de esta manera puedes detectar que operaciones son las que mas recursos consumen.
+
+\subsection{Analisis Individual}
+En este análisis se deben elegir mas de un fichero, los cuales ejecuta y calcula los ciclos de reloj que tarda en ejecutarse cada uno, pero al mostrar los resultados varia según el numero  de ficheros que  se hayan escogido. En caso de ser menos de 10 saldrá una gráfica de barras en la cual cada barra representa el total de ciclos de reloj de cada fichero. Y en caso de que se metan mas de 10 se cambiaría por una  gráfica de puntos para facilitar la visibilidad de los resultados. Al igual que en el análisis  individual en todo momento se pueden cambiar los resultados  de la gráfica cambiando las operaciones que queramos que se tengan en cuenta y el procesador  con el que se quiera ponderar las operaciones.\\
+
+Este análisis esta pensado para compara ficheros que tengan como finalidad hacer lo mismo, y de esta manera saber cual de ellos tiene en que clase de entornos mejor eficiencia.
+
+
+
 Como bien indica el nombre, la forma decidida para esto es un diccionario

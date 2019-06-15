@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.3.25)  13 JUN 2019 22:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.3.25)  15 JUN 2019 18:58
 entering extended mode
 **./memoria.tex
 (memoria.tex
@@ -910,13 +910,27 @@ Package pdftex.def Info: ./img/cabecera.pdf  used on input line 376.
  [4] [5] [6
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 427--428
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 429--430
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 431--432
+
+ []
+
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
- [1] [2
+[1] [2
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 451.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 459.
 
 
 ("C:\Users\Adrian\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\t1lmss.fd"
@@ -971,39 +985,64 @@ LaTeX Info: Redefining \% on input line 2.
 ]
 \openout2 = `./tex/1_Introduccion.aux'.
 
- (tex/1_Introduccion.tex)pdfTeX warning (ext4): destination with the same ident
-ifier (name{page.1}) has been already used, duplicate ignored
+ (tex/1_Introduccion.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.462 \include{./tex/1_Introduccion}
-                                     [1
+l.14 	\item C
+             omplejidad O: Esta forma realmente nos sirve  para conocer la c...
+[1
 
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 21--22
+
+ []
+
+)
+LaTeX Info: Redefining \. on input line 470.
+LaTeX Info: Redefining \% on input line 470.
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.470 \include{./tex/1_Introduccion}
+                                     [2]
 \openout2 = `./tex/2_Objetivos_del_proyecto.aux'.
 
  (tex/2_Objetivos_del_proyecto.texpdfTeX warning (ext4): destination with the s
-ame identifier (name{page.2}) has been already used, duplicate ignored
+ame identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1 \capitulo{2}{Objetivos del proyecto}
-                                         [2
+l.29 	\item D
+             iseñar una manera de guardas los niveles de eficiencia de cada...
+[3
 
 
 
-])pdfTeX warning (ext4): destination with the same identifier (name{page.3}) ha
-s been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.463 \include{./tex/2_Objetivos_del_proyecto}
-                                               [3]
-LaTeX Info: Redefining \. on input line 463.
-LaTeX Info: Redefining \% on input line 463.
+])
+LaTeX Info: Redefining \. on input line 471.
+LaTeX Info: Redefining \% on input line 471.
 pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.463 \include{./tex/2_Objetivos_del_proyecto}
+l.471 \include{./tex/2_Objetivos_del_proyecto}
                                                [4]
 \openout2 = `./tex/3_Conceptos_teoricos.aux'.
 
@@ -1035,17 +1074,31 @@ l.28 \section
              {De ByteCode a una medida de eficiencia} [6]
 LaTeX Info: Redefining \. on input line 50.
 LaTeX Info: Redefining \% on input line 50.
- [7])
-LaTeX Info: Redefining \. on input line 464.
-LaTeX Info: Redefining \% on input line 464.
+ [7]
+LaTeX Info: Redefining \. on input line 64.
+LaTeX Info: Redefining \% on input line 64.
  [8]
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
+
+ []
+
+LaTeX Info: Redefining \. on input line 91.
+LaTeX Info: Redefining \% on input line 91.
+[9])
+LaTeX Info: Redefining \. on input line 472.
+LaTeX Info: Redefining \% on input line 472.
+ [10]
 \openout2 = `./tex/4_Tecnicas_y_herramientas.aux'.
 
-
-(tex/4_Tecnicas_y_herramientas.tex
+ (tex/4_Tecnicas_y_herramientas.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9
+ [11
 
 
 
@@ -1053,84 +1106,84 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Info: Redefining \. on input line 52.
 LaTeX Info: Redefining \% on input line 52.
 
-[10])
-LaTeX Info: Redefining \. on input line 465.
-LaTeX Info: Redefining \% on input line 465.
- [11]
+[12])
+LaTeX Info: Redefining \. on input line 473.
+LaTeX Info: Redefining \% on input line 473.
+ [13]
 \openout2 = `./tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux'.
 
- (tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.tex [12
+ (tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.tex [14
 
 
 
 ]
-[13]
+[15]
 LaTeX Info: Redefining \. on input line 52.
 LaTeX Info: Redefining \% on input line 52.
- [14]
+ [16]
 LaTeX Info: Redefining \. on input line 52.
 LaTeX Info: Redefining \% on input line 52.
- [15]
+ [17]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 72.
 LaTeX Info: Redefining \% on input line 72.
- [16])
-LaTeX Info: Redefining \. on input line 466.
-LaTeX Info: Redefining \% on input line 466.
+ [18])
+LaTeX Info: Redefining \. on input line 474.
+LaTeX Info: Redefining \% on input line 474.
 
 
 Class memoir Warning: The material used in the headers is too large
 (15.35403pt) for the given head height (14.5pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 466.
+(in both cases you will find help in the memoir manual). on input line 474.
 
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[17]
+[19]
 \openout2 = `./tex/6_Trabajos_relacionados.aux'.
 
- (tex/6_Trabajos_relacionados.tex [18
-
-
-
-]) [19]
-\openout2 = `./tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux'.
-
-
-(tex/7_Conclusiones_Lineas_de_trabajo_futuras.tex [20
+ (tex/6_Trabajos_relacionados.tex [20
 
 
 
 ]) [21]
+\openout2 = `./tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux'.
+
+
+(tex/7_Conclusiones_Lineas_de_trabajo_futuras.tex [22
+
+
+
+]) [23]
 No file memoria.bbl.
 
-Overfull \hbox (21.50775pt too wide) in paragraph at lines 497--501
+Overfull \hbox (21.50775pt too wide) in paragraph at lines 505--509
 \T1/lmr/m/n/12 (-20) http://www.aosabook.org/en/500L/a-python-interpreter-writt
 en-in-python.html 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--501
+Underfull \hbox (badness 10000) in paragraph at lines 505--509
 
  []
 
-LaTeX Info: Redefining \. on input line 502.
-LaTeX Info: Redefining \% on input line 502.
-[22
+LaTeX Info: Redefining \. on input line 510.
+LaTeX Info: Redefining \% on input line 510.
+[24
 
 ]
 
 Class memoir Warning: The material used in the headers is too large
 (15.35403pt) for the given head height (14.5pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 512.
+(in both cases you will find help in the memoir manual). on input line 520.
 
-LaTeX Info: Redefining \. on input line 512.
-LaTeX Info: Redefining \% on input line 512.
-[23]
+LaTeX Info: Redefining \. on input line 520.
+LaTeX Info: Redefining \% on input line 520.
+[25]
 \tf@toc=\write5
 \openout5 = `memoria.toc'.
 
@@ -1140,8 +1193,8 @@ LaTeX Info: Redefining \% on input line 512.
 \tf@lot=\write7
 \openout7 = `memoria.lot'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 512.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 512.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 520.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 520.
  (memoria.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
@@ -1152,8 +1205,8 @@ LaTeX Info: Redefining \% on input line 25.
 (tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux)
 (tex/6_Trabajos_relacionados.aux)
 (tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 512.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 512.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 520.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 520.
 
 
 Package rerunfilecheck Warning: File `memoria.out' has changed.
@@ -1161,25 +1214,28 @@ Package rerunfilecheck Warning: File `memoria.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `memoria.out':
-(rerunfilecheck)             Before: 2D22A08FAC125113E76324DA743EA826;1200
-(rerunfilecheck)             After:  170B63CCA446E1F02033E93D8330BB9E;1200.
+(rerunfilecheck)             Before: 33B35E98C2438BEEC2B2239E06C7AE8A;1200
+(rerunfilecheck)             After:  B3535E9FF16F34BA1AAFA727562F5943;1266.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 512.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 520.
  ) 
 Here is how much of TeX's memory you used:
- 12786 strings out of 492946
- 193267 string characters out of 3125822
- 370937 words of memory out of 3000000
- 16262 multiletter control sequences out of 15000+200000
- 92370 words of font info for 110 fonts, out of 3000000 for 9000
+ 12806 strings out of 492946
+ 193484 string characters out of 3125822
+ 371031 words of memory out of 3000000
+ 16265 multiletter control sequences out of 15000+200000
+ 95698 words of font info for 115 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,12n,38p,1078b,464s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 39i,12n,38p,1078b,466s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{chapter*.33} has been referenced but does not exi
 st, replaced by a fixed one
 
-pdfTeX warning (dest): name{chapter*.32} has been referenced but does not exist
+pdfTeX warning (dest): name{chapter*.30} has been referenced but does not exist
+, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.17} has been referenced but does not exist
 , replaced by a fixed one
 
 {C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc
@@ -1191,13 +1247,14 @@ ublic/lm/lmcsc10.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts/t
 ype1/public/lm/lmr10.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fon
 ts/type1/public/lm/lmr12.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9
 /fonts/type1/public/lm/lmr17.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Users/Adrian/AppData/Local/Programs/MiK
-TeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/Adrian/AppData/Local/Programs/
-MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Users/Adrian/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on memoria.pdf (35 pages, 681858 bytes).
+ 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Users/Adrian/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Users/Adrian/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/Adrian/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Users/Adrian/AppData/Local/P
+rograms/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb>
+Output written on memoria.pdf (37 pages, 708052 bytes).
 PDF statistics:
- 698 PDF objects out of 1000 (max. 8388607)
- 81 named destinations out of 1000 (max. 500000)
- 25755 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 720 PDF objects out of 1000 (max. 8388607)
+ 89 named destinations out of 1000 (max. 500000)
+ 26267 words of extra memory for PDF output out of 29859 (max. 10000000)
 
