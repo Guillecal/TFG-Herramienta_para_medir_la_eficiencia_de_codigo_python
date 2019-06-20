@@ -1,14 +1,8 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 from distutils.core import setup
+import py2exe
+import matplotlib
 
-setup(
-    name='Byterun',
-    version='1.0',
-    description='Pure-Python Python bytecode execution',
-    author='Ned Batchelder',
-    author_email='ned@nedbatchelder.com',
-    url='http://github.com/nedbat/byterun',
-    packages=['byterun'],
-    install_requires=['six'],
-    )
+setup(console=['Vent.py'],
+      data_files=matplotlib.get_py2exe_datafiles())

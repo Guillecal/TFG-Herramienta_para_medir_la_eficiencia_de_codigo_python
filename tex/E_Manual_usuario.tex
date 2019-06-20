@@ -1,11 +1,89 @@
 \apendice{Documentación de usuario}
 
 \section{Introducción}
-
+En esta sección se explicara lo necesario para comprender como realizar un buen funcionamiento de la herramienta  a través de  unos pasos.
 \section{Requisitos de usuarios}
+Antes de nada hay que señalar una serie de requisitos previos para que se pueda ejecutar la herramienta:
+
+Tener un ordenador con una version de Python 2.7 o posterior. junto con las librerías:
+Tener algún tipo de aplicación capaz de crear, leer y escribir archivos deformado .csv (Recomendando MMicrosoft Excel o Apache OpenOffice Calc en su defecto)
+Tener disponible algún tipo de  archivo .py para analizar
+
+No son unos requisitos muy exigentes y una vez cumplidos ya se podría proceder con la instalación sin problemas.
 
 \section{Instalación}
+Realmente la herramienta no requiere de ningún tipo de instalación. Simplemente habría que descargar el proyecto del siguiente enlace:
+
+El cual descargara un archivo.zip, luego este hay que extraerlo, se puede hacer en el directorio que se quiera. Y una vez hecho esto habría que ejecutar el fichero con formato .exe
+
+Pero antes de esto hay que asegurarse de tener algún tipo de fichero.csv en la carpeta xxx dentro del proyecto, ya que si no, la  herramienta no funcionara como es debido. En principio debería haber algún archivo. csv en el proyecto descargado desde la dirección anterior, pero por si acaso es mejor hacer esta revisión.
 
 \section{Manual del usuario}
+
+Una vez preparados los ficheros los requisitos previos esta herramienta no requiere de ningún tipo de configuración posterior, damos para poder iniciar de forma fácil hay creado un ejecutable que simplemente hay que clicar para iniciar. Cabe destacar que la interfaz de esta herramienta tiene todos los textos en inglés, a pesar de esto en este manual se nos referiremos a las distintas opciones en su traducción al español.\\
+
+Una vez este iniciado, muestra una interfaz bastante simple, que nos da a elegir entre dos opciones, Análisis individual o Análisis Comparativo, aquí dependiendo del tipo de uso que se quiera hacer la herramienta, se elegirá uno u otro.\\
+
+(Imagen de la primera ventana)\\
+
+En el caso de querer ver el porcentaje de eficiencia que proporciona cada tipo de operación
+Por otra parte si lo que se quiere es hacer una comparación de eficiencia entre ficheros para determinar cuál es el que menos ciclos de reloj tarda en ejecutarse, el análisis comparativo es el que debes pulsar.
+
+
+\subsection{Análisis individual}
+
+Si pulsamos el análisis individual, lo primero que nos saldrá será una ventana con dos botones, buscar fichero y volver a la ventana principal.\\
+
+Imagen de la ventana \\
+
+El primero de estos nos permite buscar el fichero que deseamos analizar a través de un xxxx, el archivo seleccionado debe tener un formato.py, ya que si no nos saldrá un mensaje de error indicando que es un tipo de formato no valido.\\
+
+Imagen buscador, imagen error.\\
+
+Si por el contrario pulsamos el botón de volver a la ventana principal, esto hará que aparezca de nuevo la ventana que se mostró al principio.\\
+
+Una vez seleccionado el archivo .py aparecerá un nuevo botón en el que pondrá analizar fichero, a veces puede que tarde un poco en mostrar el fichero, porque internamente la herramienta tiene que hacer una serie de cálculos.\\
+
+Si pulsamos ese botón, nos mostrara la ventana de análisis. En esta ventana se muestran los resultados del análisis hecho al fichero que ha sido elegido en la ventana previa. Cuenta con una serie de opciones que hará variar los resultados que serán mostrados.\\
+
+Echando un vistazo de arriba abajo nos encontramos con las siguientes opciones:\\
+
+Primero al igual que en la ventana anterior a esta, nos encontramos con un botón que nos deja volver a la ventana inicial. Por si queremos realizar algún tipo de análisis más.\\
+
+Imagen botón?
+
+Seguido a esto hay una Listbox que deja elegir el procesador con el que se quiere ponderar a las operaciones. En esta lista se muestran los procesadores que tengamos disponibles en la carpeta xxxx. Así que si queremos que aparezcan mas tipos de procesadores tan solo habría que crear más procesadores teóricos ahí.\\
+
+(Recomendación de copiar un procesador ya creado y tan solo tener que cambiar los valores según se desee)
+Imagen Listbox + Imagen carpeta\\
+
+Luego se pueden ver unos checkboxes que representan los diferentes tipos de operaciones encontrados en el análisis del fichero seleccionado, que por defecto al principio saldrán todos marcados. Esto indica que operaciones van a ser mostradas en la gráfica de los resultados, si hay algún tipo de operación que no queramos que salga tan solo tendríamos que clicar en el checkbox de la operación para quitarle la marca.\\
+Imagen Checkbox\\
+
+Una vez configurados todos estos valores anteriores, habría que pulsar el botón de abajo xxxx, y tras esto saldría la gráfica resultante.\\
+
+Imagen gráfica\\
+
+Hay que tener en cuenta que la configuración puede ser cambiada aunque ya se haya mostrado una gráfica y si se vuelve a pulsar el botón xxxx, vuelve a recargar la gráfica con la nueva configuración que haya sido elegida.\\
+
+Imagen gráfica recargada.\\
+
++ La gráfica muestra los porcentajes de ciclos de reloj que consume cada tipo de operación. Cada uno diferenciado por un color e indicado con el nombre de la operación y el nombre del tipo de los dos operadores.
+
+
+\subsection{Análisis Comparativo}
+Pulsando el botón de análisis comparativo, Muestra una ventana con dos tipos de opciones, Buscar ficheros y volver a la ventana inicial. Esta ventana es prácticamente idéntica a la primera que sale en el análisis individual (Figura x). Pero la diferencia que hay en esta, se trata del botón buscar ficheros con el cual sale un xxxx pero con el que hay que seleccionar mas de un fichero, al igual que en el análisis individual solo se pueden elegir ficheros con formato .py pero además no se puede elegir solo 1 fichero, ya que se hace alguna de estas dos cosas saldrá un mensaje de error.
+
+Una vez seleccionado el fichero saldrá el botón de Analizar, y este nos pasará a la ventana de análisis.\\
+Lo primero que vemos en la ventana de análisis es el botón de volver al menú principal en caso de que deseemos hacer el otro tipo de análisis  o el mismos con otros  ficheros.\\
+
+Seguido hay una listbox que para indicar el procesador teórico con el que se desea ponderar  las operaciones sacadas por el interprete.\\
+
+Seguido  a esto hay una serie de checkboxes, pero a diferencia de el análisis individual, aquí muestra todas las diferentes operaciones que aparecen en todos los ficheros metidos. Así que puede haber operaciones del chebox que se encuentren solo en un fichero.\\
+
+Una vez elegidos los parámetros esta el botón mostrar resultados que nos muestra la grafica resultante, según los parámetros establecidos. La gráfica se  puede volver a recalcular sin salirse de la ventana volviendo a  pulsar el botón de mostrar resultados y mostrara la gráfica según como estén los parámetros.\\
+ 
++ La gráfica muestra los ciclos de reloj totales que suman todas las operaciones en cada uno de los ficheros seleccionados, a través de una gráfica de barras, si se han seleccionado menos de 10 ficheros y en caso contrario, a través de un gráfico de puntos. Los nombres de los ficheros en la gráfica son sustituidos por letras en orden alfabético. Y como se ha indicado antes para ver el nombre de cada uno hay que buscar en la celda de texto que fichero está asociado a cada nombre.
+
 
 

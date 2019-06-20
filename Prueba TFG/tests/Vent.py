@@ -16,12 +16,10 @@ import dis
 import sys
 import textwrap
 import types
-import unittest
-import Tkconstants, tkFileDialog
+import tkFileDialog
 import tkMessageBox
 import ttk
 import csv
-import numpy
 
 
 import six
@@ -31,7 +29,7 @@ from pandas import DataFrame
 from matplotlib.figure import Figure
 
 
-from byterun.pyvm2 import VirtualMachine, VirtualMachineError
+from byterun.pyvm2 import VirtualMachine
 
 
 
@@ -224,8 +222,6 @@ class VentanaAnalisis(Tkinter.Frame):
         f = open (self.pasa.frames[VentanaIndividual].nombre,'r')
         mensaje = f.read()
         print(mensaje)
-        
-        CAPTURE_EXCEPTION = 1
 
 
         code=mensaje
@@ -572,6 +568,7 @@ class VentanaComparacion(Tkinter.Frame):
         
         self.canvas = FigureCanvasTkAgg(f2, self)
         
+        
     def Muestra_Botones(self):
         enumera=0
         for o in app.frames[VentanaMultiple].OperacionesTotales:
@@ -657,6 +654,7 @@ class VentanaComparacion2(Tkinter.Frame):
     ValoresTotales=[]
     Entry=None
     Entry2=None
+    btn3=None
 
     def __init__(self,parent,controller):
 
@@ -760,6 +758,10 @@ class VentanaComparacion2(Tkinter.Frame):
         
             self.Entry.pack()
             
+            self.btn3 = Tkinter.Button(self, text="Find Name",command=self.Saca_Nombre)
+            
+            self.btn3.pack()
+            
             self.Entry2=Tkinter.Entry(self)
             
             self.Entry2.pack()
@@ -771,7 +773,6 @@ class VentanaComparacion2(Tkinter.Frame):
             toolbar.update()
             self.canvas._tkcanvas.pack(side=Tkinter.TOP, fill=Tkinter.BOTH, expand=True)
             
-        
             
         
             """btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=MuestraNombre)
@@ -783,7 +784,27 @@ class VentanaComparacion2(Tkinter.Frame):
         for i in self.alfabeto:
             if i==self.Entry.get():
                 self.Entry2(0,self.Nombre[contador])"""
-
+    
+    def Saca_Nombre(self):
+        contador=0
+        longi=0
+        caracter=None
+        for a in self.Fichero:
+            if a==self.Entry.get():
+                self.Entry2.delete(0,Tkinter.END)
+                longi=app.frames[VentanaMultiple].nombres[contador].__len__()
+                for c in range(longi):
+                    if app.frames[VentanaMultiple].nombres[contador][longi-c-1]=="/":
+                        caracter=longi-c
+                        self.Entry2.insert(0,app.frames[VentanaMultiple].nombres[contador][caracter:longi])
+                        break
+            contador=contador+1    
+        if caracter==None:
+            self.Entry2.delete(0,Tkinter.END)
+            self.Entry2.insert(0,"No Existe")
+        
+        
+        
 class RecogeDatos():
     direccion='C:/Users/Adrian/Documents/GitHub/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python/Prueba TFG/tests'
     Archivos=[]

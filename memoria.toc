@@ -1,8 +1,8 @@
 \babel@toc {spanish}{}
 \babel@toc {spanish}{}
 \contentsline {chapter}{\'{I}ndice general}{\es@scroman {iii}}{section*.1}% 
-\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {iv}}{section*.2}% 
-\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {v}}{section*.3}% 
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {v}}{section*.2}% 
+\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {vi}}{section*.3}% 
 \contentsline {chapter}{Introducci\IeC {\'o}n}{1}{chapter*.4}% 
 \contentsline {chapter}{Objetivos del proyecto}{3}{chapter*.5}% 
 \contentsline {section}{\numberline {2.1}Objetivos del Proyecto}{3}{section.2.1}% 
@@ -10,40 +10,44 @@
 \contentsline {subsection}{Objetivos funcionales}{3}{section*.7}% 
 \contentsline {subsection}{Objetvios tecnicos}{4}{section*.8}% 
 \contentsline {chapter}{Conceptos te\IeC {\'o}ricos}{5}{chapter*.9}% 
-\contentsline {section}{\numberline {3.1}Fundamentos Basicos}{5}{section.3.1}% 
+\contentsline {section}{\numberline {3.1}Fundamentos B\IeC {\'a}sicos}{5}{section.3.1}% 
 \contentsline {subsection}{La eficiencia}{5}{section*.10}% 
 \contentsline {subsection}{El interprete}{6}{section*.11}% 
 \contentsline {subsection}{Bytecode}{6}{section*.12}% 
 \contentsline {section}{\numberline {3.2}De ByteCode a una medida de eficiencia}{7}{section.3.2}% 
 \contentsline {subsection}{El Diccinario de procesos}{7}{section*.13}% 
-\contentsline {subsection}{Ponderaci\IeC {\'o}n}{8}{section*.14}% 
-\contentsline {subsubsection}{Procesadores Teoricos}{8}{section*.15}% 
-\contentsline {subsubsection}{Pondera}{9}{section*.16}% 
-\contentsline {section}{\numberline {3.3}Tipos de Analisis}{9}{section.3.3}% 
-\contentsline {subsection}{Analisis Individual}{9}{section*.17}% 
-\contentsline {subsection}{Analisis Individual}{10}{section*.18}% 
-\contentsline {chapter}{T\IeC {\'e}cnicas y herramientas}{11}{chapter*.19}% 
-\contentsline {subsection}{Metodolog\IeC {\'\i }a \IeC {\'A}gil}{11}{section*.20}% 
-\contentsline {subsubsection}{Subsubsecciones}{11}{section*.21}% 
-\contentsline {subsection}{Herramienta de documentaci\IeC {\'o}n}{11}{section*.22}% 
-\contentsline {subsubsection}{Latex}{11}{section*.23}% 
-\contentsline {subsection}{Herramienta de Gestion }{12}{section*.24}% 
-\contentsline {subsubsection}{GitHub}{12}{section*.25}% 
-\contentsline {subsection}{Herramientas Proyecto}{12}{section*.26}% 
-\contentsline {subsubsection}{Python}{12}{section*.27}% 
-\contentsline {subsubsection}{Tkinter}{12}{section*.28}% 
-\contentsline {subsubsection}{Numpy}{12}{section*.29}% 
-\contentsline {subsubsection}{MatPlotLib}{13}{section*.30}% 
-\contentsline {subsubsection}{Microsoft Excel}{13}{section*.31}% 
-\contentsline {chapter}{Aspectos relevantes del desarrollo del proyecto}{15}{chapter*.32}% 
-\contentsline {section}{\numberline {5.1}Transcurso del desarrollo}{15}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}La versi\IeC {\'o}n de Python}{19}{section.5.2}% 
-\contentsline {subsection}{De matriz a diccionnario}{19}{section*.33}% 
-\contentsline {chapter}{Trabajos relacionados}{21}{chapter*.34}% 
-\contentsline {chapter}{Conclusiones y L\IeC {\'\i }neas de trabajo futuras}{23}{chapter*.35}% 
-\contentsline {section}{\numberline {7.1}Introduccion}{24}{section.7.1}% 
-\contentsline {section}{\numberline {7.2}Decisiones Previas}{24}{section.7.2}% 
-\contentsline {subsection}{Herramientas}{24}{section*.36}% 
-\contentsline {subsection}{Metodolog\IeC {\'\i }a de trabajo}{24}{section*.37}% 
-\contentsline {subsection}{Informaci\IeC {\'o}n previa}{24}{section*.38}% 
-\contentsline {section}{\numberline {7.3}Tipos de Operaciones}{25}{section.7.3}% 
+\contentsline {subsection}{Ponderaci\IeC {\'o}n}{9}{section*.14}% 
+\contentsline {subsubsection}{Procesadores Teoricos}{9}{section*.15}% 
+\contentsline {subsubsection}{Ponderaci\IeC {\'o}n}{10}{section*.16}% 
+\contentsline {section}{\numberline {3.3}Tipos de Analisis}{10}{section.3.3}% 
+\contentsline {subsection}{Analisis Individual}{10}{section*.17}% 
+\contentsline {subsection}{An\IeC {\'a}lisis Multiple}{10}{section*.18}% 
+\contentsline {section}{\numberline {3.4}Estructura interna}{11}{section.3.4}% 
+\contentsline {chapter}{T\IeC {\'e}cnicas y herramientas}{13}{chapter*.19}% 
+\contentsline {subsection}{Metodolog\IeC {\'\i }a \IeC {\'A}gil}{13}{section*.20}% 
+\contentsline {subsubsection}{Subsubsecciones}{13}{section*.21}% 
+\contentsline {subsection}{Herramienta de documentaci\IeC {\'o}n}{13}{section*.22}% 
+\contentsline {subsubsection}{Latex}{13}{section*.23}% 
+\contentsline {subsection}{Herramienta de Gestion }{14}{section*.24}% 
+\contentsline {subsubsection}{GitHub}{14}{section*.25}% 
+\contentsline {subsection}{Herramientas Proyecto}{14}{section*.26}% 
+\contentsline {subsubsection}{Python}{14}{section*.27}% 
+\contentsline {subsubsection}{Tkinter}{14}{section*.28}% 
+\contentsline {subsubsection}{MatPlotLib}{15}{section*.29}% 
+\contentsline {subsubsection}{Microsoft Excel}{15}{section*.30}% 
+\contentsline {subsubsection}{Csv}{15}{section*.31}% 
+\contentsline {subsubsection}{os}{15}{section*.32}% 
+\contentsline {subsubsection}{Dis}{15}{section*.33}% 
+\contentsline {subsubsection}{tkk}{16}{section*.34}% 
+\contentsline {chapter}{Aspectos relevantes del desarrollo del proyecto}{17}{chapter*.35}% 
+\contentsline {section}{\numberline {5.1}Transcurso del desarrollo}{17}{section.5.1}% 
+\contentsline {chapter}{Trabajos relacionados}{23}{chapter*.36}% 
+\contentsline {chapter}{Conclusiones y L\IeC {\'\i }neas de trabajo futuras}{25}{chapter*.37}% 
+\contentsline {section}{\numberline {7.1}Conclusiones}{25}{section.7.1}% 
+\contentsline {section}{\numberline {7.2}Trabajos de Futuro}{26}{section.7.2}% 
+\contentsline {section}{\numberline {7.3}Introduccion}{27}{section.7.3}% 
+\contentsline {section}{\numberline {7.4}Decisiones Previas}{27}{section.7.4}% 
+\contentsline {subsection}{Herramientas}{27}{section*.38}% 
+\contentsline {subsection}{Metodolog\IeC {\'\i }a de trabajo}{27}{section*.39}% 
+\contentsline {subsection}{Informaci\IeC {\'o}n previa}{27}{section*.40}% 
+\contentsline {section}{\numberline {7.5}Tipos de Operaciones}{28}{section.7.5}% 
