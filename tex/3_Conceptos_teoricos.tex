@@ -10,35 +10,59 @@ Algunos conceptos teóricos de \LaTeX \footnote{Créditos a los proyectos de Ál
 La eficiencia vista desde un ámbito general se definiría como el uso racionado de los recursos para conseguir un objetivo x. Esta definición puede ser aplicada a cualquier ámbito en el que se hable de eficiencia pero en el caso de este proyecto se aplicara esta definición en el ámbito computacional.
 La definición citada anteriormente menciona la palabra recursos, en el ámbito que estamos tratando, cuando se habla de recursos la palabra que más suele asociarse es tiempo. Esto no quiere decir que sea la única medida de eficiencia, ni mucho menos, también se podría poner como recurso el espacio en memoria, pero el tiempo suele ser el recurso que más condiciona y la gente más en cuenta tiene en las características de los  programas.\\
 Aquí llegamos a la razón de existir de este proyecto, cómo medimos lo que tarda un programa en ejecutarse de manera fiable? La manera más extendida para hacer esto, es ejecutar el programa que se desee y esperar a que termine, contado el tiempo pasado desde el comienzo hasta el final de este. Esta manera a pesar de ser sencilla, a la hora de la verdad es muy poco fiable. Para que los resultados obtenidos por este método sean considerados verídicos se tendría que asegurar que el entorno de pruebas tenga unas condiciones idóneas, como por ejemplo que el procesador que del ordenador donde se ejecuta el programa no este gastando recursos en otros procesos que estén activos en segundo plano. El problema de esto es que conseguir un entorno así muchas veces no es tarea fácil. Y como respuesta a este problema surge la idea principal de este proyecto, medir la eficiencia de un programa de una manera fiable, que no se vea afectado por factores externos a este.\\
-Para lograr un método métrico para la eficiencia de un programa sin que su valor se vea afectado por el cuándo y dónde se haga el análisis, se decidió hacerlo a través de las operaciones que se ejecutan en el código del programa. Y una vez sacados ponderarlos según la complejidad de cada uno. 
+Para lograr un método métrico para la eficiencia de un programa sin que su valor se vea afectado por el cuándo y dónde se haga el análisis, se decidió hacerlo a través de las operaciones que se ejecutan en el código del programa. Tras esto una vez se obtengan estas operaciones, se hará una ponderación a cada tipo de operación según el nivel de complejidad que se les declare. 
 
 \subsection{El interprete}
 
-Un interprete es un programa que analiza y ejecuta el código de otro programa instrucción a instrucción. Esta es la manera con la que se pueden detectar los diferentes elementos que componen un programa. Al realizar este trabajo en Python hay que comentar antes que el interprete se trata de una maquina de pilas, lo que no deja de ser una maquina virtual que emula el funcionamiento de un ordenador. El funcionamiento principal de este se basa en almacenar y gestionar información que va recogiendo en las diversas pilas que tiene, para de esta manera poder hacer sus operaciones.\\
+Un interprete es un programa que analiza y ejecuta el código de otro programa instrucción a instrucción. Esta es la manera con la que se pueden detectar los diferentes elementos que componen un programa. Al realizar este trabajo en Python hay que comentar antes que el interprete se trata de una maquina de pila, lo que no deja de ser una maquina virtual que emula el funcionamiento de un ordenador. El funcionamiento principal de este se basa en almacenar y gestionar información que va recogiendo en las diversas pilas que tiene, para de esta manera poder hacer sus operaciones.\\
 El interprete elegido para esta practica se trata de ByteRun, un interprete hecho en código python y para código python. Este fue elegido por ser un interprete que fue creado con el objetivo principal el aprendizaje, lo cual conlleva que su complejidad no sea muy alta y por lo tanto es relativamente fácil implementar nuevas funcionalidades en este. Por otro lado en contra parte de esa baja complejidad hay que mencionar que ByteRun no es un intérprete muy rápido, como por ejemplo podría ser Cpython, pero como en este trabajo el principal requisito que se busca en un interprete es el de poder implementar nuevas funcionalidades en este para conseguir una forma de poder detectar las operaciones ejecutadas y guardarlas. El ByteRun era una opción muy acertada que se adaptaba perfectamente a los requisitos del desarrollo.
 
 
 \subsection{Bytecode}.
-El ByteRun al ser un interprete de Python, no analiza directamente el código de alto nivel, lo que este analiza es un código intermedio llamado Bytecode.\\ El ByteCode se trata de un código intermedio sacado a través de la traducción de un código de alto nivel al ser tratado por una serie de procesos (lexer,compiller...). Para sacar este código intermedio se ha utilizado un modulo de Python que  actúa de desensamblador y descompone el código de alto nivel. El aspecto  de  este código se trata de una serie de bytes que a simple vista una persona no podría entender.\\
+El ByteRun al ser un interprete de Python, no analiza directamente el código de alto nivel, lo que este analiza es un código intermedio llamado Bytecode.\\ El ByteCode se trata de un código intermedio sacado a través de la traducción de un código de alto nivel al ser tratado por una serie de procesos (lexer,compiller...). Para sacar este código intermedio se ha utilizado un modulo de Python que  actúa de desensamblador y descompone el código de alto nivel. 
 
-Imagen de bytes\\
 
-Pero el modulo Dis, cuenta con una función que permite ver el ByteCode en una especie de lenguaje ensamblador, lo cual resulta muy útil para entender la estructura del codigo.\\
 
-Imagen ByteCode Ensamblador\\
+
+\section{De código a Tiempo Computacional}
+
+Una vez explicados los conceptos anteriores se para a contar los pasos llevados a cabo para conseguir traducir el código de alto nivel a una medida con la que se pueda medir la eficiencia,  el cual en el caso de este trabajo se ha optado por los ciclos de reloj.\\
+Los pasos para hacer la transformación son los siguientes:\\
+\begin{enumerate}
+	\item Transformar el código de alto nivel a ByteCode a través del compilador (dis).
+	\item El interprete traduce y ejecuta el ByteCode.
+	\item Mientras el interprete ejecuta el ByteCode, se va obteniendo el diccionario de operaciones.
+	\item Hacer la ponderación de los valores recogidos en el diccionario de operaciones con los procesadores teóricos para obtener el tiempo computacional.
+\end{enumerate}
+
+\imagen{Pasos}{Flow diagram to transform the high-level code to computational time}
+
+\subsection{1º Paso: Obtención del ByteCode}.
+
+Como ya se ha  comentado antes el ByteCode se trata  de un código intermedio sacado  a partir de la intervención de un compilador, para conseguir esto se cuenta con un modulo de Python llamado Dis que hace esta labor de comipilador.\\
+De primeras el aspecto de este código se trata de una serie de bytes que a simple vista una persona no podría entender.\\
+
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=2cm, height=3cm]{Codigo_alto_nivel}
+\caption{Ejemplo de un código de alto nivel} \label{fig:horizonte}
+\end{figure}
+
+Pero el modulo Dis, cuenta con una función que permite ver el ByteCode en una especie de lenguaje ensamblador, lo cual resulta muy útil para entender la estructura del código.\\
+
+\imagen{ByteCode}{Ejemplo del ByteCode en vista ensamblador}
 
 La forma de entender este tipo de código es la siguiente:\\
 
 Como ejemplo usaremos la primera fila donde se encuentra la instrucción "LOAD CONTS", la primera columna muestra el número 1 que representa la línea donde está la instrucción en el código de Python, la segunda columna es un índice que indica que la instrucción "LOAD CONTS", en En este caso, está en la posición 0, la tercera columna es el nombre de la instrucción en sí misma, mostrándola con un nombre comprensible para una persona, la cuarta columna indica la posición de ese argumento en la pila y la última columna muestra cuál es el argumento para la instrucción.\\
 
+\subsection{2º Paso: Obtención del ByteCode}.
+Una vez obtenido el Bytecode entra en , el interprete, en nuestro caso el ByteRun, es capaz de ir analizando y ejecutando el bytecode obtenido. .
 
+\subsection{3º Paso: El Diccinario de procesos}.
+El ByteRun no es capaz ir almacenando las operaciones que va traduciendo. En este momento es donde se debe implementar una nueva funcionalidad en el interprete para que sea capaz de hacer esto, para así mas tarde poder hacer un calculo de la eficiencia
 
-
-\section{De ByteCode a una medida de eficiencia}
-
-Como bien se ha comentado antes, una vez obtenido el Bytecode, el interprete, en nuestro caso el ByteRun, es capaz de ir analizando y ejecutando el bytecode obtenido. Pero el ByteRun no es capaz ir almacenando las operaciones que va traduciendo. En este momento es donde se debe implementar una nueva funcionalidad en el interprete para que sea capaz de hacer esto, para así mas tarde poder hacer un calculo de la eficiencia.
-
-\subsection{El Diccinario de procesos}.
 Cuando el ByteRun lee una instrucción y lo primero que tiene que hacer es identificar que tipo de instrucción esta leyendo, hay muchos tipos diferentes desde un "LOAD", a un "LOOP", o un "ADD", pero a nosotros no nos interesan todas las instrucciones, solo queremos almacenar aquellas que son consideradas por nosotros como "operaciones", o lo que es lo mismo, instrucciones que necesiten de algun tipo de calculo por parte del procesador, y que por lo tanto tenga un tiempo de ejecución.\\
 
 Por suerte para nosotros el interprete ya hace distinciones entre los diferentes tipos de instrucciones y guarda en una lista todos aquellos valores en los cuales requiere hacer una operación.\\
@@ -47,8 +71,23 @@ Aprovechando esto, cada vez que alguno de esas instrucciones es llamada guardamo
 
 Este diccionario tiene la siguiente estructura:\\
 
-Imagen ejemplo\\
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Operación & Contador \\
+\hline \hline
+ADD int int & X \\ \hline
+ADD int flo & X \\ \hline
+MULTIPLY int int & X \\ \hline
+MULTIPLY str int & X \\ \hline
+DIVIDE int int & X \\ \hline
+\end{tabular}
+\caption{ejemplo de la estructura básica del diccionario de operaciones.}
 
+\label{tabla:sencilla}
+\end{center}
+\end{table}
 Se trata de un diccionario compuesto por una lista de clave primaria, y los componentes de esta lista son los siguiente:
 \begin{itemize}
 	\item Nombre de la operación detectada por la interfaz
@@ -65,29 +104,49 @@ Según el ByteRun va analizando todo el código cuando detecta una instrucción 
 
 De esta manera cuando el ByteRun acaba de analizar todas las operaciones, conseguimos tener un diccionario con todas las operaciones que han surgido a lo largo de la ejecución del programa.\\
 
-\subsection{Ponderación}.
+\subsection{4º Paso: Ponderación}.
 
 Pero con solo tener los tipos de operaciones no es suficiente. Para hacer un análisis de la eficiencia es necesario saber el nivel de eficiencia que dispone cada tipo de operación, ya que no todas las operaciones tiene la misma complejidad y el procesador necesita hacer mas cálculos para ejecutarlos. Esto se consigue gracias a el procesador teórico.\\
 
-\subsubsection{Procesadores Teoricos}
+\subsubsection{Procesadores Teóricos}
 El procesador teórico tiene la función de darle un nivel de eficiencia a cada tipo de operación. Se le puso este nombre por ser la parte que simula la complejidad que le supondría a un determinado procesador, de esta manera según los valores que se guarden en el procesador se pueden simular diferentes tipos de entornos.\\
 
 Estos procesadores se tratan de unos ficheros de tipo .csv que guardan una matriz, llamada matriz de traducción, la cual esta hecha de tal tiene una estructura pensada para poder sacar mas los  niveles de eficiencia  que guarda en cada celda según sea necesario.\\
 
 La dos primeras celdas de la matriz hacen de indice para las tuplas, la primera columna guarda el tipo de operación mientras que la segunda guarda el tipo del primer operador. Siguiendo esta estructura si tuviéramos por ejemplo una suma de un entero con un decimal, para encontrar el nivel de eficiencia que habría que aplicarle a esta operación en concreto la herramienta busca primero el tipo del operador, en este caso seria "ADD" y seguido a  esto busca en la segunda columna deja el valor "int", una vez  encontrados  estos dos valores ya tendría localizada la tupla donde se encuentra  el valor  deseado, y aquí es donde  entra en juego el indice de las  columnas que se haya en la primera fila de la matriz, esta  guarda los diferentes tipos que puede tomar el segundo operador, en este caso "flo", y con esto puede localizar que celda de la tupla es la que se necesita.
 
-Foto ejemplo
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Operación & Operador & INT & STR & FLOAT & BOOL \\
+\hline \hline
+ADD & int & 1 & 4 & 2 & 3\\ \hline
+ADD & int & 2 & 2 & 2 & 2 \\ \hline
+MULTIPLY & int & 1 & 2 & 3 & 2 \\ \hline
+MULTIPLY & int & 1 & 4 & 2 & 2 \\ \hline
+DIVIDE & int & 2 & 5 & 3 & 3 \\ \hline
+\end{tabular}
+\caption{Ejemplo de la estructura básica de la Matriz de traducción.}
 
-\subsubsection{Ponderación}
-Una vez tenemos tanto el diccionario de operaciones como un Procesador teórico ya solo falta realizar la ponderación para obtener los datos necesarios para hacer los análisis oportunos. 
+\label{tabla:sencilla}
+\end{center}
+\end{table}
 
-La manera en que se hace esto es bastante simple, consiste en darle un valor a cada  tipo de operación
-(sumatorio)
-formulario
 
-ejemplo
 
-\section{Tipos de Analisis}
+\subsubsection{Calculo de la Ponderacion}
+Una vez tenemos tanto el diccionario de operaciones como un Procesador teórico ya solo falta realizar la ponderación para obtener los datos necesarios, en este caso los ciclos de reloj, para hacer los análisis oportunos. 
+
+La formula aplicada para hacer la ponderación es la siguiente:
+
+\imagen{Formula}{Formula aplicada para  hacer la ponderación}
+
+Donde N y M son el número de filas y columnas de M O. Debe prestarse atención al tamaño de M T debe ser más grande que el tamaño de M O.
+Aunque esta herramienta se ha desarrollado completamente en Python, y actualmente solo puede analizar archivos .py exclusivamente, una de las ideas principales es que luego se puede usar en diferentes entornos, para diferentes tipos de idiomas y puede realizar una variedad más amplia de análisis. para adaptarse mejor a las diferentes demandas que puede requerir un análisis en profundidad de la eficiencia de un código, en un entorno más exigente. Se decidió comenzar con este tipo de lenguaje, ya que hoy en día se usa ampliamente en diferentes campos como la robótica, gracias a la gran variedad de bibliotecas que tiene. Y sería muy interesante ver los resultados que se podrían obtener en todos estos campos.
+
+
+\section{Tipos de Análisis}
 Con los datos obtenidos ya se pueden hacer diferentes tipos de análisis, en el caso de esta herramienta se han implementado dos tipos:
 \begin{itemize}
 	\item Análisis individual
@@ -98,14 +157,23 @@ Con los datos obtenidos ya se pueden hacer diferentes tipos de análisis, en el 
 \subsection{Analisis Individual}
 En este análisis solo se permite la entrada de un fichero,de formato .py, el cual tras pasar por los pasos citados en los puntos anteriores, muestra una gráfica circular con las diferentes operaciones que el interprete(ByteRun)a detectado al ejecutarlo. Y ademas de esto  deja re calcular el resultado mostrado en el gráfico según las operaciones que queramos mostrar o no y el procesador  con el que se quiera hacer la ponderación.\\
 
+\imagen{Grafica1}{Gráfica resultante del análisis individual}
+
+
 Este análisis esta pensado para optimizar el código del programa, ya que de esta manera puedes detectar que operaciones son las que mas recursos consumen.
 
 \subsection{Análisis Multiple}
 En este análisis se deben elegir mas de un fichero, los cuales ejecuta y calcula los ciclos de reloj que tarda en ejecutarse cada uno, pero al mostrar los resultados varia según el numero  de ficheros que  se hayan escogido. En caso de ser menos de 10 saldrá una gráfica de barras en la cual cada barra representa el total de ciclos de reloj de cada fichero. Y en caso de que se metan mas de 10 se cambiaría por una  gráfica de puntos para facilitar la visibilidad de los resultados. Al igual que en el análisis  individual en todo momento se pueden cambiar los resultados  de la gráfica cambiando las operaciones que queramos que se tengan en cuenta y el procesador  con el que se quiera ponderar las operaciones.\\
 
+Imagen resultados:
+
 Este análisis esta pensado para compara ficheros que tengan como finalidad hacer lo mismo, y de esta manera saber cual de ellos tiene en que clase de entornos mejor eficiencia.
 
 \section{Estructura interna}
 
-A la hora de programar todo esto, al inicio se planteo hacerlo con a través del modelo, vista, controlador. Pero a medida que se fue avanzando mas en el desarrollo esto se fue difuminando debido al tipo de desarrollo que .....
+\imagen{Estructura}{Estructura interna de la herramienta}
+
+La estructura interna del programa se muestra en la figura 4. Como se puede observar en la figura 4, es un modelo vista controlador . En este caso, el controlador y la vista se implementan de tal manera que comparten algunos componentes, por lo tanto, comparten un cuadro en la imagen, pero aún así, el concepto del modelo es el típico en el que el controlador actúa como un intermediario. Esta unión surgió del desarrollo, se fueron haciendo partes del controlador junto con la interfaz.
+
+En la herramienta, el controlador actúa como un intermediario entre la interfaz gráfica y el interprete. La interfaz permite interactuar y mostrar los resultados del análisis de eficiencia, mientras que el intérprete, el ByteRun en este caso, se ocupa de analizar y ejecutar el código.
 

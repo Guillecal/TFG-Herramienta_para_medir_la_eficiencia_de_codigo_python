@@ -1,78 +1,134 @@
 \capitulo{4}{Técnicas y herramientas}
 
-\subsection{Metodología Ágil}
+\section{Metodología Ágil}
 
-\subsubsection{Subsubsecciones}
+Para mantener un flujo de trabajo en el desarrollo del proyecto se decidió utilizar la metodología Kanban para así mantener un cierto progreso en todo momento.
 
-(No se muy bien que mete aquí)
-Para mantener un flujo de trabajo en el desarrollo del proyecto se ha decidido implementar la metodología agil XXXX, esta metodología se .....
+\subsection{Kanban}
+
+La metodología Kanban se basa en hacer visible el flujo de trabajo a trabes de una tabla.
+La tabla Kanban se puede dividir en diferentes filas y columnas, las filas sirven para identificar diferentes tipos de actividades y las columnas para identificar cada paso por un proceso.
+
+En el caso de la tablas que se ha realizado para este proyecto solo se ha utilizado una fila, ya que al solo tener 2 actores en el proyecto (Mi tutor y Yo), identificar el tipo de actividades no se creyó necesario. Por otra parte se implementaron 4 columnas:
+
+\begin{itemize}
+	\item Por hacer.
+	\item En proceso.
+	\item Revisión.
+	\item Hecho.
+\end{itemize}
+
+(Imagen de tabla)\\
+
+Con esta tabla el sistema de trabajo ha sido el siguiente:\\
+
+Primero se hacia una reunión con una frecuencia de una o dos semanas, aquí se planteaba que tareas había que hacer. Estas tareas eran las que se colocaban en la columna "Por hacer", una vez hecho esto las tareas que  se empezaban a desarrollar pasaban a "En Proceso", con un limite de 2 tareas simultaneas en esa columna, no se pueden estar desarrollando mas de dos tareas a la vez. Esto se decidió así para que no se concentrase tanto el flujo en ese proceso. Una vez una tarea se acababa su desarrollo pasaba a Revisión, lo que significaba que hasta que en la siguiente reunión no se le diese el visto bueno por parte del tutor, no pasaba a Terminado.
 
 
+\section{Herramienta de documentación}
 
-\subsection{Herramienta de documentación}
-
-\subsubsection{Latex}
+\subsection{Latex}
 
 Es un sistema de composición de textos especializado en los textos técnicos y científicos.
-Se decidió hacer este trabajo con este sistema para componer la documentación, porque facilita de gran manera la buena estructuración del documento, gracias a su , además de ofrecer una gran cantidad de aspectos tipográficos, que consiguen dar una gran calidad y profesionalidad a los documentos resultantes y al componer Latex texto mediante marcas en un archivo fuente, esto permite previsualizar el documento desde cualquier entorno sin perder el formato, lo resulta extremadamente útil para el desarrollo de documentos como el que estas leyendo.
-En mi caso he utilizado como editor de texto TexMaker, ya que me gustaba las disposición en la que dispone su interfaz y me facilitaba mucho (Enlace pagina de TexMaker)\\
+Se decidió hacer este trabajo con este sistema para componer la documentación, porque facilita de gran manera la buena estructuración del documento, gracias a su , además de ofrecer una gran cantidad de aspectos tipográficos, que consiguen dar una gran calidad y profesionalidad a los documentos resultantes y al componer Latex texto mediante marcas en un archivo fuente, esto permite previsualizar el documento desde cualquier entorno sin perder el formato, lo resulta extremadamente útil para el desarrollo de documentos como el que estas leyendo.\\
 
-(Desarrollar  un poco mas)
+En mi caso he utilizado como editor de texto TexMaker, ya que me gustaba las disposición en la que dispone su interfaz y me facilitaba mucho su uso.(Enlace pagina de TexMaker)\\
+Version: 5.0.3\\
+Licencia Open Source\\
+PaginaWeb: https://www.xm1math.net/texmaker/download.html\\
 
-\subsection{Herramienta de Gestion }
+La distribución de Latex utilizada a sido miktex, ya que esta contiene un gran número de paquetes tipográficos y es fácil de instalar:\\
+Version: 2.9.6\\
+Licencia Open Source\\
+PaginaWeb: https://miktex.org/download\\
 
-\subsubsection{GitHub}
+
+\section{Herramienta de Gestión}
+
+\subsection{GitHub}
 
 Se trata de una plataforma online donde la gente puede almacenar y gestionar los proyectos que estén desarrollando mediante gestión de versiones.\\
 
 Ha sido la herramienta de gestión principal elegida debido a que es la que nos han enseñado su uso en la Universidad y por lo tanto con la que más practica se tenía de antemano, además de ser gratuita para proyectos de código abierto.\\
 
-La hemos utilizado para albergar el código del proyecto, y desde ahí poder gestionar el avance del desarrollo
+Pagina web:https://github.com/ \\
 
-(Desarrollar algo mas)
+La hemos utilizado para albergar el código del proyecto, y desde ahí poder gestionar el avance del desarrollo.\\
 
-\subsection{Herramientas Proyecto}
+Link Repositorio:https://github.com/Guillecal/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python \\
 
-\subsubsection{Python}
+Se han ido añadiendo los commits pertinentes según se han ido completando las tareas planificadas.
+
+\subsubsection{GitHub Desktop}
+
+Esta es la herramienta utilizada para gestionar de mejor manera el repositorio donde se encuentra el trabajo, ya que facilita mucho el poder realizar los commits, con sus respectivos comentarios e incluso dejar gestionar su contenido.\\
+
+Pagina web: https://desktop.github.com/ \\
+
+Una vez descargado e instalado, la primera vez que lo ejecutamos, podemos clonar desde aquí el proyecto desde el repositorio.
+
+
+\section{Herramientas Proyecto}
+
+\subsection{Python}
 
 Se a utilizado este lenguaje de programación para realizar el trabajo, esto se debe a las gran cantidad de librerías que dispone este lenguaje para poder operar con una gran variedad de componentes, lo que ya de por si nos ofrece mucha flexibilidad. También hay que destacar que se elgio este lenguaje por ser un tipo de lenguaje interpretado, lo cual hacia que fuese mas facl tratar el tema del interprete.
-La versión con la que se ha contado a lo largo del proyecto ha sido la 2.7.X. Se intento utilizar un versión 3.7 y 3.6, pero tras tener varios problemas de consistencia entre este y el interprete que elegimos para la realización del proyecto, al final esto nos forzó a tener que probar una versión 2.\\
+La versión con la que se ha contado a lo largo del proyecto ha sido la 2.7.16. Se intento utilizar un versión 3.7 y 3.6, pero tras tener varios problemas de consistencia entre este y el interprete que elegimos para la realización del proyecto, al final esto nos forzó a tener que probar una versión 2.\\
 
-(Meter: Version? Licencia? PaginaWeb)
+Version:2.7.16\\
+Licencia: Open Source\\
+PaginaWeb: https://www.python.org/downloads/\\
 
-\subsubsection{Tkinter}
+\subsection{Tkinter}
 
 Es una librería de Python para el desarrollo de interfaces gráficas. En principio se barajó la posibilidad de utilizar algún otro tipo de librería para realizar la interfaz como por ejemplo C, pero al tener dificultades de implementar otras librerías la versión de Python 2.7., y no tener Tkinte una gran dificultad de aprendizaje para poder realizar una interfaz básica.\\
 
-(Meter: Version? Licencia? PaginaWeb)
+Version: 8.5 \\
+Licencia: Open Source \\
+PaginaWeb: 
 
+Se utilizo un modulo del Tkinter ttk
 
-\subsubsection{MatPlotLib}
+\subsection{MatPlotLib}
 
 Es una librería diseñada para representar datos en gráficos 2D. Es una librería clave en el proyecto para la representación de los gráficos resultantes de los análisis.\\
 
-(Meter: Version? Licencia? PaginaWeb)
+Version: 2.2.4\\
+Licencia: Open Source\\
+PaginaWeb: https://matplotlib.org/downloads.html\\
 
 
-\subsubsection{Microsoft Excel}
+\subsection{Microsoft Excel}
 Es una aplicación de hoja de cálculos, utilizada mayoritariamente para tareas financieras y de logística. En el caso de este proyecto se utilizo únicamente para dar valores a las matrices de traducción, ya que la estructura de celdas que tiene esta aplicación facilitaba mucho hacer esta tarea.\\
 
-(Meter: Version? Licencia? PaginaWeb)
+Version: 1905, Office 2016 \\
+Licencia: Comercial, Propietario \\
+PaginaWeb: https://products.office.com/es-es/try \\
 
-\subsubsection{Csv}
+\subsection{Csv}
 
 Modulo de Python que permite abrir,leer y escribir en ficheros .csv. En el caso de este trabajo ha sido utilizado para poder leer los procesadores teóricos y poder sacar los valores deseados para realizar la ponderación.
  
-\subsubsection{os}
+\subsection{os}
 Se trata de un modulo de Python, que permite acceder a funciones que permite leer y escribir archivos y acceder al sistema de archivos. En el caso de este proyecto se ha utilizado para acceder al sistema de archivos y poder recoger las rutas de algunas carpetas de forma automática. 
 
-\subsubsection{Dis}
+\subsection{Dis}
 Un modulo de Python que desensambla el código origen y lo transforma a ByteCode descomponiendo cada parte del código original. Este modulo es vital para el funcionamiento del ByteRun ya que es el encargado de transformar el código de alto nivel a ByteRun
 
 
-\subsubsection{tkk}
 
-Esta parte de la memoria tiene como objetivo presentar las técnicas metodológicas y las herramientas de desarrollo que se han utilizado para llevar a cabo el proyecto. Si se han estudiado diferentes alternativas de metodologías, herramientas, bibliotecas se puede hacer un resumen de los aspectos más destacados de cada alternativa, incluyendo comparativas entre las distintas opciones y una justificación de las elecciones realizadas. 
-No se pretende que este apartado se convierta en un capítulo de un libro dedicado a cada una de las alternativas, sino comentar los aspectos más destacados de cada opción, con un repaso somero a los fundamentos esenciales y referencias bibliográficas para que el lector pueda ampliar su conocimiento sobre el tema.
+\section{IDE}
 
+Como entorno de desarrollo se podría se puede utilizar el IDE de Python, pero para el desarrollo de la herramienta se ha utilizado Spyder.
+
+\subsection{Spyder}
+Spyder es un entorno de desarrollo diseñado para desarrollar código Python, el cual cuenta con un terminal donde se pueden probar los códigos y ya incluye algunas de las librerías mas utilizadas de Python\\
+
+Link descaga:https://www.spyder-ide.org/\\
+
+Una vez descargado e instalado este IDE ya viene listo para poder empezar a trabajar, pero en caso de que se requiera, se pueden cambiar algunas configuraciones según el gusto de cada uno desde la pestaña Herramientas, en el apartado preferencias.\\
+
+\imagen{Spyder}{Imagen de la interfaz de Spyder}
+
+Esta es una recomendación, si se está acostumbrado utilizar otro tipo de IDE que sirva para el lenguaje Python no habría ningún problema.\\
 

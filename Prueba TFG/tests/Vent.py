@@ -2,7 +2,7 @@
 """
 Created on Sat May  4 12:07:45 2019
 
-@author: Adrian
+@author: Guillermo Calvo Álvarez
 """
 
 from __future__ import print_function
