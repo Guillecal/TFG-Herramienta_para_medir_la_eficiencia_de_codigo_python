@@ -1,9 +1,13 @@
 \babel@toc {spanish}{}
 \babel@toc {spanish}{}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Flow diagram to transform the high-level code to computational time}}{7}{figure.3.1}% 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagrama de flujo de la tranformaci\IeC {\'o}n del codigo de alto nivel al tiempo computacional}}{8}{figure.3.1}% 
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Ejemplo de un c\IeC {\'o}digo de alto nivel}}{8}{figure.3.2}% 
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Ejemplo del ByteCode en vista ensamblador}}{8}{figure.3.3}% 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Ejemplo del ByteCode en vista ensamblador}}{9}{figure.3.3}% 
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Formula aplicada para hacer la ponderaci\IeC {\'o}n}}{12}{figure.3.4}% 
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Gr\IeC {\'a}fica resultante del an\IeC {\'a}lisis individual}}{13}{figure.3.5}% 
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Estructura interna de la herramienta}}{14}{figure.3.6}% 
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Imagen de la interfaz de Spyder}}{20}{figure.4.7}% 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Gr\IeC {\'a}fica resultante del an\IeC {\'a}lisis individual}}{14}{figure.3.5}% 
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Estructura interna de la herramienta}}{15}{figure.3.6}% 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Imagen de la tabla kanban en mitad del desarrollo}}{18}{figure.4.7}% 
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Imagen de la interfaz de Spyder}}{23}{figure.4.8}% 
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Ventana principal V.1 Interfaz}}{29}{figure.5.9}% 
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Ventana principal V.2 Interfaz}}{30}{figure.5.10}% 
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Ventana principal V.3 desconfigurada}}{32}{figure.5.11}% 

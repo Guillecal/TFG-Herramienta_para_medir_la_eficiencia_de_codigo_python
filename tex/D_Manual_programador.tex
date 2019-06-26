@@ -7,44 +7,53 @@ En esta sección se explicaran los conceptos necesarios para poder ponerse a tra
 
 Lo primero antes de nada seria descargarse la herramienta desde aquí:\\
 
-Se tiene que descargar desde: (url)\\
+Se tiene que descargar desde aquí: \\
+
+\url{https://github.com/Guillecal/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python/tree/master/Prueba%20TFG\\}
 
 
 
 \section{Estructura de directorios}
-Los archivos necesarios están repartidos entre dos carpetas:\\
 
-Vent.py\\
-Resto de Interprete\\
+Los archivos necesarios están metidos en la carpeta Pruebas TFG, dentro de esta esta el archivo principal Vent.py que hace de controlador y vista, y este llama al interprete que  se encuentra dentro de la carpeta byterun. Dentro de esta nos interesa el archivo pyvm2.py que es donde se realizo el upgrade, ademas de ser la partemas importante del interprete.\\
 
 \section{Manual del programador}
 Se empezara preparando el entorno de trabajo para trabajar con el proyecto:\\
 
 \subsection{Python}
-Para el desarrollo de la herramienta se utilizó la versión de Python 2.7.X, es recomendable descargar esta versión para evitar algún tipo de incoherencia.\\
+Para el desarrollo de la herramienta se utilizó la versión de Python 2.7.16, es recomendable descargar esta versión para evitar algún tipo de incoherencia.\\
 
-Link de descarga:\\
+Link de descarga: \url{https://github.com/Guillecal/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python/tree/master/Prueba%20TFG\\}
 
-Versión 
-Seguido a esto es necesario instalar las bibliotecas utilizadas dentro del programa. Por ello es necesario instalar primero el modulo?¿?¿ pip, el cual es esencial para hacer las instalaciones.
-Para este proyecto se utilizó la versión xxxxx, pero en este caso la versión no debería afectar, es recomendable descargar la versión más reciente:\\
+Seguido a esto es necesario instalar las bibliotecas utilizadas dentro del programa. Por ello es necesario comprobar si se tiene instalado primero el sistema de gestión pip, el cual es esencial para poder instalar las bibliotecas faltantes.
+Para este proyecto se utilizó la versión 19.1.1, pero en este caso la versión no debería afectar, hay que descargar el contenido que se encuentra en la siguiente dirección, guardar como get-pip.py:\\
 
-Link Descarga\\
+Link Descarga: \url{https://bootstrap.pypa.io/get-pip.py}
 
-Cuando ya se tiene pip instalado ya solo sería meter os siguientes comandos por el símbolo de sistema (Línea de comandos):\\
+Despues de de esto en el símbolo de sistemas hay que ejecutar el comando: python get-pip.py\\
 
- (Con sus diversas librerías)
+Cuando ya se tiene pip instalado ya solo sería meter os siguientes comandos por el símbolo de sistema:\\
+pip install matplotlib\\
+pip install python-tk\\
+
+
 \subsection{IDE}
 Como entorno de desarrollo se podría se puede utilizar el IDE de Python, pero para el desarrollo de la herramienta se ha utilizado Spyder. \\
-Link descaga:\\
-Una vez descargado e instalado este IDE ya viene listo para empezar poder trabajar, pero en caso de que se requiera, se puden cambiar algunas configuraciones según el gusto de cada uno desde la pestaña ….\\
-Imagen de la interfaz de Spyder\\
+
+Link descaga: \url{https://www.spyder-ide.org}/\\
+
+Una vez descargado e instalado este IDE ya viene listo para empezar poder trabajar, pero en caso de que se requiera, se puden cambiar algunas configuraciones según el gusto de cada uno desde las pestañas Ver y Herramientas.\\
+
+\imagen{Spyder}{Así luce la ventana de Spyder}
+
 Esta es una recomendación, si se está acostumbrado utilizar otro tipo de IDE que sirva para el lenguaje Python no habría ningún problema.\\
 
 \subsection{Github Desktop}
 
-Esta es la herramienta utilizada para gestionar mejor el repositorio donde se encuantra el trabajo
-Se puede descargas desde aquí:\\
+Esta es la herramienta utilizada para gestionar mejor el repositorio donde se encuentra el trabajo
+Se puede descargas desde aquí: 
+
+Link: \url{https://desktop.github.com/}\\
 
 Una vez descargado e instalado, la primera vez que lo ejecutamos, podemos clonar desde aquí el proyecto desde el repositorio
 
@@ -56,14 +65,20 @@ A través de la línea de comandos\\
 A través de un archivo ejecutable\\
 
 \subsection{Linea de comandos}
-Esta forma es muy sencilla. Simplemente hay abrir el Simbolo de sistema(Línea de comandos) y navegar hasta el directorio donde se encuentra el archivo Vent.py, esto se puede hacer fácilmente con el comando CD para cambiar de directorio y dir para mostrar los que contiene el directorio actual.\\
+Esta forma es muy sencilla. Simplemente hay abrir el Símbolo de sistema(Línea de comandos) y navegar hasta el directorio donde se encuentra el archivo Vent.py, esto se puede hacer fácilmente con el comando CD para cambiar de directorio y dir para mostrar los que contiene el directorio actual.\\
 Una vez encontrado el directorio simplemente hay que ejecutar el comando: Python Vent.py\\
 
 \subsection{Archivo ejecutable}
-Simplemente seria clicar en el archivo .exe que se encuentra dentro de la carpeta dist.
-Pero para hacer crear este documento es necesario previamente haber configurado un fichero llamado ....\\
+Simplemente seria clicar en el archivo .exe que se encuentra dentro de la carpeta dist.\\
 
-Para sacar el fichero excel bastantes problemas con el fihcero .dll, hecho a partir de py2exe configurando setup.py
+Pero para crear este archivo es necesario previamente haber configurado un fichero llamado setup.py que se tiene que encontrar en el mismo directorio que el archivo que se quiere hacer ejecutable, en nuestro caso es dentro de la carpeta prueba TFG. Setup.py se ha configurado de la siguiente manera: \\
+
+\imagen{Setup}{Configuración del fichero setup.py}
+
+Una vez configurado hay que dirigirse al directorio donde se encuentran desde el símbolo de sistema y ejecutar el comando "setup.py py2exe". Con esto deberia generarse una carpeta llamada "dist" y dentro de este se encontrara el ejecutable\\
+
+Como advertencia hay que commentar que podría ser necesario la descarga de un archivo .dll si no se tienen dentro de los archivos de python. 
+
+
 \section{Pruebas del sistema}
-Pruebas del sistema:\\
-Videos? Recalcar archivos con ejemplos?
+Haré vídeos cuando acabe los cambios en el código.

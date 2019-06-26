@@ -1,39 +1,23 @@
 \babel@toc {spanish}{}
 \babel@toc {spanish}{}
 \contentsline {chapter}{\'{I}ndice general}{\es@scroman {i}}{section*.1}% 
-\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {iii}}{section*.2}% 
-\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {iv}}{section*.3}% 
-\contentsline {appendix}{\chapternumberline {A}Plan de Proyecto Software}{1}{appendix.Alph1}% 
+\contentsline {chapter}{\'{I}ndice de figuras}{\es@scroman {ii}}{section*.2}% 
+\contentsline {chapter}{\'{I}ndice de tablas}{\es@scroman {iii}}{section*.3}% 
+\contentsline {appendix}{\chapternumberline {A}Documentaci\IeC {\'o}n t\IeC {\'e}cnica de programaci\IeC {\'o}n}{1}{appendix.Alph1}% 
 \contentsline {section}{\numberline {A.1}Introducci\IeC {\'o}n}{1}{section.Alph1.1}% 
-\contentsline {section}{\numberline {A.2}Planificaci\IeC {\'o}n temporal}{1}{section.Alph1.2}% 
-\contentsline {section}{\numberline {A.3}Estudio de viabilidad}{1}{section.Alph1.3}% 
-\contentsline {subsection}{Viabilidad econ\IeC {\'o}mica}{1}{section*.4}% 
-\contentsline {subsection}{Viabilidad legal}{1}{section*.5}% 
-\contentsline {appendix}{\chapternumberline {B}Especificaci\IeC {\'o}n de Requisitos}{3}{appendix.Alph2}% 
-\contentsline {section}{\numberline {B.1}Introducci\IeC {\'o}n}{3}{section.Alph2.1}% 
-\contentsline {section}{\numberline {B.2}Objetivos generales}{3}{section.Alph2.2}% 
-\contentsline {section}{\numberline {B.3}Catalogo de requisitos}{3}{section.Alph2.3}% 
-\contentsline {section}{\numberline {B.4}Especificaci\IeC {\'o}n de requisitos}{3}{section.Alph2.4}% 
-\contentsline {appendix}{\chapternumberline {C}Especificaci\IeC {\'o}n de dise\IeC {\~n}o}{5}{appendix.Alph3}% 
-\contentsline {section}{\numberline {C.1}Introducci\IeC {\'o}n}{5}{section.Alph3.1}% 
-\contentsline {section}{\numberline {C.2}Dise\IeC {\~n}o de datos}{5}{section.Alph3.2}% 
-\contentsline {section}{\numberline {C.3}Dise\IeC {\~n}o procedimental}{5}{section.Alph3.3}% 
-\contentsline {section}{\numberline {C.4}Dise\IeC {\~n}o arquitect\IeC {\'o}nico}{5}{section.Alph3.4}% 
-\contentsline {appendix}{\chapternumberline {D}Documentaci\IeC {\'o}n t\IeC {\'e}cnica de programaci\IeC {\'o}n}{7}{appendix.Alph4}% 
-\contentsline {section}{\numberline {D.1}Introducci\IeC {\'o}n}{7}{section.Alph4.1}% 
-\contentsline {section}{\numberline {D.2}Estructura de directorios}{7}{section.Alph4.2}% 
-\contentsline {section}{\numberline {D.3}Manual del programador}{7}{section.Alph4.3}% 
-\contentsline {subsection}{Python}{8}{section*.6}% 
-\contentsline {subsection}{IDE}{8}{section*.7}% 
-\contentsline {subsection}{Github Desktop}{8}{section*.8}% 
-\contentsline {section}{\numberline {D.4}Compilaci\IeC {\'o}n, instalaci\IeC {\'o}n y ejecuci\IeC {\'o}n del proyecto}{9}{section.Alph4.4}% 
-\contentsline {subsection}{Linea de comandos}{9}{section*.9}% 
-\contentsline {subsection}{Archivo ejecutable}{9}{section*.10}% 
-\contentsline {section}{\numberline {D.5}Pruebas del sistema}{10}{section.Alph4.5}% 
-\contentsline {appendix}{\chapternumberline {E}Documentaci\IeC {\'o}n de usuario}{11}{appendix.Alph5}% 
-\contentsline {section}{\numberline {E.1}Introducci\IeC {\'o}n}{11}{section.Alph5.1}% 
-\contentsline {section}{\numberline {E.2}Requisitos de usuarios}{11}{section.Alph5.2}% 
-\contentsline {section}{\numberline {E.3}Instalaci\IeC {\'o}n}{11}{section.Alph5.3}% 
-\contentsline {section}{\numberline {E.4}Manual del usuario}{12}{section.Alph5.4}% 
-\contentsline {subsection}{An\IeC {\'a}lisis individual}{12}{section*.11}% 
-\contentsline {subsection}{An\IeC {\'a}lisis Comparativo}{14}{section*.12}% 
+\contentsline {section}{\numberline {A.2}Estructura de directorios}{1}{section.Alph1.2}% 
+\contentsline {section}{\numberline {A.3}Manual del programador}{2}{section.Alph1.3}% 
+\contentsline {subsection}{Python}{2}{section*.4}% 
+\contentsline {subsection}{IDE}{2}{section*.5}% 
+\contentsline {subsection}{Github Desktop}{3}{section*.6}% 
+\contentsline {section}{\numberline {A.4}Compilaci\IeC {\'o}n, instalaci\IeC {\'o}n y ejecuci\IeC {\'o}n del proyecto}{3}{section.Alph1.4}% 
+\contentsline {subsection}{Linea de comandos}{4}{section*.7}% 
+\contentsline {subsection}{Archivo ejecutable}{4}{section*.8}% 
+\contentsline {section}{\numberline {A.5}Pruebas del sistema}{5}{section.Alph1.5}% 
+\contentsline {appendix}{\chapternumberline {B}Documentaci\IeC {\'o}n de usuario}{7}{appendix.Alph2}% 
+\contentsline {section}{\numberline {B.1}Introducci\IeC {\'o}n}{7}{section.Alph2.1}% 
+\contentsline {section}{\numberline {B.2}Requisitos de usuarios}{7}{section.Alph2.2}% 
+\contentsline {section}{\numberline {B.3}Instalaci\IeC {\'o}n}{8}{section.Alph2.3}% 
+\contentsline {section}{\numberline {B.4}Manual del usuario}{8}{section.Alph2.4}% 
+\contentsline {subsection}{An\IeC {\'a}lisis individual}{9}{section*.9}% 
+\contentsline {subsection}{An\IeC {\'a}lisis Comparativo}{16}{section*.10}% 

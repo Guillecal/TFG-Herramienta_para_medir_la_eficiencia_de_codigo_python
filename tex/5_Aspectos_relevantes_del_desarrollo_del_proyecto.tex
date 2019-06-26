@@ -1,77 +1,122 @@
 \capitulo{5}{Aspectos relevantes del desarrollo del proyecto}
 
 
-Planteamiento principal (Diferentes concepciones del trabajo según se investigan/desarrollaba)\\
 
-(Meter que conceptos aprendidos de la uni?)\\
+\section{Conceptos usados aprendidos en la Universidad}
 
 
-Aquí  hablar en cada apartado de los inconvenientes que han ido surgiendo.
 \section{Transcurso del desarrollo}
 
-El planteamiento inicial del proyecto era crear una herramienta para medir la eficiencia del código Python, en base a los ciclos de reloj y el espacio en memoria que este ocupa. Al ser este un planteamiento previo al inicio del desarrollo, este ha ido dando algunos cambios según nuevos requisitos han ido surgiendo o restricciones con las que no habíamos contado han ido apareciendo. Y aquí se intentara contar como han surgido esos cambios inesperados y como han afectado este al desarrollo del proyecto.\\
-Lo primero por donde se partió el proyecto fue el intérprete. Se buscó un intérprete capaz de satisfacer las necesidades que se plantearon. En esta etapa surgieron varias propuestas, pero tras algunas puestas en común, se llegó a la conclusión de que el intérprete ByteRun era la mejor idea para hacer un primer intento.\\
-ByteRun al final fue el intérprete elegido porque nos proporcionaba una serie de requisitos que encajaban a la perfección con lo que teníamos planeado previamente. He aquí alguno de esos requisitos:
+El planteamiento inicial del proyecto era crear una herramienta para medir la eficiencia del código Python, en base a los ciclos de reloj y el espacio en memoria que este ocupa. Al ser este un planteamiento previo al inicio del desarrollo, este ha ido dando algunos cambios según nuevos requisitos han ido surgiendo o restricciones con las que no habíamos contado han ido apareciendo. En este apartado se intentara contar como han surgido esos cambios inesperados y como han afectado este al desarrollo del proyecto.\\
+
+\subsection{El interprete}
+
+En primer lugar, la base por donde se partió el proyecto fue el intérprete. Se buscó un intérprete capaz de satisfacer las necesidades que se plantearon. En esta etapa surgieron varias propuestas, pero tras algunas puestas en común, se llegó a la conclusión de que el intérprete ByteRun era la mejor idea para hacer un primer intento.\\
+
+\subsubsection{Requisitos que cumple}
+ByteRun al final fue el intérprete elegido porque nos proporcionaba una serie de requisitos que encajaban a la perfección con lo que teníamos planeado previamente. He aquí alguno de esos requisitos:\\
+
 \begin{itemize}
-	\item Estaba desarrollado en Python: Al ser Python un lenguaje conocido, que ha sido impartido en la Universidad, era preferible que estuviese hecho en un lenguaje que ya tuviésemos conocimientos previos. Además que un intérprete de Python hecho en Python nos parecía que tenía un cierto atractivo.
-	\item Los autores de este interprete contaban con una buena documentación sobre el funcionamiento se esa herramienta, lo cual nos venía como anillo al dedo, para así entender mejor su funcionamiento y poder hacer mejor el upgrade a este.
-	\item Es un intérprete hecho con la finalidad del aprendizaje, esto hace que no sea el más rápido, pero esto también conlleva el hecho de que no sea muy complejo. Y como el objetivo del proyecto no es tener la herramienta más rápida, si no que funcione y seamos capaces de implementar los cambios necesarios, esto para nosotros era una gran ventaja.
+	\item Estaba desarrollado en Python: Al ser Python un lenguaje conocido y que ha sido impartido en la Universidad, era preferible que estuviese hecho en un lenguaje que ya tuviésemos conocimientos previos. Además que un intérprete de Python hecho en Python nos parecía que tenía un cierto atractivo.
+	\item Los autores de este interprete contaban con una buena documentación sobre su funcionamiento, lo cual nos venía como anillo al dedo, para así entender mejor su funcionamiento y poder hacer mejor el upgrade a este.
+	\item Es un intérprete hecho con la finalidad del aprendizaje, esto supone que no sea el más rápido, pero también conlleva el hecho de que no sea muy complejo. Y como el objetivo del proyecto no es tener la herramienta más rápida, si no que funcione y seamos capaces de implementar los cambios necesarios, esto para nosotros era visto como una gran ventaja.
 \end{itemize}
 
 	
-Una vez se tenía claro que el ByteRun era el intérprete que haría de base para desarrollar la herramienta, lo primero era entender su funcionamiento y hacer pruebas con diferentes ficheros para comprobar que de verdad funciona.\\
-En este punto nos encontramos con los primeros imprevistos, los autores del intérprete ya contaban con unos tests hechos, pero para poder ejecutar estos test utilizaban una **** para Python llamada tox. Tox en algunos tipos de versiones de Python no funciona adecuadamente, tras informarnos sobre esta, decidimos implementarlo en Python 2.7. la última de las versiones 2.x de Python.\\
-Una vez solucionado esto se probaron diferentes tests que estaban ya creados, los cuales funcionaban correctamente. Pero para poder medir los límites del interprete se generaron otra serie de tests con los cuales se pudo demostrar alguna delas limitaciones del interprete.\\
-(Entre alguna de ellas están la implementación de algunas bibliotecas que el intérprete no reconoce?¿?¿)
-Seguido de las pruebas se pasó a plantear la modificación del intérprete. Al principio como la intención del proyecto era poder medir la eficiencia a través de las operaciones y de las direcciones de memoria, nos pusimos a investigar en que parte del intérprete conseguiríamos la información necesaria para esto, y la conclusión a la que llegamos no era la esperada. Esto se debió a que al ser el ByteRun un intérprete de Pila, este no guarda la información que va procesando directamente en direcciones de memoria, si no que las guarda en su sistema de pilas interno. \\
-Por culpa de esto nos vimos obligados a cambiar el planteamiento principal y centrarnos en la eficiencia a través de las operaciones y diferentes formas sacar resultados a partir de esto.
-Una vez centrados en sacar las operaciones del interprete, como esperábamos, el interprete para saber como actuar según el tipo de instrucción que fuera a ejecutar, este distinguía entre diferentes tipos de instrucción, y para las que nosotros llamaríamos operaciones, tenia un par de listas con los nombres de estas según el ByteCode. Con esta diferenciación, nosotros tendríamos que guardar una instrucción cuando esta se encuentra en alguna de estas listas. \\
-El proceso de guardado de matrices paso por varios procesos para al final conseguir al a nuestro criterio es el método mas optimo de entre todos ellos.
+Una vez se tenía claro que el ByteRun era el intérprete que haría de base para desarrollar la herramienta, lo primero era entender su funcionamiento y hacer pruebas con diferentes ficheros para comprobar que de verdad funcionaba.\\
+
+\subsubsection{Pruebas}
+
+En este punto nos encontramos con los primeros imprevistos, los autores del intérprete ya contaban con unos tests hechos, pero para poder ejecutar estos test utilizaban una herramienta para Python llamada tox.\\ 
+
+Tox en algunos tipos de versiones de Python no funciona adecuadamente, tras informarnos sobre esta, y hacer pruebas en diversas versiones de python, al final decidimos implementarlo en Python 2.7.16 la última de las versiones 2 de Python actualmente.\\
+
+Una vez solucionado esto se probaron diferentes tests que estaban ya creados, los cuales funcionaban correctamente. Pero para poder medir los límites del interprete se generaron otra serie de tests con los cuales se pudo demostrar alguna de las limitaciones del interprete.\\
+
+\subsection{Upgrade}
+Seguido de las pruebas se pasó a plantear la modificación del intérprete. Al principio como la intención del proyecto era poder medir la eficiencia a través de las operaciones y de las direcciones de memoria, nos pusimos a investigar en que parte del intérprete conseguiríamos la información necesaria para esto, y la conclusión a la que llegamos no fue la esperada. Esto se debió a que al ser el ByteRun un intérprete de Pila, este no guarda la información que va procesando directamente en direcciones de memoria, si no que las guarda en su sistema de pilas interno. Por culpa de esto nos vimos obligados a cambiar el planteamiento principal y centrarnos en la eficiencia a través de las operaciones y diferentes formas sacar resultados a partir de esto.\\
+
+Una vez centrados en sacar las operaciones del interprete, nos topamos con algo que esperábamos. El interprete para saber como actuar según el tipo de instrucción que fuera a ejecutar distinguía entre diferentes tipos de instrucción, y para las que nosotros llamaríamos operaciones, tenia un par de listas con los nombres de estas según el ByteCode. Con esta diferenciación, nosotros tendríamos que guardar una instrucción cuando esta se encuentra en alguna de estas listas. \\
+
+El proceso de guardado de matrices paso por varias etapas para al final conseguir, al a nuestro criterio, el método mas optimo de entre todos ellos.\\
+
 En la primera idea implementada solo se crearon unas variables por cada tipo de operación disponible, esto a parte de ser poco eficiente, limitaba mucho el tipo de operaciones a analizar, ya que no se tenían en cuenta los tipos de los operadores.\\
+
 La segunda idea implementada fue la de la  matriz de operaciones: se decidió guardar las operaciones en una matriz con la misma estructura que posteriormente se aplicaría a la matriz de traducción.\\
-(Imagen matriz)Reaprobechar la del articulo\\
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Operación & Operador & INT & STR & FLOAT & BOOL \\
+\hline \hline
+ADD & int & 1300 & 0 & 0 & 0\\ \hline
+ADD & int & 0 & 2000 & 0 & 0 \\ \hline
+MULTIPLY & int & 0 & 0 & 300 & 0 \\ \hline
+MULTIPLY & int & 50 & 0 & 0 & 0 \\ \hline
+DIVIDE & int & 250 & 0 & 355 & 0 \\ \hline
+\end{tabular}
+\caption{Ejemplo de la estructura que tenia la matriz de operaciones.}
+
+\label{tabla:sencilla}
+\end{center}
+\end{table}
+
 Esta idea ya daba una mayor variedad de operaciones, ya que si tenía en cuenta los tipos de los operadores, pero por otra parte era incluso menos eficiente que cuando solo había variables. La matriz hacia tener un gran numero de posiciones en la matriz sin ningún tipo de uso, ya que la matriz tenia unas 350 posiciones de las cuales por fichero se solían llenar entre 6 y 12. Esto equivalía un porcentaje muy grande de desuso, por lo que se decidió cambiar este método por otro.\\
-El método que ya se decidió como definitivo, como ya se explica en el apartado de  xxxxxx, se trata de  un diccionario que guarda un contador por cada operación diferente, teniendo en cuenta los operandos. Y de esta manera nos ahorramos las celdas vacías que nos surgían en la matriz.\\
-(Foto diccionario)\\
+
+El método que ya se decidió como definitivo, como ya se explica en el apartado de Conceptos Teóricos, se trata de  un diccionario que guarda un contador por cada operación diferente, teniendo en cuenta los operadores. Y de esta manera nos ahorramos las celdas vacías que nos surgían en la matriz.\\
+(Foto diccionario otra vez?)\\
+
+\subsection{Análisis}
 Tras implementar esto empezamos a plantearnos los distintos tipos de análisis que se harían con los datos obtenidos y la conclusión a la que llegamos fue el  de hacer un análisis individual en el que solo mostrásemos los porcentajes de eficiencia de un fichero dado y otro en el pudiésemos comparar la eficacia entre varios varios ficheros.\\
+
 Primero  empezamos por el análisis individual, y en este caso como el controlador y la vista están unidas, se podría  decir que era un análisis en paralelo, según se hacia esa parte del controlador, se implementaban los parámetros de la interfaz.\\
+
 La interfaz también paso por una serie de versiones:
- Al principio la interfaz tan solo se componía de una ventana donde se añadían elementos  y a veces se  superponían, literalmente era un caos.\\
+ Al principio la interfaz tan solo se componía de una ventana donde se añadían elementos  y a veces se  superponían, literalmente era un caos. Ademas de esto para indicar que fichero se queria analizar habia que pasar la dirección del directorio.\\
  
-Foto si es posible\\
+\imagen{VentanaPrincipalOP2}{Ventana principal V.1 Interfaz}
 
 Para evitar que los elementos colisionasen entre ellos , se paso a otro  método donde cada vez que se se activasen algunos botones en particular, se añadiese una nueva ventana, esto  evitaba el problema de las colisiones, pero por otra parte la final de los análisis era muy molesto, porque  podías terminar con 4 ventanas diferentes abiertas, lo que al final era muy lioso.\\
 
-Foto si es posible\\
+\imagen{VentanaPrincipalOP2}{Ventana principal V.2 Interfaz}
 
-Explicar funcionamiento de la interfaz\\
 
-Alguna foto\\
-
-Para evitar los problemas tanto de la primera  versión de la interfaz como de la segunda, a través de investigar un poco mas en el funcionamiento  de la biblioteca Tkinter y sus diferentes funcionalidades, se consiguió realizar una interfaz que utilizase solo  una ventana, pero  el contenido  de esta se  fuese cambiando según interactuemos con esta. A decir verdad la interfaz por dentro crea un numero de  marcos, por así llamarlos, donde ya están todos los elementos que se tiene que mostrar en pantalla, cada marco representa un tipo distinto de ventana que puede surgir según se desarrolle la interacción con la herramienta, lo único que solo se muestran por pantalla aquel marco que corresponda con la funcionalidad que se este mostrando en ese momento.\\
+Para evitar los problemas tanto de la primera versión de la interfaz como de la segunda, a través de investigar un poco mas en el funcionamiento de la biblioteca Tkinter y sus diferentes funcionalidades, se consiguió realizar una interfaz que utilizase solo  una ventana, pero  el contenido  de esta se  fuese cambiando según interactuemos con esta. A decir verdad la interfaz por dentro crea un numero de  marcos, por así llamarlos, donde ya están todos los elementos que se tiene que mostrar en pantalla, cada marco representa un tipo distinto de ventana que puede surgir según se desarrolle la interacción con la herramienta, lo único que solo se muestran por pantalla aquel marco que corresponda con la funcionalidad que se este mostrando en ese momento.\\
 
 Fotos\\
 
 En concreto esta herramienta cuenta con un total de 6 (A revisar) Marcos que son los siguientes:\\
--
--
--
--
--
--\\
+\begin{itemize}
+	\item VentanaPrincipal
+	\item VentanaIndividual
+	\item VentanaAnalisis
+	\item VentanaMultiple
+	\item VentanaComparacion
+	\item VentanaComparacion2
+	\item VentanaOperaciones
+\end{itemize}
 
-Es una manera muy útil de hacer una interfaz mucho mas fluida y sencilla para la vista. La única pega que se le podría poner a este método, es que al iniciar la aplicación tiene que generar los marcos para ir rotando entre ellos. Esto ha condicionado más de una vez algunas complementaciones hechas en la interfaz.\\
-Foto?\\
 
-Para acabar con el desarrollo de las funcionalidades principales se crearon los llamados procesadores teóricos a través de la matriz de traducción. Como ya se ha explicado en puntos anteriores los procesadores con tienen una matriz que contiene valores que dan un nivel de eficiencia a los distintos tipos de operaciones. Para guardar la matriz se decidió utilizar el formato csv. Hay varios motivos detrás de esta elección:\\
 
-1 La simplicidad del formato hace posible poder configurarlo con un gran numero de aplicaciones, aunque en el caso de este proyecto se opto por Microsoft Excel.\\
+Es una manera muy útil de hacer una interfaz mucho mas fluida y sencilla para la vista. La única pega que se le podría poner a este método, es que al iniciar la aplicación tiene que generar los marcos para ir rotando entre ellos. Esto ha condicionado más de una vez algunas implementaciones hechas en la interfaz ya que a veces quedan huecos innecesarios.\\
 
-2	Hay una biblioteca en Python de la que ya teníamos algo  de experiencia, que permitía leer y escribir en los tipos de archivos csv. (nombre de la biblioteca)\\
+\imagen{VentanaPrincipalExpandido}{Ventana principal V.3 desconfigurada}
 
-Afinales del desarrollo del proyecto se trato de implementar una funcionalidad mas, pero al final  se decidió desechar esta, debido a que implicaba muchos mas recursos de los pensados en un planteamiento previo y para dejarlo inconcluso  preferimos abortar.\\
 
-Articulo\\
+Para acabar con el desarrollo de las funcionalidades principales se crearon los llamados procesadores teóricos a través de la matriz de traducción. Como ya se ha explicado en puntos anteriores los procesadores contienen una matriz de traducción que contiene valores que dan un nivel de eficiencia a los distintos tipos de operaciones. Para guardar la matriz se decidió utilizar el formato csv. Hay un par de motivos detrás de esta elección:\\
 
-Una vez terminado el desarrollo de las funcionalidades principales se le dieron unas pinceladas a algunos aspectos de este como proporciones de algunos  elementos en la interfaz, cambios en las nomenclaturas de variables, etc. Y mientras esto ocurría empezamos a desarrollar un articulo sobre el propio proyecto, para exponerlo en el congreso europeo, EuroSim. Pensamos que seria una oportunidad muy buena  de ver si el trabajo echo hasta el momento era visto atractivo y útil por otras personas (Del sector.. explicar mas a  fondo)
+\begin{enumerate}
+	\item La simplicidad del formato hace posible poder configurarlo con un gran numero de aplicaciones, aunque en el caso de este proyecto se opto por Microsoft Excel.
+	\item Hay un modulo de Python del que ya teníamos algo de experiencia, llamado también csv, que permitía leer y escribir en los tipos de archivos .csv.
+\end{enumerate}
 
+
+A finales del desarrollo del proyecto se trato de implementar una funcionalidad mas, pero al final  se decidió desechar esta, debido a que implicaba muchos mas recursos de los pensados en un planteamiento previo y para dejarlo inconcluso preferimos abortar.\\
+
+\subsection{Artículo}
+
+Una vez terminado el desarrollo de las funcionalidades principales se le dieron unas pinceladas a algunos aspectos de este como proporciones de algunos  elementos en la interfaz, cambios en las nomenclaturas de variables, etc. Y mientras esto ocurría empezamos a desarrollar un articulo sobre el propio proyecto, para exponerlo en el congreso europeo, EuroSim. Pensamos que seria una oportunidad muy buena  de ver si el trabajo hecho hasta el momento era visto atractivo y útil por otras personas interesadas en el sector informático y de esta manera también poder aprender del feedback que nos transmitan.
+
+\subsection{Retoques}
+Una vez Terminado el artículo se paso a una fase final de depuración donde se hicieron algunos cambios de diseño o alguna pequeña funcionalidad de ultima hora. Como por ejemplo cambiar la forma en la que se mostraban los checkboxes o la parametrización a través del nombre de algunos ficheros.

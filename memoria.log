@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.3.25)  23 JUN 2019 03:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.3.25)  26 JUN 2019 23:29
 entering extended mode
 **./memoria.tex
 (memoria.tex
@@ -756,8 +756,14 @@ LaTeX Info: Redefining \% on input line 25.
 LaTeX Warning: Label `tabla:sencilla' multiply defined.
 
 ) (tex/4_Tecnicas_y_herramientas.aux)
-(tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux)
-(tex/6_Trabajos_relacionados.aux)
+(tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux
+
+LaTeX Warning: Label `tabla:sencilla' multiply defined.
+
+
+LaTeX Warning: Label `fig:VentanaPrincipalOP2' multiply defined.
+
+) (tex/6_Trabajos_relacionados.aux)
 (tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux))
 \openout1 = `memoria.aux'.
 
@@ -851,7 +857,7 @@ LaTeX Info: Redefining \nameref on input line 364.
 \@outlinefile=\write4
 \openout4 = `memoria.out'.
 
-<./img/cabecera.pdf, id=87, 617.67549pt x 135.51413pt>
+<./img/cabecera.pdf, id=107, 617.67549pt x 135.51413pt>
 File: ./img/cabecera.pdf Graphic file (type pdf)
 <use ./img/cabecera.pdf>
 Package pdftex.def Info: ./img/cabecera.pdf  used on input line 366.
@@ -886,7 +892,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 366.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 366.
-<./img/escudoInfor.pdf, id=88, 618.11432pt x 737.07487pt>
+<./img/escudoInfor.pdf, id=108, 618.11432pt x 737.07487pt>
 File: ./img/escudoInfor.pdf Graphic file (type pdf)
 <use ./img/escudoInfor.pdf>
 Package pdftex.def Info: ./img/escudoInfor.pdf  used on input line 366.
@@ -1032,19 +1038,19 @@ been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.14 	\item C
-             omplejidad O: Esta forma realmente nos sirve  para conocer la c...
+             omplejidad O: Esta forma realmente nos sirve para conocer la co...
 [1
 
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 19--20
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
  []
 
@@ -1088,6 +1094,16 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 10--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+
+ []
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.5}) has 
 been already used, duplicate ignored
 <to be read again> 
@@ -1098,52 +1114,249 @@ l.14
 
 
 ]
-LaTeX Info: Redefining \. on input line 23.
-LaTeX Info: Redefining \% on input line 23.
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 26.
+LaTeX Info: Redefining \% on input line 26.
 pdfTeX warning (ext4): destination with the same identifier (name{page.6}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.23 
+l.26 
       [6]
-Underfull \hbox (badness 10000) in paragraph at lines 29--32
+Underfull \hbox (badness 10000) in paragraph at lines 32--35
 
  []
 
-<./img/Pasos.png, id=577, 649.67719pt x 210.7875pt>
+<./img/Pasos.png, id=613, 649.67719pt x 210.7875pt>
 File: ./img/Pasos.png Graphic file (type png)
 <use ./img/Pasos.png>
-Package pdftex.def Info: ./img/Pasos.png  used on input line 38.
+Package pdftex.def Info: ./img/Pasos.png  used on input line 41.
 (pdftex.def)             Requested size: 344.69766pt x 111.83907pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 40.
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--44
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- []
-
-LaTeX Info: Redefining \. on input line 44.
-LaTeX Info: Redefining \% on input line 44.
+LaTeX Info: Redefining \. on input line 41.
+LaTeX Info: Redefining \% on input line 41.
 
 Overfull \vbox (0.85403pt too high) has occurred while \output is active []
 
 
-[7 <./img/Pasos.png>]
-<./img/Codigo_alto_nivel.png, id=588, 54.2025pt x 49.18375pt>
-File: ./img/Codigo_alto_nivel.png Graphic file (type png)
-<use ./img/Codigo_alto_nivel.png>
-Package pdftex.def Info: ./img/Codigo_alto_nivel.png  used on input line 48.
-(pdftex.def)             Requested size: 56.90851pt x 85.36435pt.
+[7]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 43.
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
+Underfull \hbox (badness 10000) in paragraph at lines 45--47
 
  []
 
-<./img/ByteCode.png, id=589, 391.4625pt x 193.72375pt>
+<./img/Codigo_alto_nivel.png, id=624, 54.2025pt x 49.18375pt>
+File: ./img/Codigo_alto_nivel.png Graphic file (type png)
+<use ./img/Codigo_alto_nivel.png>
+Package pdftex.def Info: ./img/Codigo_alto_nivel.png  used on input line 51.
+(pdftex.def)             Requested size: 56.90851pt x 85.36435pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
+
+ []
+
+<./img/ByteCode.png, id=625, 391.4625pt x 193.72375pt>
 File: ./img/ByteCode.png Graphic file (type png)
 <use ./img/ByteCode.png>
-Package pdftex.def Info: ./img/ByteCode.png  used on input line 54.
+Package pdftex.def Info: ./img/ByteCode.png  used on input line 57.
 (pdftex.def)             Requested size: 344.69766pt x 170.58974pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 57.
+LaTeX Info: Redefining \% on input line 57.
+[8 <./img/Pasos.png> <./img/Codigo_alto_nivel.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
+
+ []
+
+LaTeX Info: Redefining \. on input line 70.
+LaTeX Info: Redefining \% on input line 70.
+
+Overfull \vbox (0.85403pt too high) has occurred while \output is active []
+
+
+[9 <./img/ByteCode.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+
+ []
+
+LaTeX Info: Redefining \. on input line 106.
+LaTeX Info: Redefining \% on input line 106.
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
+
+ []
+
+LaTeX Info: Redefining \. on input line 120.
+LaTeX Info: Redefining \% on input line 120.
+
+Overfull \vbox (0.85403pt too high) has occurred while \output is active []
+
+
+[11]
+<./img/Formula.png, id=648, 182.18062pt x 35.38219pt>
+File: ./img/Formula.png Graphic file (type png)
+<use ./img/Formula.png>
+Package pdftex.def Info: ./img/Formula.png  used on input line 146.
+(pdftex.def)             Requested size: 344.69766pt x 66.95366pt.
+LaTeX Info: Redefining \. on input line 150.
+LaTeX Info: Redefining \% on input line 150.
+ [12 <./img/Formula.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
+
+ []
+
+<./img/Grafica1.png, id=656, 537.50812pt x 276.28218pt>
+File: ./img/Grafica1.png Graphic file (type png)
+<use ./img/Grafica1.png>
+Package pdftex.def Info: ./img/Grafica1.png  used on input line 163.
+(pdftex.def)             Requested size: 344.69766pt x 177.17831pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 163.
+LaTeX Info: Redefining \% on input line 163.
+
+Overfull \vbox (0.85403pt too high) has occurred while \output is active []
+
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+<./img/Estructura.png, id=663, 368.87813pt x 203.25937pt>
+File: ./img/Estructura.png Graphic file (type png)
+<use ./img/Estructura.png>
+Package pdftex.def Info: ./img/Estructura.png  used on input line 177.
+(pdftex.def)             Requested size: 344.69766pt x 189.93488pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 177.
+LaTeX Info: Redefining \% on input line 177.
+[14 <./img/Grafica1.png>])
+LaTeX Info: Redefining \. on input line 482.
+LaTeX Info: Redefining \% on input line 482.
+
+Overfull \vbox (0.85403pt too high) has occurred while \output is active []
+
+
+[15 <./img/Estructura.png>]
+\openout2 = `./tex/4_Tecnicas_y_herramientas.aux'.
+
+ (tex/4_Tecnicas_y_herramientas.tex [16
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--11
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+
+ []
+
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 14.
+("C:\Users\Adrian\AppData\Local\Programs\MiKTeX 2.9\tex/latex/lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+[17]
+<./img/Kanban.png, id=686, 853.68938pt x 311.66437pt>
+File: ./img/Kanban.png Graphic file (type png)
+<use ./img/Kanban.png>
+Package pdftex.def Info: ./img/Kanban.png  used on input line 25.
+(pdftex.def)             Requested size: 344.69766pt x 125.84293pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--40
+
+ []
+
+LaTeX Info: Redefining \. on input line 40.
+LaTeX Info: Redefining \% on input line 40.
+[18 <./img/Kanban.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 41--45
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--50
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
@@ -1154,19 +1367,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
  []
 
-LaTeX Info: Redefining \. on input line 59.
-LaTeX Info: Redefining \% on input line 59.
-[8 <./img/Codigo_alto_nivel.png> <./img/ByteCode.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--69
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
 
  []
 
 
+Overfull \hbox (1.1587pt too wide) in paragraph at lines 64--65
+[]\T1/lmr/m/n/12 (-20) Link Re-po-si-to-rio: [][]$\T1/lmtt/m/n/12 https : / / g
+ithub . com / Guillecal / TFG-[]Herramienta _
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--65
+
+ []
+
+LaTeX Info: Redefining \. on input line 67.
+LaTeX Info: Redefining \% on input line 67.
+
+Overfull \vbox (0.85403pt too high) has occurred while \output is active []
+
+
+[19]
 Underfull \hbox (badness 10000) in paragraph at lines 70--71
 
  []
@@ -1176,19 +1404,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--73
 
  []
 
-LaTeX Info: Redefining \. on input line 93.
-LaTeX Info: Redefining \% on input line 93.
 
-Overfull \vbox (0.85403pt too high) has occurred while \output is active []
-
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+Underfull \hbox (badness 10000) in paragraph at lines 81--83
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--104
+Underfull \hbox (badness 10000) in paragraph at lines 84--87
+
+ []
+
+LaTeX Info: Redefining \. on input line 91.
+LaTeX Info: Redefining \% on input line 91.
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 95--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--98
 
  []
 
@@ -1198,269 +1432,114 @@ Underfull \hbox (badness 10000) in paragraph at lines 105--106
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
-
- []
-
-LaTeX Info: Redefining \. on input line 110.
-LaTeX Info: Redefining \% on input line 110.
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 112--113
+Underfull \hbox (badness 10000) in paragraph at lines 107--110
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
  []
 
-<./img/Formula.png, id=606, 182.18062pt x 35.38219pt>
-File: ./img/Formula.png Graphic file (type png)
-<use ./img/Formula.png>
-Package pdftex.def Info: ./img/Formula.png  used on input line 143.
-(pdftex.def)             Requested size: 344.69766pt x 66.95366pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--118
+
+ []
+
+LaTeX Info: Redefining \. on input line 123.
+LaTeX Info: Redefining \% on input line 123.
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 136--137
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+
+ []
+
+<./img/Spyder.png, id=724, 1028.34187pt x 533.74406pt>
+File: ./img/Spyder.png Graphic file (type png)
+<use ./img/Spyder.png>
+Package pdftex.def Info: ./img/Spyder.png  used on input line 142.
+(pdftex.def)             Requested size: 344.69766pt x 178.91327pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Info: Redefining \. on input line 143.
-LaTeX Info: Redefining \% on input line 143.
-
-Overfull \vbox (0.85403pt too high) has occurred while \output is active []
-
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
-
- []
-
-LaTeX Info: Redefining \. on input line 159.
-LaTeX Info: Redefining \% on input line 159.
-[12 <./img/Formula.png>]
-<./img/Grafica1.png, id=619, 537.50812pt x 276.28218pt>
-File: ./img/Grafica1.png Graphic file (type png)
-<use ./img/Grafica1.png>
-Package pdftex.def Info: ./img/Grafica1.png  used on input line 160.
-(pdftex.def)             Requested size: 344.69766pt x 177.17831pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 166--167
-
- []
-
-LaTeX Info: Redefining \. on input line 168.
-LaTeX Info: Redefining \% on input line 168.
-
-Overfull \vbox (0.85403pt too high) has occurred while \output is active []
-
-
-[13 <./img/Grafica1.png>]
-<./img/Estructura.png, id=628, 368.87813pt x 203.25937pt>
-File: ./img/Estructura.png Graphic file (type png)
-<use ./img/Estructura.png>
-Package pdftex.def Info: ./img/Estructura.png  used on input line 174.
-(pdftex.def)             Requested size: 344.69766pt x 189.93488pt.
-)
-LaTeX Info: Redefining \. on input line 482.
-LaTeX Info: Redefining \% on input line 482.
- [14 <./img/Estructura.png>]
-\openout2 = `./tex/4_Tecnicas_y_herramientas.aux'.
-
-
-(tex/4_Tecnicas_y_herramientas.tex
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 23--24
-
- []
-
-[15
-
-
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 32--34
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--39
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--44
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
-
- []
-
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
-
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.58 ...ps://github.com/Guillecal/TFG-Herramienta_
-                                                  para_medir_la_eficiencia_d...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.59 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (153.99811pt too wide) in paragraph at lines 58--59
-[]\T1/lmr/m/n/12 (-20) Link Repositorio:https://github.com/Guillecal/TFG-Herram
-ienta$[]\OML/lmm/m/it/12 ara[]edir[]a[]ficiencia[]e[]odigo[]ython[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 75--77
-
- []
-
-
-Underfull \vbox (badness 6893) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 77.
-LaTeX Info: Redefining \% on input line 77.
-
-Overfull \vbox (0.85403pt too high) has occurred while \output is active []
-
-
-[17]
-Underfull \hbox (badness 10000) in paragraph at lines 78--81
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 84--85
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 96--99
-
- []
-
-LaTeX Info: Redefining \. on input line 99.
-LaTeX Info: Redefining \% on input line 99.
-[18]
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 104--107
-
- []
-
-
-Underfull \vbox (badness 1817) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 124.
-LaTeX Info: Redefining \% on input line 124.
- [19]
-Underfull \hbox (badness 10000) in paragraph at lines 125--126
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--128
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
-
- []
-
-<./img/Spyder.png, id=673, 1028.34187pt x 533.74406pt>
-File: ./img/Spyder.png Graphic file (type png)
-<use ./img/Spyder.png>
-Package pdftex.def Info: ./img/Spyder.png  used on input line 131.
-(pdftex.def)             Requested size: 344.69766pt x 178.91327pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
+LaTeX Info: Redefining \. on input line 142.
+LaTeX Info: Redefining \% on input line 142.
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
 
 )
 LaTeX Info: Redefining \. on input line 483.
 LaTeX Info: Redefining \% on input line 483.
- [20 <./img/Spyder.png>]
+ [23 <./img/Spyder.png>]
 \openout2 = `./tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux'.
 
 
-(tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.tex
-Underfull \hbox (badness 10000) in paragraph at lines 4--5
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 6--7
-
- []
-
-[21
+(tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.tex [24
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 22--40
+Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-LaTeX Info: Redefining \. on input line 40.
-LaTeX Info: Redefining \% on input line 40.
-[22]
-LaTeX Info: Redefining \. on input line 40.
-LaTeX Info: Redefining \% on input line 40.
- [23]
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+
+Underfull \vbox (badness 6477) has occurred while \output is active []
+
+ [25]
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--31
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
+
+ []
+
+LaTeX Info: Redefining \. on input line 35.
+LaTeX Info: Redefining \% on input line 35.
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--40
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 41--42
 
  []
@@ -1475,82 +1554,170 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
+LaTeX Info: Redefining \. on input line 46.
+LaTeX Info: Redefining \% on input line 46.
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--62
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
+
+ []
+
+LaTeX Info: Redefining \. on input line 75.
+LaTeX Info: Redefining \% on input line 75.
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 75--77
+
+ []
+
+<./img/VentanaPrincipalOP2.png, id=763, 305.64188pt x 215.30438pt>
+File: ./img/VentanaPrincipalOP2.png Graphic file (type png)
+<use ./img/VentanaPrincipalOP2.png>
+Package pdftex.def Info: ./img/VentanaPrincipalOP2.png  used on input line 78.
+(pdftex.def)             Requested size: 344.69766pt x 242.82788pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
+
+ []
+
+File: ./img/VentanaPrincipalOP2.png Graphic file (type png)
+<use ./img/VentanaPrincipalOP2.png>
+Package pdftex.def Info: ./img/VentanaPrincipalOP2.png  used on input line 82.
+(pdftex.def)             Requested size: 344.69766pt x 242.82788pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 82.
+LaTeX Info: Redefining \% on input line 82.
+[29 <./img/VentanaPrincipalOP2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--65
-
- []
-
-LaTeX Info: Redefining \. on input line 65.
-LaTeX Info: Redefining \% on input line 65.
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--69
+Underfull \hbox (badness 10000) in paragraph at lines 89--91
+
+ []
+
+LaTeX Info: Redefining \. on input line 94.
+LaTeX Info: Redefining \% on input line 94.
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 102--103
+
+ []
+
+<./img/VentanaPrincipalExpandido.png, id=773, 377.91188pt x 533.74406pt>
+File: ./img/VentanaPrincipalExpandido.png Graphic file (type png)
+<use ./img/VentanaPrincipalExpandido.png>
+Package pdftex.def Info: ./img/VentanaPrincipalExpandido.png  used on input lin
+e 104.
+(pdftex.def)             Requested size: 344.69766pt x 486.8399pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+LaTeX Info: Redefining \. on input line 104.
+LaTeX Info: Redefining \% on input line 104.
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 107--108
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+LaTeX Info: Redefining \. on input line 108.
+LaTeX Info: Redefining \% on input line 108.
+ [32 <./img/VentanaPrincipalExpandido.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
 
  []
 
 )
 LaTeX Info: Redefining \. on input line 484.
 LaTeX Info: Redefining \% on input line 484.
- [25]
+ [33]
 \openout2 = `./tex/6_Trabajos_relacionados.aux'.
 
- (tex/6_Trabajos_relacionados.tex [26
+ (tex/6_Trabajos_relacionados.tex [34
 
 
 
-]) [27]
+]
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+
+Overfull \hbox (6.04898pt too wide) in paragraph at lines 9--10
+[]\T1/lmr/m/n/12 (-20) Enlace: [][]$\T1/lmtt/m/n/12 https : / / ieeexplore . ie
+ee . org / abstract / document / 7062696 /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
+
+ []
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 20--22
+
+ []
+
+
+Overfull \hbox (16.86787pt too wide) in paragraph at lines 23--24
+[][][]$\T1/lmtt/m/n/12 https : / / github . com / MobileComputing2016 / Efficie
+ncyMeasurement$[][] 
+ []
+
+)
+LaTeX Info: Redefining \. on input line 485.
+LaTeX Info: Redefining \% on input line 485.
+ [36]
 \openout2 = `./tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux'.
 
-
-(tex/7_Conclusiones_Lineas_de_trabajo_futuras.tex [28
-
+ (tex/7_Conclusiones_Lineas_de_trabajo_futuras.tex [37
 
 
-] [29]
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
@@ -1568,33 +1735,75 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--19
 )
 LaTeX Info: Redefining \. on input line 486.
 LaTeX Info: Redefining \% on input line 486.
- [30]
-No file memoria.bbl.
+ [38]
+bibitemlist
 
-Overfull \hbox (21.50775pt too wide) in paragraph at lines 515--519
-\T1/lmr/m/n/12 (-20) http://www.aosabook.org/en/500L/a-python-interpreter-writt
-en-in-python.html 
+Overfull \hbox (78.05562pt too wide) in paragraph at lines 494--496
+[][]$\T1/lmtt/m/n/12 https : / / www . aosabook . org / en / 500L / a-[]python-
+[]interpreter-[]written-[]in-[]python .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 515--519
-
+Underfull \hbox (badness 10000) in paragraph at lines 506--508
+[][]$\T1/lmtt/m/n/12 https : / / recursospython . com / guias-[]y-[]manuales /
  []
 
-LaTeX Info: Redefining \. on input line 520.
-LaTeX Info: Redefining \% on input line 520.
-[31
+
+Underfull \hbox (badness 10000) in paragraph at lines 518--520
+[][]$\T1/lmtt/m/n/12 https : / / kanbanize . com / es / recursos-[]de-[]kanban 
+/ primeros-[]pasos /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 522--524
+[][]$\T1/lmtt/m/n/12 https : / / cjenkins . wordpress . com / 2012 / 08 / 16 /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 526--528
+[][]$\T1/lmtt/m/n/12 https : / / ondiz . github . io / cursoLatex / Contenido /
+ 04 . Imagenes .
+ []
+
+[39
+
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 538--540
+[][]$\T1/lmtt/m/n/12 https : / / www . daniweb . com / programming / software-[
+]development /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 546--548
+[][]$\T1/lmtt/m/n/12 https : / / www . tutorialesprogramacionya . com / pythony
+a /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 554--556
+[][]$\T1/lmtt/m/n/12 http : / / akaptur . com / blog / 2013 / 08 / 14 /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 562--564
+[][]$\T1/lmtt/m/n/12 http : / / verso . mat . uam . es / ~pablo . angulo / doc 
+/ laboratorio / b2s2 .
+ []
+
 
 Class memoir Warning: The material used in the headers is too large
 (15.35403pt) for the given head height (14.5pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 530.
+(in both cases you will find help in the memoir manual). on input line 568.
 
-LaTeX Info: Redefining \. on input line 530.
-LaTeX Info: Redefining \% on input line 530.
-[32]
+LaTeX Info: Redefining \. on input line 568.
+LaTeX Info: Redefining \% on input line 568.
+
+Overfull \vbox (0.85403pt too high) has occurred while \output is active []
+
+
+[40]
 \tf@toc=\write5
 \openout5 = `memoria.toc'.
 
@@ -1604,8 +1813,8 @@ LaTeX Info: Redefining \% on input line 530.
 \tf@lot=\write7
 \openout7 = `memoria.lot'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 530.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 530.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 568.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 568.
  (memoria.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
@@ -1616,65 +1825,45 @@ LaTeX Info: Redefining \% on input line 25.
 (tex/5_Aspectos_relevantes_del_desarrollo_del_proyecto.aux)
 (tex/6_Trabajos_relacionados.aux)
 (tex/7_Conclusiones_Lineas_de_trabajo_futuras.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 530.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 530.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 568.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 568.
+Package rerunfilecheck Info: File `memoria.out' has not changed.
+(rerunfilecheck)             Checksum: A4EBB601F79316C7B376A08436193981;1787.
 
-
-Package rerunfilecheck Warning: File `memoria.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `memoria.out':
-(rerunfilecheck)             Before: 1F76FD3E2ACCBD6A2F5D6B0F9DE6B43C;1393
-(rerunfilecheck)             After:  838F558FC83A7B8E6245EA4EDC78131E;1745.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 530.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 568.
  ) 
 Here is how much of TeX's memory you used:
- 12914 strings out of 492946
- 195108 string characters out of 3125822
- 369930 words of memory out of 3000000
- 16322 multiletter control sequences out of 15000+200000
- 102899 words of font info for 126 fonts, out of 3000000 for 9000
+ 13026 strings out of 492946
+ 196902 string characters out of 3125822
+ 366964 words of memory out of 3000000
+ 16399 multiletter control sequences out of 15000+200000
+ 103217 words of font info for 127 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,12n,38p,1039b,710s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{figure.4.6} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.40} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.39} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.38} has been referenced but does not exist
-, replaced by a fixed one
-
-{C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit
-.enc}{C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-e
-c.enc}<C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/
-lmbx10.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
-c/lm/lmbx12.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-public/lm/lmbx8.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/public/lm/lmcsc10.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fo
-nts/type1/public/lm/lmmi12.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2
-.9/fonts/type1/public/lm/lmmi8.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/public/lm/lmr10.pfb><C:/Users/Adrian/AppData/Local/Programs/
-MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb><C:/Users/Adrian/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Users/Adrian/AppData/Local/P
-rograms/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Users/Adrian/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Users/Adrian/AppData/L
-ocal/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/Adrian/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Users/Adrian/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb>
-Output written on memoria.pdf (44 pages, 859844 bytes).
+ 39i,12n,38p,1039b,685s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.e
+nc}<C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmb
+x10.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/l
+m/lmbx12.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/lm/lmbx8.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
+/public/lm/lmcsc10.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/fonts
+/type1/public/lm/lmr10.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2.9/f
+onts/type1/public/lm/lmr12.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/lm/lmr17.pfb><C:/Users/Adrian/AppData/Local/Programs/MiKT
+eX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Users/Adrian/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/lm/lmr7.pfb><C:/Users/Adrian/AppData/Local/Program
+s/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Users/Adrian/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/lm/lmro12.pfb><C:/Users/Adrian/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Adrian/AppDat
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb>
+Output written on memoria.pdf (52 pages, 1389462 bytes).
 PDF statistics:
- 819 PDF objects out of 1000 (max. 8388607)
- 118 named destinations out of 1000 (max. 500000)
- 28886 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 948 PDF objects out of 1000 (max. 8388607)
+ 146 named destinations out of 1000 (max. 500000)
+ 29453 words of extra memory for PDF output out of 29859 (max. 10000000)
 

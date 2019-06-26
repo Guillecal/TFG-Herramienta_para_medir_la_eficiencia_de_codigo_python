@@ -2,7 +2,7 @@
 """
 Created on Sat May  4 12:07:45 2019
 
-@author: Adrian
+@author: Guillermo Calvo Álvarez
 """
 
 from __future__ import print_function
@@ -72,7 +72,7 @@ class SeaofBTCapp(Tkinter.Tk):
         container.grid_columnconfigure(0, weight=1)
         self.frames = {}
         
-        for F in (VentanaPrincipal, VentanaIndividual, VentanaAnalisis, VentanaMultiple, VentanaComparacion, VentanaComparacion2, VentanaParametros, VentanaOperaciones):
+        for F in (VentanaPrincipal, VentanaIndividual, VentanaAnalisis, VentanaMultiple, VentanaComparacion, VentanaComparacion2, VentanaOperaciones, VentanaOperaciones2, VentanaOperaciones3):
             frame = F(container, self)
             
             self.frames[F] = frame
@@ -106,6 +106,11 @@ class VentanaPrincipal(Tkinter.Frame):
         "Hacer una funcion que borre todos los frames"
         
         btn2.pack()
+        
+        btn3 = Tkinter.Button(self, text="Exit",command=sys.exit)
+        "Hacer una funcion que borre todos los frames"
+        
+        btn3.pack()
         
         """btn3 =Tkinter.Button(self, text="Analisis individual. Parametros",command=lambda: controller.show_frame(VentanaParametros))
         
@@ -152,6 +157,8 @@ class VentanaIndividual(Tkinter.Frame):
                 btn3.pack()
                 self.Boton1=1
             
+        elif self.nombre.__len__()==0:
+            tkMessageBox.showwarning()("Error","No se ha seleccionado ningun fichero")
         else:
             tkMessageBox.showerror("Error","El fichero seleccionado no es de tipo .py")
         
@@ -187,6 +194,10 @@ class VentanaAnalisis(Tkinter.Frame):
         
         """btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))"""
         btn = Tkinter.Button(self, text="Return to the main screen",command=lambda: controller.show_frame(VentanaPrincipal))
+        btn.pack()
+        
+        btn = Tkinter.Button(self, text="View Operations",command=lambda: controller.show_frame(VentanaOperaciones2))
+        
         btn.pack()
         
         """combo = ttk.Combobox(values=Procesadores.Archivos_csv)"""
@@ -264,7 +275,8 @@ class VentanaAnalisis(Tkinter.Frame):
             self.CiclosDeReloj[archivo]=aux
 
         "Recorre los tipos de operaciones y seleccionas los que luego deseas"
-        for o in lab:
+        app.frames[VentanaOperaciones2].Muestra_Operaciones()
+        """for o in lab:
             self.VBoton.append(Tkinter.IntVar())
             Checkbutto.append(Tkinter.Checkbutton(self, text=o, variable=self.VBoton[enumera]))
             Checkbutto[enumera].pack(fill=Tkinter.BOTH, expand=1)
@@ -273,7 +285,7 @@ class VentanaAnalisis(Tkinter.Frame):
             "self.canvas.create_window(85, posi, window=Checkbutto[enumera])"
             posi=posi+20
             enumera=enumera+1
-        print(self.VBoton)
+        print(self.VBoton)"""
         
         
         self.canvas.show()
@@ -298,7 +310,7 @@ class VentanaAnalisis(Tkinter.Frame):
         NewOperadores=[]
         NewValores=[]
         NewColores=[]
-        for op in self.VBoton:
+        for op in app.frames[VentanaOperaciones2].VBoton:
             if op.get()==1:
                 NewColores.append(self.ColoresF[num])
                 NewOperadores.append(self.OperacionesF[num])
@@ -397,6 +409,8 @@ class VentanaMultiple(Tkinter.Frame):
             tkMessageBox.showerror("Error","El fichero seleccionado no es de tipo .py")
         elif self.nombres.__len__()==1:
             tkMessageBox.showerror("Error","Solo has seleccionado 1 fichero")
+        elif self.nombres.__len__()==0:
+            tkMessageBox.showwarning()("Error","No se ha seleccionado ningun fichero")
         else:
             if self.nombres.__len__()<=10:
                 if self.Boton1==0:
@@ -484,11 +498,13 @@ class VentanaMultiple(Tkinter.Frame):
             "app.frames[VentanaComparacion].Muestra_Botones()"
             "app.frames[VentanaComparacion2].Muestra_Botones()"
             app.frames[VentanaOperaciones].Muestra_Operaciones()
+            app.frames[VentanaOperaciones3].Muestra_Operaciones()
             
             for marcar in range(0,app.frames[VentanaOperaciones].VBoton.__len__()):
                 "app.frames[VentanaComparacion].Checkbutto[marcar].invoke()"
                 "app.frames[VentanaComparacion2].Checkbutto[marcar].invoke()"
                 app.frames[VentanaOperaciones].Checkbutto[marcar].invoke()
+                app.frames[VentanaOperaciones3].Checkbutto[marcar].invoke()
         
         
     def SacarCiclosDeReloj(self,Proce,Operadores):
@@ -695,11 +711,104 @@ class VentanaOperaciones(Tkinter.Frame):
         self.btn.pack()
         self.ValoresAnteriores=app.frames[VentanaMultiple].OperacionesTotales.__len__()
         self.Existo=1
+        
+class VentanaOperaciones3(Tkinter.Frame):
+    
+    Pasadita=None
+    pasa=None
+    btn=None
+    VBoton=[] 
+    Checkbutto=[]
+    ValoresAnteriores=None
+    Existo=0
+ 
+    def __init__(self,parent,controller):
+        Tkinter.Frame.__init__(self,parent)
+        label = Tkinter.Label(self, text="Operations:", font=LARGE_FONT)
+        label.pack(pady=10,padx=10)
+        
+        self.Pasadita=parent
+        self.pasa=controller
+        
+        self.btn = Tkinter.Button(self, text="Go Back",command=lambda: controller.show_frame(VentanaComparacion2))
+        
+        
+    
+    def Muestra_Operaciones(self):
+   
+        if self.Existo==1:
+            enumera=0
+            print(self.ValoresAnteriores)
+            for o in self.Checkbutto:
+                o.pack_forget()
+                enumera=enumera+1
+            self.btn.pack_forget()
+            del self.Checkbutto[:]
+            del self.VBoton[:]
+
+          
+
+        enumera=0
+        for o in app.frames[VentanaMultiple].OperacionesTotales:
+            self.VBoton.append(Tkinter.IntVar())
+            self.Checkbutto.append(Tkinter.Checkbutton(self, text=o, variable=self.VBoton[enumera]))
+            self.Checkbutto[enumera].pack(fill=Tkinter.BOTH, expand=1)
+            "self.canvas.create_window(85, posi, window=Checkbutto[enumera])"
+            enumera=enumera+1
+        self.btn.pack()
+        self.ValoresAnteriores=app.frames[VentanaMultiple].OperacionesTotales.__len__()
+        self.Existo=1
     
         
 
         
+class VentanaOperaciones2(Tkinter.Frame):
+    
+    Pasadita=None
+    pasa=None
+    btn=None
+    VBoton=[] 
+    Checkbutto=[]
+    ValoresAnteriores=None
+    Existo=0
+ 
+    def __init__(self,parent,controller):
+        Tkinter.Frame.__init__(self,parent)
+        label = Tkinter.Label(self, text="Operations:", font=LARGE_FONT)
+        label.pack(pady=10,padx=10)
         
+        self.Pasadita=parent
+        self.pasa=controller
+        
+        self.btn = Tkinter.Button(self, text="Go Back",command=lambda: controller.show_frame(VentanaAnalisis))
+        
+        
+    
+    def Muestra_Operaciones(self):        
+        if self.Existo==1:
+            enumera=0
+            print(self.ValoresAnteriores)
+            for o in self.Checkbutto:
+                o.pack_forget()
+                enumera=enumera+1
+            self.btn.pack_forget()
+            del self.Checkbutto[:]
+            del self.VBoton[:]
+
+          
+
+        enumera=0
+        for o in app.frames[VentanaAnalisis].OperacionesF:
+            self.VBoton.append(Tkinter.IntVar())
+            self.Checkbutto.append(Tkinter.Checkbutton(self, text=o, variable=self.VBoton[enumera]))
+            self.Checkbutto[enumera].pack(fill=Tkinter.BOTH, expand=1)
+            self.Checkbutto[enumera].invoke()
+            app.frames[VentanaAnalisis].Colores.append(app.frames[VentanaAnalisis].ColoresF[enumera])
+            "self.canvas.create_window(85, posi, window=Checkbutto[enumera])"
+            enumera=enumera+1
+        self.btn.pack()
+        self.ValoresAnteriores=app.frames[VentanaMultiple].OperacionesTotales.__len__()
+        self.Existo=1
 
 
 
@@ -739,7 +848,7 @@ class VentanaComparacion2(Tkinter.Frame):
         
         btn.pack()
         
-        btn = Tkinter.Button(self, text="View Operations",command=lambda: controller.show_frame(VentanaOperaciones))
+        btn = Tkinter.Button(self, text="View Operations",command=lambda: controller.show_frame(VentanaOperaciones3))
         
         btn.pack()
         
@@ -792,7 +901,7 @@ class VentanaComparacion2(Tkinter.Frame):
             contador_menor=contador_menor+1
         contador_operaciones=0
         for Ototal in app.frames[VentanaMultiple].OperacionesTotales:
-            if self.VBoton[contador_operaciones].get()==1:
+            if app.frames[VentanaOperaciones3].VBoton[contador_operaciones].get()==1:
                 contador_menor=0
                 for Omenor in app.frames[VentanaMultiple].Operaciones.values():
                     cont_interior=0
@@ -891,50 +1000,7 @@ class RecogeDatos():
                 self.Archivos_csv.append(i)
         print(self.Archivos_csv)
 
-class VentanaParametros(Tkinter.Frame):
-    nombre=None
-    Boton2=0
-    Boton1=0
-    cont=0
-    Pasadita=None
-    pasa=None
-    Value={}
-    Operaciones={}
-    CiclosDeReloj={}
-    OperacionesTotales=[]
 
-    
-    def __init__(self,parent,controller):
-        self.Pasadita=parent
-        self.pasa=controller
-        
-        Tkinter.Frame.__init__(self,parent)
-        label = Tkinter.Label(self, text="Escoge el fichero a analizar:", font=LARGE_FONT)
-        label.pack(pady=10,padx=10)
-        
-        btn2 = Tkinter.Button(self, text="Buscar fichero",command=self.V_analisis)
-        
-        btn2.pack()
-        
-        btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=lambda: controller.show_frame(VentanaPrincipal))
-        
-        btn.pack()   
-        
-      
-    def V_analisis(self):
-        self.nombre = tkFileDialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
-        if self.nombre[len(self.nombre)-1]=="y" and self.nombre[len(self.nombre)-2]=="p" and self.nombre[len(self.nombre)-3]==".":
-            "Se analiza cuando se  muestra el boton de Analizar fichero"
-            "self.pasa.frames[VentanaAnalisis].Analisis()"
-            if self.Boton1==0:
-                btn3 = Tkinter.Button(self, text="Analizar fichero",command=print("hola"))
-                btn3.pack()
-                self.Boton1=1
-            
-        else:
-            tkMessageBox.showerror("Error","El fichero seleccionado no es de tipo .py")
-            
-        tkMessageBox.showerror("Error","Se esta trabajando en esta nueva funcionalidad")
     
     
 
