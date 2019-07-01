@@ -1,15 +1,36 @@
 \capitulo{4}{Técnicas y herramientas}
 
-\section{Metodología Ágil}
+\section{Herramienta de documentación}
 
-Para mantener un flujo de trabajo en el desarrollo del proyecto se decidió utilizar la metodología Kanban para así mantener un cierto progreso en todo momento.\\
+\subsection{Latex}
+
+Es un sistema de composición de textos especializado en los textos técnicos y científicos.
+Se decidió hacer este trabajo con este sistema para componer la documentación, porque facilita de gran manera la buena estructuración del documento, gracias a su , además de ofrecer una gran cantidad de aspectos tipográficos, que consiguen dar una gran calidad y profesionalidad a los documentos resultantes y al componer Latex texto mediante marcas en un archivo fuente, esto permite previsualizar el documento desde cualquier entorno sin perder el formato, lo resulta extremadamente útil para el desarrollo de documentos como el que estas leyendo.\\
+
+En mi caso he utilizado como editor de texto TexMaker, ya que me gustaba la disposición que tenia su interfaz y me facilitaba mucho su uso.\\
+
+Version: 5.0.3\\
+Licencia Open Source\\
+PaginaWeb: \url{https://www.xm1math.net/texmaker/download.html}\\
+
+La distribución de Latex utilizada a sido miktex, ya que esta contiene un gran número de paquetes tipográficos y es fácil de instalar:\\
+Version: 2.9.6\\
+Licencia Open Source\\
+PaginaWeb: \url{https://miktex.org/download}\\
+
+
+\section{Herramientas de Gestión}
+
 
 \subsection{Kanban}
+
+Para mantener un flujo de trabajo en el desarrollo del proyecto se decidió utilizar la metodología Kanban\cite{Kanban} para así mantener un  progreso en todo momento.\\
+
 
 La metodología Kanban se basa en hacer visible el flujo de trabajo a trabes de una tabla.
 La tabla Kanban se puede dividir en diferentes filas y columnas, las filas sirven para identificar diferentes tipos de actividades y las columnas para identificar cada paso por un proceso.\\
 
-Para utilizar esta metodología se utilizo la aplicación web llamada trello. Ya que consta de varias herramientas interesantes, como por ejemplo hacer descripciones y comentarios en cada tarea y añadir elementos internos, para segmentar los pasos de una tarea.\\
+Para utilizar esta metodología se utilizó la aplicación web llamada trello. Ya que consta de varias herramientas interesantes, como por ejemplo hacer descripciones y comentarios en cada tarea y añadir elementos internos, para segmentar los pasos de una tarea.\\
 
 Link: \url{https://trello.com/}
 
@@ -28,28 +49,8 @@ En el caso de la tabla que se ha realizado para este proyecto solo se ha utiliza
 
 Con esta tabla el sistema de trabajo ha sido el siguiente:\\
 
-Primero se hacia una reunión con una frecuencia de una o dos semanas, aquí se planteaba que tareas había que hacer. Estas tareas eran las que se colocaban en la columna "Por hacer", una vez hecho esto las tareas que  se empezaban a desarrollar pasaban a "En Proceso", con un limite de 2 tareas simultaneas en esa columna, no se pueden estar desarrollando mas de dos tareas a la vez. Esto se decidió así para que no se concentrase tanto el flujo en ese proceso. Una vez una tarea se acababa su desarrollo pasaba a Revisión, lo que significaba que hasta que en la siguiente reunión no se le diese el visto bueno por parte del tutor, no pasaba a Terminado.
+Primero se hacia una reunión con una frecuencia de una o dos semanas, aquí se planteaba que tareas había que hacer. Estas tareas eran las que se colocaban en la columna ''Por hacer'', una vez hecho esto las tareas que  se empezaban a desarrollar pasaban a ''En Proceso'', con un limite de 2 tareas simultaneas en esa columna, no se pueden estar desarrollando mas de dos tareas a la vez. Esto se decidió así para que no se concentrase tanto el flujo en ese proceso. Una vez una tarea se acababa su desarrollo pasaba a Revisión, lo que significaba que hasta que en la siguiente reunión no se le diese el visto bueno por parte del tutor, no pasaba a Terminado.
 
-
-\section{Herramienta de documentación}
-
-\subsection{Latex}
-
-Es un sistema de composición de textos especializado en los textos técnicos y científicos.
-Se decidió hacer este trabajo con este sistema para componer la documentación, porque facilita de gran manera la buena estructuración del documento, gracias a su , además de ofrecer una gran cantidad de aspectos tipográficos, que consiguen dar una gran calidad y profesionalidad a los documentos resultantes y al componer Latex texto mediante marcas en un archivo fuente, esto permite previsualizar el documento desde cualquier entorno sin perder el formato, lo resulta extremadamente útil para el desarrollo de documentos como el que estas leyendo.\\
-
-En mi caso he utilizado como editor de texto TexMaker, ya que me gustaba las disposición en la que dispone su interfaz y me facilitaba mucho su uso.(Enlace pagina de TexMaker)\\
-Version: 5.0.3\\
-Licencia Open Source\\
-PaginaWeb: \url{https://www.xm1math.net/texmaker/download.html}\\
-
-La distribución de Latex utilizada a sido miktex, ya que esta contiene un gran número de paquetes tipográficos y es fácil de instalar:\\
-Version: 2.9.6\\
-Licencia Open Source\\
-PaginaWeb: \url{https://miktex.org/download}\\
-
-
-\section{Herramienta de Gestión}
 
 \subsection{GitHub}
 
@@ -74,12 +75,12 @@ Pagina web: \url{https://desktop.github.com/} \\
 Una vez descargado e instalado, la primera vez que lo ejecutamos, podemos clonar desde aquí el proyecto desde el repositorio.
 
 
-\section{Herramientas Proyecto}
+\section{Herramientas de desarrollo}
 
 \subsection{Python}
 
-Se a utilizado este lenguaje de programación para realizar el trabajo, esto se debe a las gran cantidad de librerías que dispone este lenguaje para poder operar con una gran variedad de componentes, lo que ya de por si nos ofrece mucha flexibilidad. También hay que destacar que se elgio este lenguaje por ser un tipo de lenguaje interpretado, lo cual hacia que fuese mas facl tratar el tema del interprete.
-La versión con la que se ha contado a lo largo del proyecto ha sido la 2.7.16. Se intento utilizar un versión 3.7 y 3.6, pero tras tener varios problemas de consistencia entre este y el interprete que elegimos para la realización del proyecto, al final esto nos forzó a tener que probar una versión 2.\\
+Se a utilizado este lenguaje de programación para realizar el trabajo, esto se debe a las gran cantidad de librerías que dispone este lenguaje para poder operar con una gran variedad de componentes, lo que ya de por si nos ofrece mucha flexibilidad. También hay que destacar que se eligió este lenguaje por ser un tipo de lenguaje interpretado, lo cual hacía que fuese mas fácil tratar el tema del interprete.
+La versión con la que se ha contado a lo largo del proyecto ha sido la 2.7.16. Se intentó utilizar un versión 3.7 y 3.6, pero tras tener varios problemas de consistencia entre este y el interprete que elegimos para la realización del proyecto, al final esto nos forzó a tener que probar una versión 2.\\
 
 Version:2.7.16\\
 Licencia: Open Source\\
@@ -87,18 +88,15 @@ PaginaWeb: \url{https://www.python.org/downloads/}\\
 
 \subsection{TK}
 
-Es una librería de Python para el desarrollo de interfaces gráficas. En principio se barajó la posibilidad de utilizar algún otro tipo de librería para realizar la interfaz como por ejemplo PyQt5, pero al tener dificultades de implementar otras librerías la versión de Python 2.7.16, y no tener el modulo TkinteR una gran dificultad de aprendizaje para poder realizar una interfaz básica.
+Es una librería de Python para el desarrollo de interfaces gráficas. En principio se barajó la posibilidad de utilizar algún otro tipo de librería para realizar la interfaz como por ejemplo PyQt5, pero al tener dificultades de implementar otras librerías la versión de Python 2.7.16, y no tener el modulo Tkinter\cite{Tkinter} una gran dificultad de aprendizaje para poder realizar una interfaz básica.
 
 
 
 \subsubsection{Tkinter}
 Es un modulo de esta librería que se ha utilizado en esta practica para generar el entono de la interfaz.
 Version: 8.5 \\
-\\
 
-
-
-Se utilizo un modulo del Tkinter ttk
+Se utilizo un modulo del Tkinter ttk\cite{ttk}
 
 \subsection{MatPlotLib}
 

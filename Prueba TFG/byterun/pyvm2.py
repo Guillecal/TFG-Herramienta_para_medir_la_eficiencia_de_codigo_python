@@ -88,7 +88,8 @@ class VirtualMachine(object):
             self.contXOR+=1
         else:
             self.contERR+=1
-            
+    
+    # Upgrade hecho para meter operaciones en un diccionario
     def Operaciones(self,Op,Tipo1,Tipo2):
         self.val=(Op,Tipo1,Tipo2)
         if self.val in self.opera:

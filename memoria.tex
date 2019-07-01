@@ -8,6 +8,9 @@
 \usepackage{lmodern} % Scalable font
 \usepackage{microtype}
 \usepackage{placeins}
+\usepackage{fancyvrb}
+\usepackage{float}
+\usepackage{subfig}
 
 \RequirePackage{booktabs}
 \RequirePackage[table]{xcolor}
@@ -356,7 +359,7 @@
 \newcommand{\nombre}{Guillermo Calvo Álvarez} %%% cambio de comando
 
 % Datos de portada
-\title{Herramienta para medir la eficiencia en Python}
+\title{Herramienta para medir la eficiencia de código en Python}
 \author{\nombre}
 \tutor{Jesús Enrique Sierra García}
 \date{\today}
@@ -375,11 +378,11 @@
 
 \noindent\includegraphics[width=\textwidth]{cabecera}\vspace{1cm}
 
-\noindent D. nombre tutor, profesor del departamento de nombre departamento, área de nombre área.
+\noindent Jesús Enrique Sierra García, profesor del departamento de Ingeniería Civil, área de lenguajes y Sistemas informáticos.
 
 \noindent Expone:
 
-\noindent Que el alumno D. \nombre, con DNI dni, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado título de TFG. 
+\noindent Que el alumno D. \nombre, con DNI 71302497J, ha realizado el Trabajo final de Grado en Ingeniería Informática titulado Herramienta para medir la eficiencia de código en Python. 
 
 \noindent Y que dicho trabajo ha sido realizado por el alumno bajo la dirección del que suscribe, en virtud de lo cual se autoriza su presentación y defensa.
 
@@ -424,21 +427,21 @@ D. nombre co-tutor
 \renewcommand*\abstractname{Resumen}
 \begin{abstract}
 
-La eficiencia, definida como la capacidad de conseguir un objetivo con el mínimo numero de recursos posibles, es algo que se busca en todos los ambitos con mayor o menor prioridad.\\
+La eficiencia, definida como la capacidad de conseguir un objetivo con el mínimo numero de recursos posibles, es algo que se busca en todos los ámbitos con mayor o menor prioridad.\\
 
-En el caso de la informática, es algo muy importante, ya que de ello depende muchas veces que un programa sea viable para la puesta en practica en un entorno laboral o productivo, sobre todo si hablamos de sistemas de tiempo real.\\
+En el caso de la informática, es algo muy importante, ya que de ello depende muchas veces que un programa sea viable para la puesta en práctica en un entorno laboral o productivo, sobre todo si hablamos de sistemas de tiempo real.\\
 
-Teniendo en cuenta esa importancia lo que se pretende es conseguir una herramienta capaz de mostrar los datos necesarios para hacer un análisis de eficiencia de códigos, enfocando la idea en el entrono Python. Utilizando archivos diseñados en lenguaje Python. (Archivos .py).\\
+Teniendo en cuenta esa importancia lo que se pretende es conseguir una herramienta capaz de mostrar los datos necesarios para hacer un análisis de eficiencia de códigos, enfocando la idea en el entorno Python. Utilizando archivos diseñados en lenguaje Python. (Archivos .py).\\
 
-Para ello se investigara sobre los diferentes métodos de medición de eficiencia existentes, la forma de interpretar código en lenguaje Python y, diferentes maneras de realizar un análisis y hacer representaciones con la información resultante.\\
+Para ello se investigará sobre los diferentes métodos de medición de eficiencia existentes, la forma de interpretar código en lenguaje Python y, diferentes maneras de realizar un análisis y hacer representaciones con la información resultante.\\
 
-Cabe resaltar que en base a este trabajo se realizo un articulo sobre la métrica y la herramienta desarrolladas y fue aceptado y presentado en el congreso EuroSim. 
+Cabe resaltar que en base a este trabajo se realizó un artículo sobre la metodología y la herramienta desarrolladas y fue aceptado y presentado en el congreso EuroSim 2019, el cual esta enfocado a presentar novedades en el ámbito de las simulaciones. Este artículo se incluye incluido en los anexos.
 
 \end{abstract}
 
 \renewcommand*\abstractname{Descriptores}
 \begin{abstract}
-Eficiencia, Python, Interpretar, Análisis, Medición, Articulo.
+Eficiencia, Python, Interpretar, Análisis, Medición, Artículo.
 \end{abstract}
 
 \clearpage
@@ -448,13 +451,13 @@ Eficiencia, Python, Interpretar, Análisis, Medición, Articulo.
 \begin{abstract}
 Efficiency, defined as the ability to achieve an objective with the minimum number of possible resources, is something that is sought in all areas with greater or lesser priority. \\
 
-In the case of computing, it is very important, since it often depends on a program that is viable for implementation in a work or productive environment, especially if we talk about real-time systems.
+In the case of computer science, it is very important, since it often depends on whether a program is viable for implementation in a work or productive environment, especially if we are talking about real-time systems.
 
-Taking into account this importance, what is intended is to obtain a tool capable of displaying the necessary data to make an analysis of code efficiency, focusing the idea on the Python environment. Using files designed in Python language. (.Py files). \\
+Taking into account this importance, we want to obtain a tool capable of displaying the necessary data to make a code efficiency analysis, focusing the idea on the Python environment. Using files designed in Python language. (.Py files). \\
 
 To do this, we will investigate the different methods of measuring efficiency, the way of interpreting code in the Python language, and different ways of performing an analysis and making representations with the resulting information.
 
-It should be noted that based on this work an article was made about the metric and the tool developed and it was accepted and presented at the EuroSim congress.
+It should be noted that based on this work an paper was made on the methodology and tool developed and was accepted and presented at the EuroSim 2019 congress, which is focused on presenting novelties in the field of simulations. This article will be included in the annexes.
 \end{abstract}
 
 \renewcommand*\abstractname{Keywords}
@@ -490,77 +493,70 @@ Efficiency, Python, Interpret, Analysis, Measurement, Article.
 
 \begin{thebibliography}{8}
 
+\bibitem{Eficiencia} 
+Wikipedia: Eficiencia,
+\\\url{https://es.wikipedia.org/wiki/Eficiencia}
+
+\bibitem{TiposEficiencia} 
+Soge: Tiempo de ejecución y eficiencia de algoritmos,
+\\\url{http://verso.mat.uam.es/~pablo.angulo/doc/laboratorio/b2s2.html}
+
+\bibitem{O} 
+Wikipedia: Cota superior asintótica,
+\\\url{https://es.wikipedia.org/wiki/Cota_superior_asint%C3%B3tica}
+
+\bibitem{interprete} 
+Wikipedia: Intérprete(informática),
+\\\url{https://es.wikipedia.org/wiki/Int%C3%A9rprete_(inform%C3%A1tica)}
+
+\bibitem{MaquinaP} 
+Wikipedia: Máquina de pila,
+\\\url{https://es.wikipedia.org/wiki/M%C3%A1quina_de_pila}
+
 \bibitem{ByteRun} 
 Allison Kaptur: A Python Interpreter Written in Python,
 \\\url{https://www.aosabook.org/en/500L/a-python-interpreter-written-in-python.html}
-
-\bibitem{ByteRunGithub} 
-GitHub: Byterun,
-\\\url{https://github.com/nedbat/byterun}
-
-\bibitem{Checkbo} 
-GitHub: Byterun,
-\\\url{https://www.python-course.eu/tkinter_checkboxes.php}
-
-\bibitem{Tkinter} 
-GitHub: Byterun2,
-\\\url{https://recursospython.com/guias-y-manuales/panel-de-pestanas-notebook-tkinter/}
-
-\bibitem{VideoTkinter1} 
-Youtube: Byterun3,
-\\\url{https://www.youtube.com/watch?v=syjP3S6BdzM}
-
-\bibitem{VideoTkinter2} 
-Youtube: Byterun4,
-\\\url{https://www.youtube.com/watch?v=A0gaXfM1UN0}
-
-\bibitem{Kanban} 
-Kanbanize: Fundamentos, que es un tablero kanban,
-\\\url{https://kanbanize.com/es/recursos-de-kanban/primeros-pasos/que-es-tablero-kanban/}
-
-\bibitem{Ejecutable} 
-Cjenkins Blog: Crear ejecutable .exe de un programa python,
-\\\url{https://cjenkins.wordpress.com/2012/08/16/crear-ejecutable-exe-de-un-programa-python/}
-
-\bibitem{InfoLate} 
-GitHub: Insertar figuras (Latex),
-\\\url{https://ondiz.github.io/cursoLatex/Contenido/04.Imagenes.html}
-
-\bibitem{pack} 
-Effbot: The tkiter pack geometry manager,
-\\\url{https://effbot.org/tkinterbook/pack.htm}
 
 \bibitem{dis} 
 Python: Disassembler for Python bytecode,
 \\\url{https://docs.python.org/2/library/dis.html}
 
-\bibitem{pack2} 
-Daniweb: Demonstrating Tkinter pack and pack forget,
-\\\url{https://www.daniweb.com/programming/software-development/code/276574/demonstrating-tkinter-pack-and-pack-forget}
+\bibitem{Kanban} 
+Kanbanize: Fundamentos, que es un tablero kanban,
+\\\url{https://kanbanize.com/es/recursos-de-kanban/primeros-pasos/que-es-tablero-kanban/}
+
+\bibitem{Tkinter} 
+Recursos Python: Panel de pestañas (Notebook) en Tcl/Tk (tkinter),
+\\\url{https://recursospython.com/guias-y-manuales/panel-de-pestanas-notebook-tkinter/}
+
+\bibitem{ttk} 
+Tutorialesprogramacionya: módulo ttk,
+\\\url{https://www.tutorialesprogramacionya.com/pythonya/detalleconcepto.php?punto=63&codigo=63&inicio=60}
+
+\bibitem{ByteRunGithub} 
+GitHub,Ned Batchelder: Byterun,
+\\\url{https://github.com/nedbat/byterun}
+
+\bibitem{VideoTkinter2} 
+Youtube,sentdex: Object Oriented Programming Crash course with Python 3,
+\\\url{https://www.youtube.com/watch?v=A0gaXfM1UN0}
+
+\bibitem{Checkbo} 
+Python Course: Python Tkinter Course,
+\\\url{https://www.python-course.eu/tkinter_checkboxes.php}
 
 \bibitem{checkbox} 
 PerlMonks : Tk List of Checkboxes,
 \\\url{https://www.perlmonks.org/?node_id=172934}
 
-\bibitem{ttk} 
-Tutorialesprogramacionya: ,
-\\\url{https://www.tutorialesprogramacionya.com/pythonya/detalleconcepto.php?punto=63&codigo=63&inicio=60}
+\bibitem{trabajo1} 
+Nugroho Satrijandi, Yani Widyani: Efficiency measurement of Java Android code,
+\\\url{https://ieeexplore.ieee.org/abstract/document/7062696/keywords#keywords}
 
-\bibitem{dis2} 
-Pymotw: dis – Python Bytecode Disassembler,
-\\\url{https://pymotw.com/2/dis/}
+\bibitem{trabajo2} 
+johnnycoyle: react-rpm,
+\\\url{https://github.com/react-rpm/react-rpm}
 
-\bibitem{dis3} 
-Allison Kaptur: Python Bytecode: Fun With Dis,
-\\\url{http://akaptur.com/blog/2013/08/14/python-bytecode-fun-with-dis/}
-
-\bibitem{boxes} 
-Python Tutorials: TkInter message box,
-\\\url{https://pythonspot.com/tk-message-box/}
-
-\bibitem{TiposEficiencia} 
-Soge: Tiempo de ejecución y eficiencia de algoritmos,
-\\\url{http://verso.mat.uam.es/~pablo.angulo/doc/laboratorio/b2s2.html}
 
 \end{thebibliography}
 

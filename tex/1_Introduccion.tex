@@ -1,17 +1,17 @@
 \capitulo{1}{Introducción}
 
-La eficiencia en el mundo informático, es un termino fundamental y con mucho peso, que condiciona en la gran mayoría de ocasiones todo lo relacionado a este. Cuanta mayor eficiencia menos recursos se gastan para poder realizar un objetivo y estos recursos pueden ser utilizados para otras metas. 
+La eficiencia\cite{Eficiencia} en el mundo informático, es un termino fundamental y con mucho peso, que condiciona en la gran mayoría de ocasiones todo lo relacionado a este. Cuanta mayor eficiencia menos recursos se gastan para poder realizar un objetivo y estos recursos pueden ser utilizados para otras metas. 
 La búsqueda de una buena eficiencia tiene una gran importancia dentro del ámbito laboral, donde cada recurso ahorrado puede ser fundamental, para el desarrollo de otras tareas. Un gran ejemplo de esto son los sistemas de tiempo real, donde el tiempo de respuesta debe ser mínimo, lo que hace del tiempo un recurso muy valioso, por lo cual la eficiencia de este recurso es esencial\\
 
-En este caso nos vamos a centrar especialmente en la eficiencia aplicada a código Python, ya que es el tema principal de este trabajo y la eficiencia, es algo que se puede aplicar a casi cualquier campo conocido.
+En este caso nos vamos a centrar especialmente en la eficiencia aplicada a código Python, ya que es un lenguaje muy utilizado, ofrece muchas posibilidades de desarrollo y la eficiencia, es algo que se puede aplicar a casi cualquier campo conocido.
 Para poder medir la eficiencia de un código hecho en lenguaje Python, primero se tendrá que empezar por determinar y desarrollar que es lo que hace que un código sea mas eficiente que otro y el como conseguir esa información.\\
 
-A la primera pregunta la respuesta seria, "depende". Ya que según el entorno y el objetivo para el que ha sido creado un programa, lo que determina si un programa esta hecho de forma eficiente puede variar entre diferentes métricas.\\ 
+A la primera pregunta la respuesta sería, "depende". Ya que según la finalidad para la que haya sido creado un programa, esta determina que factores hacen que el  programa se considere mas eficiente. Por ello existen diferentes métricas\cite{TiposEficiencia} para según que casos.\\
 
 He aquí algunas de ellas:
 \begin{itemize}
-	\item Medir el tiempo de ejecución: Esta es la forma de medir la eficiencia mas utilizada, esto se debe a la facilidad de llevarla a cabo, pero como gran inconveniente se podría decir que es una manera la cual devuelve resultados difícilmente repetibles. Esto es por la gran influencia que tienen algunos factores externos en los resultados que puede devolver. El mayor de estos factores seria las condiciones  de pruebas donde se ejecuta el código del programa, ya que si hacemos una ejecución en un mismo ordenador pero en momentos diferentes, es muy probable que algoritmos con una cierta complejidad tarde mas en ser ejecutados en un momento que en el otro. Esto se debe a Con este método para poder sacar resultados con una gran fiabilidad habría que tener un gran control sobre el entorno, lo cual requiere de una gran preparación previa.
-	\item Complejidad O: Esta forma realmente nos sirve para conocer la complejidad del código, puede ser muy útil para medir la eficiencia, pero no tiene en cuenta el valor de las posible operaciones.
+	\item Medir el tiempo de ejecución: Esta es la forma de medir la eficiencia más utilizada, esto se debe a la facilidad de llevarla a cabo, pero como gran inconveniente se podría decir que es una manera la cual devuelve resultados difícilmente repetibles. Esto es por la gran influencia que tienen algunos factores externos en los resultados que puede devolver. El mayor de estos factores son las condiciones de pruebas donde se ejecuta el código del programa, ya que si hacemos una ejecución en un mismo ordenador pero en momentos diferentes, es muy probable que algoritmos con una cierta complejidad tarde mas en ser ejecutados en un momento que en el otro. Esto se debe a que con este método para poder sacar resultados con una gran fiabilidad habría que tener un gran control sobre el entorno, lo cual requiere de una gran preparación previa.
+	\item Complejidad O\cite{O} Esta forma realmente nos sirve para conocer la complejidad del código, ya que mide el numero de iteraciones que hace un programa, pero por otra parte no se llega a considerar lo que tarda en ejecutar cada iteración en concreto.
 	
 	\item Cuenta de Operaciones: Esta métrica se basa en contar el numero de operaciones que son necesarias en la ejecución del código. No es tan fácil de llevarla a cabo como la métrica de medir el tiempo, pero a cambio los resultados son repetibles.
 
@@ -19,11 +19,11 @@ He aquí algunas de ellas:
 
 La métrica elegida para ser implementada en la herramienta de este trabajo a sido la cuenta de operaciones\\
  
-Se a decidido implementar la medición con operaciones por ser una manera de obtener soluciones invariables sea cual sea el entono en el que se haga y devuelve datos con una cierta profundidad como para poder hacer todos los análisis que se requieran. \\
+Se a decidido implementar la medición con operaciones por ser una manera de obtener soluciones invariables sea cual sea el entorno en el que se haga y devuelve datos con una profundidad suficiente como para poder hacer todos los análisis que se requieran. \\
 
-Seria hasta posible hacer una estimación de la O a través de este tipo de métrica comparando los resultados de un fichero al cambiarle el valor de los parámetros.
+Otra ventaja de utilizar esta medición es que se puede obtener la complejidad O de un programa al hacer varios análisis de un mismo fichero con diferentes valores cada vez.
 
-En el caso de este trabajo se ha decidido que para conseguir la información de cuantas operaciones hay en la ejecución de un programa se utilizara un interprete, que como bien su nombre indica, sera el responsable de interpretar el código que forma el programa y tras hacerle unas modificaciones nos guardara  la información que deseada. 
+En el caso de este trabajo se ha decidido que para conseguir la información de cuantas operaciones hay en la ejecución de un programa se utilizara un interprete\cite{interprete}, que como bien su nombre indica, será el responsable de interpretar el código que forma el programa y tras hacerle unas modificaciones nos guardara  la información que se desea. 
 
 
 

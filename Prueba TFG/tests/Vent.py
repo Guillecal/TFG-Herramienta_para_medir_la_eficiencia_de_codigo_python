@@ -362,6 +362,9 @@ class VentanaMultiple(Tkinter.Frame):
     Operaciones={}
     CiclosDeReloj={}
     OperacionesTotales=[]
+    AnalisisP=0
+    NombreP=[]
+    btn3=None
     
     def __init__(self,parent,controller):
         self.Pasadita=parent
@@ -382,8 +385,27 @@ class VentanaMultiple(Tkinter.Frame):
         
     def V_analisis(self):
         ArchivosCorrectos=0
+        Cuidado=0
+        Barrera=0
+        self.AnalisisP=0
+        self.NombreP=[]
         self.nombres = tkFileDialog.askopenfilenames(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
         for comprobacion in self.nombres:
+            cerrado=0    
+            parametro=0
+            for c in range(comprobacion.__len__()):
+                    if comprobacion[comprobacion.__len__()-c-1]=="_" and Cuidado>2 and cerrado>1:
+                        Cuidado=Cuidado+1
+                    if comprobacion[comprobacion.__len__()-c-1]=="/":
+                        cerrado=1
+                    if Cuidado==1 and comprobacion[comprobacion.__len__()-c-1]=="P":
+                        parametro=1
+                        
+                        
+            self.NombreP.append(comprobacion[__len__()-1])     
+            if parametro!=1 or Cuidado!=2:
+                Barrera=1 
+            
             if comprobacion[len(comprobacion)-1]!="y" or comprobacion[len(comprobacion)-2]!="p" and self.comprobacion[len(comprobacion)-3]!=".":
                 ArchivosCorrectos=1
         
@@ -395,21 +417,27 @@ class VentanaMultiple(Tkinter.Frame):
             if self.nombres.__len__()<=10:
                 if self.Boton1==0:
                     if self.Boton2==1:
-                        btn3.pack_forget()
-                    btn3 = Tkinter.Button(self, text="Comparison of files",command=lambda: self.pasa.show_frame(VentanaComparacion))
+                        print("Si he pasadoooooooo")
+                        self.btn3.pack_forget()
+                    self.btn3 = Tkinter.Button(self, text="Comparison of files",command=lambda: self.pasa.show_frame(VentanaComparacion))
             
-                    btn3.pack()
+                    self.btn3.pack()
                     self.Boton1=1
                     self.Boton2=0
             else:
                 if self.Boton2==0:
                     if self.Boton1==1:
-                        btn3.pack_forget()
-                    btn3 = Tkinter.Button(self, text="Comparison of files",command=lambda: self.pasa.show_frame(VentanaComparacion2))
+                        print("Si he pasadoooooooo")
+                        self.btn3.pack_forget()
+                    self.btn3 = Tkinter.Button(self, text="Comparison of files",command=lambda: self.pasa.show_frame(VentanaComparacion2))
             
-                    btn3.pack()
-                    self.Boton1=1
-                    self.Boton2=0
+                    self.btn3.pack()
+                    self.Boton1=0
+                    self.Boton2=1
+                
+                if Barrera==0:
+                    self.AnalisisP=1
+                    
                 
             Checkbutto=[]
             Unidades=[]
@@ -715,7 +743,10 @@ class VentanaComparacion2(Tkinter.Frame):
         contador_menor=0
         "igual hay que  cambiar este bucle, por otro de nombres (en principio el resultado es el mismo)"
         for e in app.frames[VentanaMultiple].Operaciones:
-            self.Fichero.append(self.alfabeto[contador_menor])
+            if app.frames[VentanaMultiple].AnalisisP==0:
+                self.Fichero.append(self.alfabeto[contador_menor])
+            else:
+                self.Fichero.append(self.NombreP[contador_menor])
             self.Valor_Mostrar.append(0)
             contador_menor=contador_menor+1
         contador_operaciones=0
