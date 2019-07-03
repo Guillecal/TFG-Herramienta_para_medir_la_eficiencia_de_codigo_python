@@ -3,96 +3,170 @@
 \section{Introducción}
 En esta sección se plantea la forma de estimar los costes del proyecto de la manera mas precisa. Los costes se dividen en tres: costes de tiempo, de trabajo y monetarios.
 
-Se determinan los recursos necesarios para llevar este proyecto a un entorno laboral.
+Se determinan los recursos necesarios para llevar este proyecto a un entorno laboral. Aunque hay partes de este proyecto mas fácil de planificar que otras, porque por ejemplo las partes de investigación son algo que pueden prolongarse si no se encuentran los conocimientos deseados.
+
+El plan de proyecto se compone en las siguientes dos partes:
 
 
 \begin{itemize}
 	\item Planificación temporal: Esta planificación sirve para ajustar los tiempos que tiene que tardar cada parte del proyecto. El tiempo que tarde cada parte puede variar según el nivel de complejidad y la cantidad de tareas que tenga.
-	\item Latex: Estudio de viabilidad: Esta planificación es el que determina si el proyecto se podría trasladar al marco laboral. Muestra los costes monetarios y las licencias a las que este sujeto el proyecto.
+	\item Estudio de viabilidad: Esta planificación es la que determina si el proyecto se podrá trasladar al marco laboral. Muestra los costes monetarios y las licencias a las que este sujeto el proyecto.
 \end{itemize}
-
-
 
 
 
 \section{Planificación temporal}
-Para el desarrollo del proyecto se utiliza la metodología Kanban para organizar el flujo de trabajo, pero este solo es una manera mas visual de poder mantener un buen rutmo de trabajo, para saber que hacer en cada etapa del proyecto se identifican unas .
+En el desarrollo del proyecto se utilizó la metodología Kanban para organizar el flujo de trabajo, combinada con una gestión con la cual el desarrollo del proyecto se dividió en 4 etapas diferentes:
 
-Las parte en las que se ha dividido el desarrollo del proyecto son estas 4:
+\subsection{Investigación}
+La etapa mas temprana del proyecto, aquí es cuando hay que recoger información sobre las herramientas y temas que se hacen uso en la herramienta. A  pesar de ser la primera etapa, puntualmente se podría volver a realizar una tarea de este tipo en un desarrollo mas avanzado.\\
 
-Investigación:
-Es la etapa mas temprana del proyecto, aqui es cuando hay que recoger información
+Tareas:
+\begin{itemize}
+	\item Conocimientos sobre la eficiencia.
+	\item Información sobre interpretes.
+	\item Búsqueda de un interprete.
+	\item Procesar como funciona el interprete elegido.
+	\item Información sobre herramientas del desarrollo como por ejemplo Spyder, Tkinter o Latex
+\end{itemize}
 
+\subsection{Desarrollo}
+Esta es la etapa donde una vez ya se tienen los conocimientos se crea la herramienta, esta puede ser la etapa mas larga junto con la de investigación por los diversos contratiempos que pueden surgir.\\
 
-Desarrollo:
+Tareas:
+\begin{itemize}
+	\item Upgrade del interprete.
+	\item Funciones de llamado a ficheros e interprete.
+	\item Implementación de análisis.
+	\item Fabricación de la interfaz.
+	\item Implementacion de resultados a través de gráficas.
+\end{itemize}
 
+\subsection{Pruebas}
+En esta etapa una vez hechas las funcionalidades principales del desarrollo, se trata de hacer comprobaciones para ver los posibles fallos o carencias del diseño y realizar las mejoras o soluciones.\\
 
-Pruebas: 
+Tareas:
+\begin{itemize}
+	\item Comprobar funcionalidades  principales.
+	\item Comprobar disposición de la interfaz.
+	\item Realizar soluciones a los problemas que surjan.
+	\item Implementación de mejoras o funcionalidades secundarias.
+\end{itemize}
 
+\subsection{Documentación}
+En la etapa final se trata de documentar todo el proceso que se ha realizado a lo largo del proyecto. Esta etapa a pesar de ser la ultima, debe hacerse alguna tarea previamente a medida que evoluciona la tarea para ir guardar la información que luego se plasmará en la documentación.\\
 
-Documentación:
+Tareas:
+\begin{itemize}
+	\item Guardar datos relevantes sobre el progreso.
+	\item Realización de la Memoria.
+	\item Añadir anexos.
+	\item Realización del articulo.
+\end{itemize}
 
 \section{Estudio de viabilidad}
 
 \subsection{Viabilidad económica}
-Aquí se plantean los constes y beneficios en el caso de que el proyecto se realizase en un entorno laboral.
+Aquí se plantean los constes y beneficios en el caso de que el proyecto se realizase en un entorno laboral.\\
 
 Los costes se dividen en 3 tipos:
 
 
-Coste de personal
+\subsubsection{Coste de personal}
 
-Son los costes que supone tener a  un desarrollador contratado en el 2019, teniendo en cuenta tanto su salario neto, la cortización a la seguridad social y la retencion del IRPF.
+Son los costes que supone tener a un desarrollador contratado en el 2019, teniendo en cuenta tanto su salario neto, la cotización a la seguridad social y la retención del IRPF durante una duración de 4 meses.\\
 
-\begin{table}[htbp]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{|l|l|}
 \hline
-Concepto & Coste ()\\
+Concepto & Coste \\
 \hline \hline
-Salario neto & int \ \hline
-Seguridad social & flo  \\ \hline
-IRPF & int \\ \hline
-Salario bruto & flo \\ \hline
-Total al mes & int \\ \hline
+Salario neto & 1000 \euro \\ \hline
+Seguridad social & 150 \euro \\ \hline
+IRPF & 236 \euro \\ \hline
+Salario bruto & 1386 \euro \\ \hline
+Total 4 meses & 5544 \euro \\ \hline
 \end{tabular}
+\caption{Coste de personal}
 
-Costes de infraestructura hardware
-En el caso de este proyecto el coste en hardware tan solo sería para costear un ordenador donde poder  desarrollar la herramienta.
+\label{tabla:sencilla}
+\end{center}
+\end{table}
 
-\begin{table}[htbp]
+
+\subsubsection{Costes de infraestructura hardware}
+En el caso de este proyecto el coste en hardware tan solo sería para costear un ordenador donde poder desarrollar y ejecutar la herramienta.\\
+
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
-Concepto & Coste () & INT\\
+Concepto & Coste & Amortización\\
 \hline \hline
-ADD & int & 100\\ \hline
+Ordenador & 600 & 42 \euro \\ \hline
 \end{tabular}
+\caption{Coste del hardware}
 
-Costes de infraestructura software
-Estos costes son los que supone las licencias del software que se necesita para hacer el desarrollo del proyecto. En caso de este proyecto tan solo habría que costear una licencia del sistema operativo.
+\label{tabla:sencilla}
+\end{center}
+\end{table}
 
-\begin{table}[htbp]
+\subsubsection{Costes de infraestructura software}
+Estos costes son los que supone las licencias del software que se necesita para hacer el desarrollo del proyecto. En caso de este proyecto tan solo habría que costear una licencia del sistema operativo.\\
+
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
-Concepto & Coste () & INT\\
+Concepto & Coste & Amortización \\
 \hline \hline
-Windows 10 Pro & 259 & 100\\ \hline
+Windows 10 Pro & 259 & 64,25 \euro \\ \hline
 \end{tabular}
+\caption{Coste del software.}
 
-Beneficios
+\label{tabla:sencilla}
+\end{center}
+\end{table}
+
+\subsubsection{Costes Totales}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Concepto & Coste \\
+\hline \hline
+Personal neto & 5544 \euro \\ \hline
+Hardware & 42 \euro \\ \hline
+Software & 64.25 \euro \\ \hline
+Total & 5650.25 \euro \\ \hline
+\end{tabular}
+\caption{Costes Totales}
+\label{tabla:sencilla}
+\end{center}
+\end{table}
+
+Como se puede ver en la tabla A4 el total de los costes para hacer el desarrollo de esta herramienta ascendería hasta los 5650.25 \euro.
+
+\subsubsection{Costes Totales}
+Si la herramienta se comercializase los beneficios dependerían del tipo de distribución que se llevase a cabo y la acogida por parte de los usuarios. El perfil de usuario que se busca con esta herramienta se asemeja al de un desarrollador, por lo tanto podrían comercializarse versiones enfocadas a empresas y otras para particulares. 
 
 \subsection{Viabilidad legal}
-Se han investigado las licencias de las herramientas utilizadas en el desarrollo para saber la  viabilidad del proyecto. He aquí las licencias:
+Se han investigado las licencias de las herramientas utilizadas en el desarrollo para saber la  viabilidad del proyecto.\\ 
+
+He aquí las licencias:
 
 \begin{itemize}
 	\item MatPlotLib: BSD.
-	\item Latex: BSD.
+	\item Latex: licencia LPPL Version1.3c.
 	\item Spyder: BSD.
+	\item ByteRun: Por la descripción del autor todo indica que tiene una licencia GNU-3.0.
 	\item Mostrar esa información de una manera agradable y entendible.
 \end{itemize}
 
-Como se ve en el listado anterior ninguna de las licencias es un impedimento para la distribución del proyecto.
+Como se ve en el listado anterior ninguna de las licencias es un impedimento para la distribución del la herramienta.
+
+Para la herramienta se opta por una licencia GNU-3.0, ya que esta permite usar, estudiar, compartir y modificar el software siempre que se mantenga la licencia.
 
 

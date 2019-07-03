@@ -1,0 +1,9 @@
+actionid: py36
+msg: getenv
+cmdargs: "'c:\\python36\\python.exe' -m virtualenv --python 'c:\\python36\\python.exe' py36"
+
+Already using interpreter c:\python36\python.exe
+Using base prefix 'c:\\python36'
+New python executable in C:\Users\Adrian\PRUEBA~1\TOX~1\py36\Scripts\python.exe
+Installing setuptools, pip, wheel...
+done.

@@ -1,0 +1,8 @@
+actionid: py27
+msg: getenv
+cmdargs: "'c:\\python27\\python.exe' -m virtualenv --python 'c:\\python27\\python.exe' py27"
+
+Already using interpreter c:\python27\python.exe
+New python executable in C:\Users\Adrian\PRUEBA~1\TOX~1\py27\Scripts\python.exe
+Installing setuptools, pip, wheel...
+done.

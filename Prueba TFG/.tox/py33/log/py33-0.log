@@ -1,0 +1,27 @@
+actionid: py33
+msg: getenv
+cmdargs: "'c:\\python36\\python.exe' -m virtualenv --python 'c:\\python36\\python.exe' py33"
+
+Already using interpreter c:\python36\python.exe
+Using base prefix 'c:\\python36'
+New python executable in C:\Users\Adrian\PRUEBA~1\TOX~1\py33\Scripts\python.exe
+Installing setuptools, pip, wheel...
+done.
+Traceback (most recent call last):
+  File "c:\python36\lib\runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "c:\python36\lib\runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "c:\python36\lib\site-packages\virtualenv.py", line 2567, in <module>
+    main()
+  File "c:\python36\lib\site-packages\virtualenv.py", line 793, in main
+    symlink=options.symlink,
+  File "c:\python36\lib\site-packages\virtualenv.py", line 1088, in create_environment
+    install_wheel(to_install, py_executable, search_dirs, download=download)
+  File "c:\python36\lib\site-packages\virtualenv.py", line 935, in install_wheel
+    _install_wheel_with_search_dir(download, project_names, py_executable, search_dirs)
+  File "c:\python36\lib\site-packages\virtualenv.py", line 1025, in _install_wheel_with_search_dir
+    call_subprocess(cmd, show_stdout=False, extra_env=env, stdin=script)
+  File "c:\python36\lib\site-packages\virtualenv.py", line 860, in call_subprocess
+    line = stdout.readline()
+KeyboardInterrupt

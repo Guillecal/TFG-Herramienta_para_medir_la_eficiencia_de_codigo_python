@@ -1,0 +1,33 @@
+actionid: tox
+msg: packaging
+cmdargs: "'c:\\python27\\python.exe' 'C:\\Users\\Adrian\\Prueba TFG\\setup.py' sdist --formats=zip --dist-dir 'C:\\Users\\Adrian\\Prueba TFG\\.tox\\dist'"
+
+running sdist
+running check
+c:\python27\lib\distutils\dist.py:267: UserWarning: Unknown distribution option: 'install_requires'
+  warnings.warn(msg)
+warning: sdist: manifest template 'MANIFEST.in' does not exist (using default file list)
+
+warning: sdist: standard file not found: should have one of README, README.txt
+
+writing manifest file 'MANIFEST'
+creating Byterun-1.0
+creating Byterun-1.0\byterun
+copying files to Byterun-1.0...
+copying setup.py -> Byterun-1.0
+copying byterun\__init__.py -> Byterun-1.0\byterun
+copying byterun\__main__.py -> Byterun-1.0\byterun
+copying byterun\execfile.py -> Byterun-1.0\byterun
+copying byterun\pyobj.py -> Byterun-1.0\byterun
+copying byterun\pyvm2.py -> Byterun-1.0\byterun
+creating 'C:\Users\Adrian\Prueba TFG\.tox\dist\Byterun-1.0.zip' and adding 'Byterun-1.0' to it
+adding 'Byterun-1.0'
+adding 'Byterun-1.0\byterun'
+adding 'Byterun-1.0\PKG-INFO'
+adding 'Byterun-1.0\setup.py'
+adding 'Byterun-1.0\byterun\execfile.py'
+adding 'Byterun-1.0\byterun\pyobj.py'
+adding 'Byterun-1.0\byterun\pyvm2.py'
+adding 'Byterun-1.0\byterun\__init__.py'
+adding 'Byterun-1.0\byterun\__main__.py'
+removing 'Byterun-1.0' (and everything under it)

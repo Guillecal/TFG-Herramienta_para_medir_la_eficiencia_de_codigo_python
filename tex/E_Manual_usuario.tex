@@ -1,7 +1,7 @@
 \apendice{Documentación de usuario}
 
 \section{Introducción}
-En esta sección se explicara lo necesario para comprender como realizar un buen funcionamiento de la herramienta  a través de  unos pasos.
+En esta sección se explica lo necesario para comprender como hacer el funcionamiento de la herramienta a través de unos pasos.
 \section{Requisitos de usuarios}
 Antes de nada hay que señalar una serie de requisitos previos para que se pueda ejecutar la herramienta:
 
@@ -27,84 +27,122 @@ Pero antes de esto hay que asegurarse de tener algún tipo de fichero.csv en la 
 
 Una vez preparados los ficheros y los requisitos previos como esta herramienta no requiere de ningún tipo de configuración posterior, para poder iniciar de forma fácil la herramienta, hay creado un ejecutable que simplemente hay que clicar para iniciar. Cabe destacar que la interfaz de esta herramienta tiene todos los textos en inglés, a pesar de esto en este manual nos referiremos a las distintas opciones en su traducción al español.\\
 
-Una vez este iniciado, muestra una interfaz bastante simple, que nos da a elegir entre tres opciones, Análisis individual, Análisis Comparativo o salir, aquí dependiendo del tipo de uso que se quiera hacer la herramienta, se elegirá uno u otro.\\
+Una vez este iniciado, muestra una interfaz bastante simple, que nos da a elegir entre tres opciones, Análisis individual, Análisis Múltiple o salir, aquí dependiendo del tipo de uso que se quiera hacer la herramienta, se elegirá uno u otro.\\
 
-\imagen{VentanaPrincipal}{Vista de la ventana principal}
+\begin{figure}[H]
+\centering
+\includegraphics[width=6cm, height=4cm]{VentanaPrincipal}
+\caption{Vista de la ventana principal}
+\end{figure}
 
-En el caso de querer ver el porcentaje de eficiencia que proporciona cada tipo de operación
-Por otra parte si lo que se quiere es hacer una comparación de eficiencia entre ficheros para determinar cuál es el que menos ciclos de reloj tarda en ejecutarse, el análisis comparativo es el que debes pulsar.
+En el caso de querer ver el porcentaje de eficiencia que proporciona cada tipo de operación de un fichero, el análisis individual es la opción adecuada.
+Por otra parte si lo que se quiere es hacer una comparación de eficiencia entre ficheros, el análisis Múltiple es el que debes pulsar.
 
 
 \subsection{Análisis individual}
 
 Si pulsamos el análisis individual, lo primero que nos saldrá será una ventana con dos botones, buscar fichero y volver a la ventana principal.\\
-
-\imagen{VentanaIntermedia}{Vista de la ventana principal}
-
-El primero de estos nos permite buscar el fichero que deseamos analizar a través de un explorador de archivos, el archivo seleccionado debe tener un formato.py, ya que si no nos saldrá un mensaje de error indicando que es un tipo de formato no valido.\\
-
-\imagen{Error}{Mensaje de error}
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=6cm, height=4cm]{VentanaIntermedia}
+\caption{Vista de la ventana principal}
+\end{figure}
+El primero de estos nos permite buscar el fichero que deseamos analizar a través de un explorador de archivos, el archivo seleccionado debe tener un formato.py, ya que si no nos saldrá un mensaje de error indicando que es un tipo de formato no válido.\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=5cm, height=3cm]{Error}
+\caption{Mensaje de error}
+\end{figure}
 Algo parecido aparecerá si no elegimos ningún fichero, como advertencia saldrá  también un mensaje\\
-
-\imagen{Error}{Mensaje de advertencia}
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=5cm, height=3cm]{Error}
+\caption{Mensaje de advertencia}
+\end{figure}
 Si por el contrario pulsamos el botón de volver a la ventana principal, esto hará que aparezca de nuevo la ventana que se mostró al principio.\\
 
 Una vez seleccionado el archivo .py aparecerá un nuevo botón en el que pondrá analizar fichero. A veces puede que tarde un poco en mostrar el fichero, porque internamente la herramienta tiene que hacer una serie de cálculos.\\
-
-\imagen{VentanaIntermedia2}{Aparición del botón tras la elección de un archivo .py}
-
-
-Si pulsamos ese botón, nos mostrara la ventana de análisis. En esta ventana se muestran los resultados del análisis hecho al fichero que ha sido elegido en la ventana previa. Cuenta con una serie de opciones que hará variar los resultados que serán mostrados.\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=6cm, height=4cm]{VentanaIntermedia2}
+\caption{Aparición del botón tras la elección de un archivo .py}
+\end{figure}
+Si pulsamos ese botón, nos mostrará la ventana de análisis. En esta ventana se muestran los resultados del análisis hecho al fichero que ha sido elegido en la ventana previa. Cuenta con una serie de opciones que hará variar los resultados que serán mostrados.\\
 
 Echando un vistazo de arriba abajo nos encontramos con las siguientes opciones:\\
 
-Primero al igual que en la ventana anterior a esta, nos encontramos con un botón que nos deja volver a la ventana inicial. Por si queremos realizar algún tipo de análisis más.\\
+\begin{enumerate}
+	\item Primero al igual que en la ventana anterior a esta, nos encontramos con un botón que nos deja volver a la ventana inicial. Por si queremos realizar algún tipo de análisis más.\\
 
-Despues hay un boton que nos lleva a otra ventana donde se pueden ver unos checkboxes que representan los diferentes tipos de operaciones encontrados en el análisis del fichero seleccionado, que por defecto al principio saldrán todos marcados. Esto indica que operaciones van a ser mostradas en la gráfica de los resultados, si hay algún tipo de operación que no queramos que salga tan solo tendríamos que clicar en el checkbox de la operación para quitarle la marca. Cuando queden marcadas aquellas operaciones que deseemos hay un boton para volver a la vista anterior en la parte de abajo.\\
+	\item Despues hay un boton que nos lleva a otra ventana donde se pueden ver unos checkboxes que representan los diferentes tipos de operaciones encontrados en el análisis del fichero seleccionado, que por defecto al principio saldrán todos marcados. Esto indica que operaciones van a ser mostradas en la gráfica de los resultados, si hay algún tipo de operación que no queramos que salga tan solo tendríamos que clicar en el checkbox de la operación para quitarle la marca. Cuando queden marcadas aquellas operaciones que deseemos hay un boton para volver a la vista anterior en la parte de abajo.\\
 
-\imagen{Operaciones}{Ventana donde elegir operaciones}
+\begin{figure}[H]
+\centering
+\includegraphics[width=6cm, height=7cm]{Operaciones}
+\caption{Ventana donde elegir operaciones}
+\end{figure}
 
-Seguido a esto hay una Listbox que deja elegir el procesador con el que se quiere ponderar a las operaciones. En esta lista se muestran los procesadores que tengamos disponibles en la carpeta Prueba TFG. Así que si queremos que aparezcan mas tipos de procesadores tan solo habría que crear más procesadores teóricos ahí.\\
+	\item Seguido a esto hay una Listbox que deja elegir el procesador con el que se quiere ponderar a las operaciones. En esta lista se muestran los procesadores que tengamos disponibles en la carpeta Prueba TFG. Así que si queremos que aparezcan mas tipos de procesadores tan solo habría que crear más procesadores teóricos ahí.\\
 
-(Recomendación de copiar un procesador ya creado y tan solo tener que cambiar los valores según se desee)\\
+(Se recomienda copiar un procesador ya creado y tan solo tener que cambiar los valores según se desee)\\
 
-\imagen{ListBox}{Ejemplo de la Listbox de procesadores}
+\begin{figure}[H]
+\centering
+\includegraphics[width=4cm, height=2cm]{ListBox}
+\caption{Ejemplo de la Listbox de procesadores}
+\end{figure}
 
-Una vez configurados todos estos valores anteriores, habría que pulsar el botón de abajo Mostrar resultados, y tras esto saldría la gráfica resultante.\\
+	\item Una vez configurados todos estos valores anteriores, habría que pulsar el botón de abajo Mostrar resultados, y tras esto saldría la gráfica resultante.\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm, height=7cm]{Grafica2}
+\caption{Ejemplo gráfica resultante análisis individual}
+\end{figure}
+	\item Hay que tener en cuenta que la configuración puede ser cambiada aunque ya se haya mostrado una gráfica y si se vuelve a pulsar el botón mostrar resultados, vuelve a recargar la gráfica con la nueva configuración que haya sido elegida.\\
 
-\imagen{Grafica2}{Ejemplo gráfica resultante análisis individual}
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm, height=7cm]{Grafica3}
+\caption{Ejemplo gráfica resultante recalculada}
+\end{figure}
 
-Hay que tener en cuenta que la configuración puede ser cambiada aunque ya se haya mostrado una gráfica y si se vuelve a pulsar el botón mostrar resultados, vuelve a recargar la gráfica con la nueva configuración que haya sido elegida.\\
-
-\imagen{Grafica3}{Ejemplo gráfica resultante recalculada}
+\end{enumerate}
 
 En este caso se ha quitado la marca de la multiplicación de enteros y vemos como este desaparece de la gráfica. Esto mismo se podría hacer también con la listbox de los procesadores.
 
 La gráfica muestra los porcentajes de ciclos de reloj que consume cada tipo de operación. Cada uno diferenciado por un color e indicado con el nombre de la operación y el nombre del tipo de los dos operadores.
 
-Como se puede ver en la ultima imagen en la parte de abajo hay una serie de botones que nos permiten hacer un par de interacciones con el gráfico como por ejemplo ampliar la zona deseada o poder guardarla.
+Como se puede ver en la última imagen en la parte de abajo hay una serie de botones que nos permiten hacer un par de interacciones con el gráfico como por ejemplo ampliar la zona deseada o poder guardarla.
 
-\subsection{Análisis Comparativo}
-Pulsando el botón de análisis comparativo, Muestra una ventana con dos tipos de opciones, Buscar ficheros y volver a la ventana inicial. Esta ventana es prácticamente idéntica a la primera que sale en el análisis individual (Figura x). Pero la diferencia que hay en esta se trata del botón buscar ficheros, con el cual sale un explorador de archivos pero con el que hay que seleccionar mas de un fichero. Al igual que en el análisis individual solo se pueden elegir ficheros con formato .py pero además no se puede elegir solo 1 fichero, ya que se hace alguna de estas dos cosas saldrá un mensaje de error.\\
+\subsection{Análisis Múltiple}
+Pulsando el botón de análisis Múltiple, Muestra una ventana con dos tipos de opciones, Buscar ficheros y volver a la ventana inicial. Esta ventana es prácticamente idéntica a la primera que sale en el análisis individual (Figura B2). Pero la diferencia que hay en esta se trata del botón buscar ficheros, con el cual sale un explorador de archivos pero con el que hay que seleccionar mas de un fichero. Al igual que en el análisis individual solo se pueden elegir ficheros con formato .py pero además no se puede elegir solo 1 fichero, ya que se hace alguna de estas dos cosas saldrá un mensaje de error.\\
 
-\imagen{Error2}{Mensaje de error por elegir solo un fichero}
+\begin{figure}[H]
+\centering
+\includegraphics[width=5cm, height=3cm]{Error2}
+\caption{Mensaje de error por elegir solo un fichero}
+\end{figure}
 
 Una vez seleccionado el fichero saldrá el botón de Analizar, y este nos pasará a la ventana de análisis.\\
-Lo primero que vemos en la ventana de análisis es el botón de volver al menú principal en caso de que deseemos hacer el otro tipo de análisis o el mismos con otros  ficheros.\\
+Lo primero que vemos en la ventana de análisis es el botón de volver al menú principal en caso de que deseemos hacer el otro tipo de análisis o el mismo con otros ficheros.\\
 
-Seguido hay una listbox que para indicar el procesador teórico con el que se desea ponderar  las operaciones sacadas por el interprete.\\
+Seguido hay una listbox que para indicar el procesador teórico con el que se desea ponderar  las operaciones sacadas por el intérprete.\\
+Seguido a esto hay un botón que nos lleva a otra ventana donde hay una serie de checkboxes, pero a diferencia del análisis individual, aquí muestra todas las diferentes operaciones que aparecen en todos los ficheros. Así que puede haber operaciones del checkbox que se encuentren solo en un fichero.\\
+Una vez elegidos los parámetros está el botón mostrar resultados que nos muestra la gráfica resultante, según los parámetros establecidos. La gráfica se  puede volver a recalcular sin salirse de la ventana volviendo a  pulsar el botón de mostrar resultados y mostrara la gráfica según como estén los parámetros.\\
 
-Seguido a esto hay un boton que nos lleva a otra ventana donde se hay una serie de checkboxes, pero a diferencia de el análisis individual, aquí muestra todas las diferentes operaciones que aparecen en todos los ficheros metidos. Así que puede haber operaciones del chebox que se encuentren solo en un fichero.\\
-
-Una vez elegidos los parámetros esta el botón mostrar resultados que nos muestra la grafica resultante, según los parámetros establecidos. La gráfica se  puede volver a recalcular sin salirse de la ventana volviendo a  pulsar el botón de mostrar resultados y mostrara la gráfica según como estén los parámetros.\\
- 
 La gráfica muestra los ciclos de reloj totales que suman todas las operaciones en cada uno de los ficheros seleccionados, a través de una gráfica de barras, si se han seleccionado menos de 10 ficheros y en caso contrario, a través de un gráfico de puntos. Los nombres de los ficheros en la gráfica son sustituidos por letras en orden alfabético. Y como se ha indicado antes para ver el nombre de cada uno hay que buscar en la celda de texto que fichero está asociado a cada nombre.\\
 
-\imagen{Grafica5}{Gráfico de barras resultante}
+\begin{figure}[H]
+\centering
+\includegraphics[width=9cm, height=10cm]{Grafica5}
+\caption{Gráfico de barras resultante}
+\end{figure}
 
-\imagen{Grafica6}{Gráfico de puntos resultante}
+\begin{figure}[H]
+\centering
+\includegraphics[width=9cm, height=10cm]{Grafica6}
+\caption{Gráfico de puntos resultante}
+\end{figure}
 
 
 

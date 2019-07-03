@@ -1,0 +1,16 @@
+actionid: py27
+msg: installpkg
+cmdargs: "'C:\\Users\\Adrian\\Prueba TFG\\.tox\\py27\\Scripts\\python.EXE' -m pip install --no-deps -U 'C:\\Users\\Adrian\\Prueba TFG\\.tox\\.tmp\\package\\2\\Byterun-1.0.zip'"
+
+DEPRECATION: Python 2.7 will reach the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 won't be maintained after that date. A future version of pip will drop support for Python 2.7.
+Processing c:\users\adrian\prueba tfg\.tox\.tmp\package\2\byterun-1.0.zip
+Building wheels for collected packages: Byterun
+  Building wheel for Byterun (setup.py): started
+  Building wheel for Byterun (setup.py): finished with status 'done'
+  Stored in directory: C:\Users\Adrian\AppData\Local\pip\Cache\wheels\7b\42\e8\f87af0ef1005d670b24d02e0a392197def3086bc623fb16daa
+Successfully built Byterun
+Installing collected packages: Byterun
+  Found existing installation: Byterun 1.0
+    Uninstalling Byterun-1.0:
+      Successfully uninstalled Byterun-1.0
+Successfully installed Byterun-1.0

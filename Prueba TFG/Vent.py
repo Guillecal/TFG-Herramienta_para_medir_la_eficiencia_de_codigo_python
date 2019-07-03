@@ -27,7 +27,9 @@ from byterun.pyvm2 import VirtualMachine
 
 
 
-
+"""
+Funcion para mostrar el ByteCode
+"""
 def dis_code(code):
     """Disassemble `code` and all the code it refers to."""
     for const in code.co_consts:
@@ -38,12 +40,8 @@ def dis_code(code):
     print(code)
     dis.dis(code)
 
-# Make this false if you need to run the debugger inside a test.
-"CAPTURE_STDOUT = ('-s' not in sys.argv)"
-# Make this false to see the traceback from a failure inside pyvm2.
 
-"--------------------------------------------------------------------"
-""
+
 LARGE_FONT= ("Verdana", 12)
 style.use("ggplot")
 
@@ -54,8 +52,10 @@ a2 = f2.add_subplot(111)
 f3 = Figure(figsize=(5,5), dpi=100)
 a3 = f3.add_subplot(111)
 
-
-class SeaofBTCapp(Tkinter.Tk):
+"""
+Controlador de Ventanas
+"""
+class ControladorVentanas(Tkinter.Tk):
     
     def __init__(self, *args, **kwargs):
         Tkinter.Tk.__init__(self, *args, **kwargs)
@@ -81,7 +81,10 @@ class SeaofBTCapp(Tkinter.Tk):
         frame = self.frames[cont]
         frame.tkraise()
     
-    
+ 
+"""
+Ventana prinncipal donde decidir los tipos de analisis
+"""
 class VentanaPrincipal(Tkinter.Frame):
     
     def __init__(self,parent,controller):
@@ -103,7 +106,9 @@ class VentanaPrincipal(Tkinter.Frame):
         btn3.pack()
         
         
-
+"""
+Ventana dentro del analisis individual donde elegir ficheros
+"""
 class VentanaIndividual(Tkinter.Frame):
     
     nombre=""
@@ -128,12 +133,16 @@ class VentanaIndividual(Tkinter.Frame):
         btn = Tkinter.Button(self, text="Return to the main screen",command=lambda: controller.show_frame(VentanaPrincipal))
         btn.pack()
         
+    """
+    Busca y analiza el fichero deseado
+    """
     def V_analisis(self):
         self.nombre = tkFileDialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("jpeg files","*.jpg"),("all files","*.*")))
         if self.nombre[len(self.nombre)-1]=="y" and self.nombre[len(self.nombre)-2]=="p" and self.nombre[len(self.nombre)-3]==".":
             "Se analiza cuando se  muestra el boton de Analizar fichero"
             self.pasa.frames[VentanaAnalisis].Analisis()
-            
+            tkMessageBox.showinfo("Exito","El analisis ya ha sido realizado")
+
             if self.Boton1==0:
                 btn3 = Tkinter.Button(self, text="Analyze file",command=lambda: self.pasa.show_frame(VentanaAnalisis))
                 btn3.pack()
@@ -144,7 +153,9 @@ class VentanaIndividual(Tkinter.Frame):
         else:
             tkMessageBox.showerror("Error","El fichero seleccionado no es de tipo .py")
         
-        
+"""
+Ventana donde se muestran los resultados del analisis individual
+"""    
 class VentanaAnalisis(Tkinter.Frame):
     
     Pasadita=None
@@ -163,6 +174,7 @@ class VentanaAnalisis(Tkinter.Frame):
     CiclosDeReloj={}
     Archivos_pro=[]
     ColoresF=['b','r','y','c','g','w','m','b','r','y','c','g','w','m','b','r','y','c','g','w','m']
+    Muestrafichero=0
         
 
     
@@ -186,8 +198,6 @@ class VentanaAnalisis(Tkinter.Frame):
         combo["values"] = Procesadores.Archivos_csv
         
         
-        combo.set(Procesadores.Archivos_csv[0])
-        
         combo.pack()
         
         self.Combo = combo
@@ -198,7 +208,9 @@ class VentanaAnalisis(Tkinter.Frame):
         
         self.canvas = FigureCanvasTkAgg(f, self)
         
-    
+    """
+    Funncion analiza y saca los datos de las operaciones encontradas por el interprete
+    """ 
     def Analisis(self):
         lab=[]
         Unidades=[]
@@ -242,14 +254,16 @@ class VentanaAnalisis(Tkinter.Frame):
         "Recorre los tipos de operaciones y seleccionas los que luego deseas"
         app.frames[VentanaOperaciones2].Muestra_Operaciones()
         
-        self.canvas.show()
-        self.canvas.get_tk_widget().pack(side=Tkinter.BOTTOM, fill=Tkinter.BOTH, expand=True)
-        
-        toolbar= NavigationToolbar2Tk(self.canvas, self)
-        toolbar.update()
-        self.canvas._tkcanvas.pack(side=Tkinter.TOP, fill=Tkinter.BOTH, expand=True)
+        if self.Muestrafichero==0:
+            self.Muestrafichero=1
+            self.canvas.show()
+            self.canvas.get_tk_widget().pack(side=Tkinter.BOTTOM, fill=Tkinter.BOTH, expand=True)
+            
+            toolbar= NavigationToolbar2Tk(self.canvas, self)
+            toolbar.update()
+            self.canvas._tkcanvas.pack(side=Tkinter.TOP, fill=Tkinter.BOTH, expand=True)
 
-
+    
     def CambiaGrafico(self):
         num=0
         NewOperadores=[]
@@ -271,13 +285,16 @@ class VentanaAnalisis(Tkinter.Frame):
             self.Valores=NewValores
             self.Colores=NewColores
             
+    """
+    Funcion que saca los niveles de eficiencia de los procesadores teoricos
+    """ 
     def SacarCiclosDeReloj(self,Proce,Operadores):
         Fichero=[]
         Unidades=[]
         UnidadesF=[]
         Flag=[]
-        """cambiar ruta"""
-        archivo = open('C:/Users/Adrian/Documents/GitHub/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python/Prueba TFG/tests/'+Proce)
+        
+        archivo = open(os.getcwd()+'/Procesadores/'+Proce)
         Lectura = csv.reader(archivo,delimiter=';', quotechar=';', quoting=csv.QUOTE_MINIMAL)
         self.ValoresF
         self.OperacionesF
@@ -303,7 +320,9 @@ class VentanaAnalisis(Tkinter.Frame):
 
         return Unidades
         
-        
+"""
+Ventana donde se elijen los ficheros que se desean y que hace su posterior analisis
+"""        
 class VentanaMultiple(Tkinter.Frame):
     
     nombres=[]
@@ -336,7 +355,9 @@ class VentanaMultiple(Tkinter.Frame):
         
         btn.pack()
         
-        
+    """
+    Funcion que realiza el analisis de los ficheros que se elijan
+    """     
     def V_analisis(self):
         "Parametro=0"
         self.nombres=[]
@@ -454,7 +475,7 @@ class VentanaMultiple(Tkinter.Frame):
             app.frames[VentanaComparacion].Comba["values"] = self.OperacionesTotales
             app.frames[VentanaComparacion2].Comba["values"] = self.OperacionesTotales
 
-        
+            tkMessageBox.showinfo("Exito","El analisis ya ha sido realizado")
             "app.frames[VentanaComparacion].Comba.pack()"
             app.frames[VentanaComparacion].btn2.pack()
             "app.frames[VentanaComparacion2].Comba.pack()"
@@ -470,13 +491,15 @@ class VentanaMultiple(Tkinter.Frame):
                 app.frames[VentanaOperaciones].Checkbutto[marcar].invoke()
                 app.frames[VentanaOperaciones3].Checkbutto[marcar].invoke()
         
-        
+    """
+    Funcion que saca los niveles de eficiencia de los procesadores teoricos
+    """    
     def SacarCiclosDeReloj(self,Proce,Operadores):
         Fichero=[]
         Unidades=[]
         Flag=[]
         """cambiar ruta"""
-        archivo = open('C:/Users/Adrian/Documents/GitHub/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python/Prueba TFG/tests/'+Proce)
+        archivo = open(os.getcwd()+'/Procesadores/'+Proce)
         Lectura = csv.reader(archivo,delimiter=';', quotechar=';', quoting=csv.QUOTE_MINIMAL)
 
         for x in Lectura:
@@ -501,7 +524,9 @@ class VentanaMultiple(Tkinter.Frame):
 
         return Unidades
     
-    
+"""
+Ventana donde se muestran los resultados del analisis Multiple con menos de 10 ficheros
+"""    
 class VentanaComparacion(Tkinter.Frame):
     
     Pasadita=None
@@ -562,16 +587,9 @@ class VentanaComparacion(Tkinter.Frame):
         self.canvas = FigureCanvasTkAgg(f2, self)
         
         
-    """def Muestra_Botones(self):
-        enumera=0
-        for o in app.frames[VentanaMultiple].OperacionesTotales:
-            self.VBoton.append(Tkinter.IntVar())
-            self.Checkbutto.append(Tkinter.Checkbutton(self, text=o, variable=self.VBoton[enumera]))
-            self.Checkbutto[enumera].pack(fill=Tkinter.BOTH, expand=1)
-            "self.canvas.create_window(85, posi, window=Checkbutto[enumera])"
-            enumera=enumera+1"""
-        
-        
+    """
+    Funcion para modificar los valores segun las operaciones que se hayan elegido
+    """   
     def Sacar_Valores(self):
        
         contador=1
@@ -621,7 +639,10 @@ class VentanaComparacion(Tkinter.Frame):
             toolbar= NavigationToolbar2Tk(self.canvas, self)
             toolbar.update()
             self.canvas._tkcanvas.pack(side=Tkinter.TOP, fill=Tkinter.BOTH, expand=True)
-            
+        
+    """
+    Funcion paa mostrar los nombres de los ficheros
+    """        
     def Saca_Nombre(self):
         contador=0
         longi=0
@@ -640,7 +661,9 @@ class VentanaComparacion(Tkinter.Frame):
             self.Entry2.delete(0,Tkinter.END)
             self.Entry2.insert(0,"No Existe")            
 
-            
+"""
+Ventana donde se muestran las checkboxes de las operaciones de analisis multiple con menos de 10 ficheros
+"""          
 class VentanaOperaciones(Tkinter.Frame):
     
     Pasadita=None
@@ -662,7 +685,9 @@ class VentanaOperaciones(Tkinter.Frame):
         self.btn = Tkinter.Button(self, text="Go Back",command=lambda: controller.show_frame(VentanaComparacion))
         
         
-    
+    """
+    cambia las operaciones que se muestran
+    """  
     def Muestra_Operaciones(self):
    
         if self.Existo==1:
@@ -687,6 +712,9 @@ class VentanaOperaciones(Tkinter.Frame):
         self.ValoresAnteriores=app.frames[VentanaMultiple].OperacionesTotales.__len__()
         self.Existo=1
         
+"""
+Ventana donde se muestran las checkboxes de las operaciones de analisis multiple con mas de 10 ficheros
+"""        
 class VentanaOperaciones3(Tkinter.Frame):
     
     Pasadita=None
@@ -708,7 +736,9 @@ class VentanaOperaciones3(Tkinter.Frame):
         self.btn = Tkinter.Button(self, text="Go Back",command=lambda: controller.show_frame(VentanaComparacion2))
         
         
-    
+    """
+    cambia las operaciones que se muestran
+    """  
     def Muestra_Operaciones(self):
    
         if self.Existo==1:
@@ -735,7 +765,9 @@ class VentanaOperaciones3(Tkinter.Frame):
     
         
 
-        
+"""
+Ventana donde se muestran las chackboxes de las operaciones de analisis individual
+"""    
 class VentanaOperaciones2(Tkinter.Frame):
     
     Pasadita=None
@@ -757,7 +789,9 @@ class VentanaOperaciones2(Tkinter.Frame):
         self.btn = Tkinter.Button(self, text="Go Back",command=lambda: controller.show_frame(VentanaAnalisis))
         
         
-    
+    """
+    cambia las operaciones que se muestran
+    """    
     def Muestra_Operaciones(self):        
         if self.Existo==1:
             enumera=0
@@ -777,7 +811,6 @@ class VentanaOperaciones2(Tkinter.Frame):
             self.Checkbutto[enumera].pack(fill=Tkinter.BOTH, expand=1)
             self.Checkbutto[enumera].invoke()
             app.frames[VentanaAnalisis].Colores.append(app.frames[VentanaAnalisis].ColoresF[enumera])
-            "self.canvas.create_window(85, posi, window=Checkbutto[enumera])"
             enumera=enumera+1
         self.btn.pack()
         self.ValoresAnteriores=app.frames[VentanaMultiple].OperacionesTotales.__len__()
@@ -788,7 +821,9 @@ class VentanaOperaciones2(Tkinter.Frame):
 
 
 
-       
+"""
+Ventana donde se muestran los resultados del analisis Multiple con mas de 10 ficheros
+"""     
 class VentanaComparacion2(Tkinter.Frame):
     
     Pasadita=None
@@ -847,17 +882,10 @@ class VentanaComparacion2(Tkinter.Frame):
         self.btn2=btn2
         
         self.canvas = FigureCanvasTkAgg(f3, self)
-   
-
-    """def Muestra_Botones(self):
-        enumera=0
-        for o in app.frames[VentanaMultiple].OperacionesTotales:
-            self.VBoton.append(Tkinter.IntVar())
-            self.Checkbutto.append(Tkinter.Checkbutton(self, text=o, variable=self.VBoton[enumera]))
-            self.Checkbutto[enumera].pack(fill=Tkinter.BOTH, expand=1)
-            "self.canvas.create_window(85, posi, window=Checkbutto[enumera])"
-            enumera=enumera+1"""
-        
+    
+    """
+    Funcion para modificar los valores segun las operaciones que se hayan elegido
+    """    
     def Sacar_Valores(self):
        
         
@@ -912,18 +940,10 @@ class VentanaComparacion2(Tkinter.Frame):
             toolbar.update()
             self.canvas._tkcanvas.pack(side=Tkinter.TOP, fill=Tkinter.BOTH, expand=True)
             
-            
-        
-            """btn = Tkinter.Button(self, text="Volver a la pantalla principal",command=MuestraNombre)
-        
-            btn.pack()"""
-    
-    """def MuestraNombre(self):
-        contador=0
-        for i in self.alfabeto:
-            if i==self.Entry.get():
-                self.Entry2(0,self.Nombre[contador])"""
-    
+
+    """
+    Funcion paa mostrar los nombres de los ficheros
+    """    
     def Saca_Nombre(self):
         contador=0
         longi=0
@@ -943,9 +963,11 @@ class VentanaComparacion2(Tkinter.Frame):
             self.Entry2.insert(0,"No Existe")
         
         
-        
+"""
+Identifica los fichros csv
+"""    
 class RecogeDatos():
-    direccion='C:/Users/Adrian/Documents/GitHub/TFG-Herramienta_para_medir_la_eficiencia_de_codigo_python/Prueba TFG/tests'
+    direccion=os.getcwd()+'/Procesadores'
     Archivos=[]
     Archivos_csv=[]
     
@@ -962,8 +984,11 @@ class RecogeDatos():
 
     
 Procesadores=RecogeDatos()
-app=SeaofBTCapp()
+app=ControladorVentanas()
 
+"""
+Estas funciones recargan los graficos cada 1000 ms por si hay algunn cambio en los parametros
+"""    
 def animate(self):
     
     a.clear()
@@ -981,7 +1006,7 @@ def animate3(self):
     a3.plot(app.frames[VentanaComparacion2].Fichero,app.frames[VentanaComparacion2].Valor_Mostrar, 'ro-')
     """(app.frames[VentanaComparacion].Fichero,app.frames[VentanaComparacion].Valor_Mostrar,align="center")"""
     
-    
+
 ani = animation.FuncAnimation(f, animate, interval=1000)
 ani2= animation.FuncAnimation(f2, animate2, interval=1000)
 ani3= animation.FuncAnimation(f3, animate3, interval=1000)

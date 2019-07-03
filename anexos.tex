@@ -2,12 +2,16 @@
 
 % Castellano
 \usepackage[spanish,es-tabla]{babel}
+\usepackage{pdfpages}
 \selectlanguage{spanish}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern} % scalable font
 \usepackage{microtype}
 \usepackage{placeins}
+\usepackage{float}
+\usepackage{eurosym}
+\usepackage{pdfpages}
 
 \RequirePackage{booktabs}
 \RequirePackage[table]{xcolor}
@@ -345,9 +349,9 @@
 
 
 % Datos de portada
-\title{título del TFG \\Documentación Técnica}
-\author{nombre alumno}
-\tutor{nombre tutor}
+\title{Herramienta para medir la eficiencia de código en Python  \\Documentación Técnica}
+\author{Guillermo Calvo Álvarez}
+\tutor{Jesús Enrique Sierra García}
 \date{\today}
 
 \begin{document}
@@ -387,7 +391,7 @@
 \appendix
 \include{./tex/A_Plan_proyecto}
 \include{./tex/B_Requisitos}
-\include{./tex/C_Diseño}
+\include{./tex/C_Diseno}
 \include{./tex/D_Manual_programador}
 \include{./tex/E_Manual_usuario}
 
@@ -395,4 +399,6 @@
 \bibliographystyle{plain}
 \bibliography{bibliografiaAnexos}
 
+\newpage
+\includepdf[pages=-]{CalvoSierra_Eurosim_2019_v4}
 \end{document}
