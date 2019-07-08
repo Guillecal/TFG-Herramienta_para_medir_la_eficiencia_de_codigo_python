@@ -26,10 +26,11 @@ A continuación se verán las interacciones entre los elementos de la herramient
 
 Como se puede ver en el diagrama, el usuario tiene una interacción constante con la herramienta en toda su ejecución.
 \section{Diseño arquitectónico}
-El diseño arquitectónico de la herramienta se basa en un sistema de ventanas que se llaman las unas a la otras y mientras  tanto hay un controlador que gestiona que gestiona las llamadas.
+El diseño arquitectónico de la herramienta se basa en un sistema de ventanas que se llaman las unas a la otras y mientras tanto hay un controlador que gestiona todas estas llamadas.
+También hay ciertas ventanas en concreto que son las encargadas de hacer llamadas al Intérprete cuando es  necesario las cuales son:
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=14cm, height=7cm]{Secuencia}
-\caption{Diagrama secuencial de la ejecución de la herramienta}
-\end{figure}
+\begin{itemize}
+	\item VentanaAnalisis.
+	\item VentanaMultiple. 	
+\end{itemize}
+

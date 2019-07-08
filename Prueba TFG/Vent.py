@@ -293,8 +293,7 @@ class VentanaAnalisis(Tkinter.Frame):
         Unidades=[]
         UnidadesF=[]
         Flag=[]
-        
-        archivo = open(os.getcwd()+'/Procesadores/'+Proce)
+        archivo = open(os.getcwd()+'\\Procesadores\\'+Proce)
         Lectura = csv.reader(archivo,delimiter=';', quotechar=';', quoting=csv.QUOTE_MINIMAL)
         self.ValoresF
         self.OperacionesF
@@ -317,7 +316,6 @@ class VentanaAnalisis(Tkinter.Frame):
             if Flag[Opera]==0:
                 Flag[Opera]=1
                 Unidades.append(1)
-
         return Unidades
         
 """
@@ -499,7 +497,7 @@ class VentanaMultiple(Tkinter.Frame):
         Unidades=[]
         Flag=[]
         """cambiar ruta"""
-        archivo = open(os.getcwd()+'/Procesadores/'+Proce)
+        archivo = open(os.getcwd()+'\\Procesadores\\'+Proce)
         Lectura = csv.reader(archivo,delimiter=';', quotechar=';', quoting=csv.QUOTE_MINIMAL)
 
         for x in Lectura:
@@ -521,7 +519,6 @@ class VentanaMultiple(Tkinter.Frame):
             if Flag[Opera]==0:
                 Flag[Opera]=1
                 Unidades.append(1)
-
         return Unidades
     
 """
@@ -967,7 +964,7 @@ class VentanaComparacion2(Tkinter.Frame):
 Identifica los fichros csv
 """    
 class RecogeDatos():
-    direccion=os.getcwd()+'/Procesadores'
+    direccion=os.getcwd()+'\\Procesadores'
     Archivos=[]
     Archivos_csv=[]
     
